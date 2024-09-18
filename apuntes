@@ -1,0 +1,32 @@
+
+########### 18/9/2024 ################
+-se trabaja con lombok
+-interfaces funcionales: consumidor, predicado, funciones, productos, comparadores
+-tenemos que manejar el optional -> not null
+-saber colecciones:
+        colecctions:list, set, hash, tree
+        map:hash, tree
+-vamos a sacar json binarios, xml.....
+-programacion alto nivel -> usar libreria stream de java 
+
+-las interfaces pueden tener una funciones default
+-se crea una constante con file
+-interfaces funcionales -> tienen solo una funcion
+            consumidor: consumen datos 
+            predicado: nos indican si cumple unas condiciones(nos devuelven un booleano)
+            funcion: convierte un tipo de dato a otro 
+            productos: genera datos
+            comparadores:   comparan datos
+
+-optional: es para guardad datos en una variable que puede o no estar vacia
+-stream: me ayuda a la transformacion de datos
+        -crear -> origen de los datos
+        -transformar el dato
+        -consumir
+-tenemos que crear un proyecto maven donde pondremos en catalogo internal y usaremos el quickstart
+-en groupid le ponemos el nombre del paquete
+-en artifactid ponemos el nombre del proyecto
+-se empezara a generar el proyecto y al rato escribir y "y" luego esperar a que termine
+-builder es el patron que monta objetos(ha añadido a la clase un conjunto de funciones estaticas para construir la clase)
+-depende si necesito orden o si admito duplicados usarare distintas tipos de colecciones
+- si va a usar el singular una vez creado el objeto ya no se puede añadir objetos mas a la coleccion
