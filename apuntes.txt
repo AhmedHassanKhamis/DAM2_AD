@@ -30,3 +30,9 @@
 -builder es el patron que monta objetos(ha añadido a la clase un conjunto de funciones estaticas para construir la clase)
 -depende si necesito orden o si admito duplicados usarare distintas tipos de colecciones
 - si va a usar el singular una vez creado el objeto ya no se puede añadir objetos mas a la coleccion
+
+
+############## 19/9/2024  #######################
+-bi es para interfaces que aceptan dos datos o parametrosy hacen las acciones sobre estas 
+-priimer lugar hay que decir cuales son los parametros que hay que  recibir
+-
