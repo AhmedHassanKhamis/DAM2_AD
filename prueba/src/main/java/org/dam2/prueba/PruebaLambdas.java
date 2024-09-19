@@ -61,7 +61,7 @@ public class PruebaLambdas {
 	    alumnos.forEach(escribidor);
 
 	    insertador = a -> alumnos1.add(a);
-	    insertador = alumnos1:add;
+	    //insertador = alumnos1:add;
 	    
 	    alumnos.forEach(insertador);
 	    System.out.println("seccion alumnos1");
