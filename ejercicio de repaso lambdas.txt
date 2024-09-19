@@ -1,0 +1,18 @@
+Indicar cuál de las siguientes expresiones lambda no son válidas
+
+() -> {}                                                        valid
+() -> "Raoul"                                                   valid
+() -> {return "Mario";}                                         valid
+(Integer i) -> return "Alan" + i;                               no valid
+(String s) -> {"Iron Man";}                                     no valid
+
+
+
+Indicar qué significan las siguientes expresiones lambda y escribir su signatura
+
+(List<String> list) -> list.isEmpty() --------------------------es predicador
+() -> new Apple(10)---------------------------------------------es productor
+(Apple a) -> {System.out.println(a.getWeight());}---------------es consumidor
+(String s) -> s.length()----------------------------------------es funcion
+(int a, int b) -> a * b-----------------------------------------es bifuncion
+(Apple a1, Apple a2) -> a1.getWeight().compareTo(a2.getWeight())es comparador

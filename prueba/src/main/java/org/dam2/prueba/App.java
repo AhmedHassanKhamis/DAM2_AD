@@ -11,6 +11,9 @@ public class App
 
     Alumno a1,a2,a3;
     Grupo g;
+    
+    
+    
     a1 = Alumno.builder()
     		.dni("001")
     		.nombre("a1")
@@ -34,7 +37,7 @@ public class App
     
     a3 = new Alumno ("003");
 
-    g.getAlumnos().add(a3);
+    g.addAlumno(a3);
     
     System.out.println(g);
     

@@ -1,6 +1,7 @@
 package org.dam2.prueba;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Set;
 
 import lombok.AllArgsConstructor;
@@ -21,9 +22,13 @@ public class Grupo {
 	@EqualsAndHashCode.Include
 	@NonNull
 	private String nombre;
-	@Singular
+	@Singular()
 	private Set<Alumno> alumnos;
 	
-	
+	public void addAlumno (Alumno alumno) {
+		Set<Alumno> alumnosTemp = new HashSet <>(alumnos);
+		alumnosTemp.add(alumno);
+		alumnos = alumnosTemp;
+	}
 	
 }
