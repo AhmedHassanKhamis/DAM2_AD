@@ -23,7 +23,7 @@ public class App {
 		List<Alumno> alumnos = new ArrayList<>();
 		
 		
-		File ficheroAlumnos = new File("/home/usertar/Escritorio/000_CLASE/AD/MOCK_DATA.csv");
+		File ficheroAlumnos = new File("../MOCK_DATA.csv");
 		 try(BufferedReader reader = new BufferedReader(new FileReader(ficheroAlumnos))) {
 	            String linea;
 	            String delimiter = ";";
