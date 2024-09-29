@@ -30,7 +30,7 @@ public class App {
 	            while((linea = reader.readLine()) != null) {
 		            Alumno alumnoTmp = new Alumno();
 	            	String[] campos = linea.split(delimiter);
-	            	alumnoTmp.setDni(campos[0]);
+	            	alumnoTmp.setNia(campos[0]);
 	            	alumnoTmp.setNombre(campos[1]);
 	            	alumnoTmp.setFecha(LocalDate.parse(campos[2]));
 	            	alumnoTmp.setNota(Float.parseFloat(campos[3]));
