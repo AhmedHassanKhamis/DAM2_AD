@@ -36,3 +36,17 @@
 -bi es para interfaces que aceptan dos datos o parametrosy hacen las acciones sobre estas 
 -priimer lugar hay que decir cuales son los parametros que hay que  recibir
 -
+
+############## 2/10/2024  #######################
+
+-el map es <clave , valor> 
+-para hacer un stream de un map tengo que especificar que el stream tiene que tener clave valor con ENTRY
+                ejemplo:
+                //		Stream<Entry<String, Long>> alumnosPorCursoStream = alumnosPorCursoMap.entrySet().stream();
+
+-para comparar los valores de un stream al usar un metodo como max hay que hacer lo siguiente:
+                ejemplo:
+                        ejemploMapStreams.max(Entry.comparingByValue((v1,v2)-> Long.compare(v1,v2)))
+                        
+
+-HACER LOS EJERCICIOS DE TRADERS, EL QUE PARECE EBAY(EL DE SUBASTAS),
