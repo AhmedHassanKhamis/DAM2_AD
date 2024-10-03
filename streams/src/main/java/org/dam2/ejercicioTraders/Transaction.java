@@ -1,4 +1,4 @@
-package ejercicioTraders;
+package org.dam2.ejercicioTraders;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
