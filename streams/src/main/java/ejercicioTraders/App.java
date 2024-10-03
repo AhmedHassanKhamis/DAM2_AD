@@ -3,6 +3,7 @@ package ejercicioTraders;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class App {
 
@@ -24,13 +25,13 @@ public class App {
 		new Transaction(alan, 2012, 950)
 		);
 		
-		
 //		1. Find all transactions in the year 2011 and sort them by value (small to high).
 		
-		transactions.stream().filter(t -> t.getYear() == 2011).sorted((t1,t2) -> t1.getValue() - t2.getValue()).forEach(System.out::println);
+//		transactions.stream().filter(t -> t.getYear() == 2011).sorted((t1,t2) -> t1.getValue() - t2.getValue()).forEach(System.out::println);
 
 //		2. What are all the unique cities where the traders work?
 		
+		transactions.stream().ma
 		
 //		3. Find all traders from Cambridge and sort them by name.
 //		4. Return a string of all traders' names sorted alphabetically.
