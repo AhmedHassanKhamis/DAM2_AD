@@ -13,15 +13,15 @@ import lombok.Setter;
 @Builder
 @Setter(value = AccessLevel.NONE )
 public class Usuario {
-	private final int MINIMO = 50;
 	private final String nombre;
 	private int credito;
-	
+	private final String email;
 	
 	
 	public Usuario(String nombre) {
 		this.nombre = nombre;
-		this.credito = MINIMO;
+		this.credito = 50;
+		this.email = "";
 	}
 	
 	
