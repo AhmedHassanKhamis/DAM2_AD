@@ -17,6 +17,11 @@ public class Puja {
 	private final Usuario pujador;
 	private final int cantidad;
 	private final Subasta subasta;
-		
 	
+	
+	@Override
+	public String toString() {
+		return "Puja [pujador=" + pujador + ", cantidad=" + cantidad + ", subasta=" + subasta.getProducto() + "]";
+	}
+		
 }

@@ -31,7 +31,7 @@ public class Usuario {
 	}
 	
 	public void decrementarCredito(int nuevo) {
-		if(nuevo < 0)
+//		if(nuevo < 0)
 			this.credito -= nuevo;
 	}
 	
