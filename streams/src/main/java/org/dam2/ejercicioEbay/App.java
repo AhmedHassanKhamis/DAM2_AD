@@ -59,7 +59,7 @@ public class App {
 //		6. Crea un conjunto vacío de pujas, añade a ese conjunto todas las pujas que se hayan realizado	en las subastas
 		
 		List<Puja> pujas = subastas.stream().flatMap(s -> s.getPujas().stream()).toList();
-		System.out.println(pujas);
+		System.out.println(pujas  );
 		
 		
 		
