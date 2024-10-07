@@ -2,14 +2,14 @@ package org.dam2.ejercicioRefuerzo;
 
 import java.time.LocalDate;
 
-public class Perecederos extends Producto{
+public class Perecedero extends Producto{
 
 
 	private LocalDate fechaCaducidad;
 
 	
 	
-	public Perecederos(int numeroReferencia, String nombre, Float precio, int stock, LocalDate fechaCaducidad) {
+	public Perecedero(int numeroReferencia, String nombre, Float precio, int stock, LocalDate fechaCaducidad) {
 		super(numeroReferencia, nombre, precio, stock);
 		this.fechaCaducidad = fechaCaducidad;
 	}

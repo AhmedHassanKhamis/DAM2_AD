@@ -1,6 +1,6 @@
 package org.dam2.ejercicioRefuerzo;
 
-public class NoPerecederos extends Producto {
+public class NoPerecedero extends Producto {
 	
 	
 	private Enum<Tipos> tipo;
@@ -8,7 +8,7 @@ public class NoPerecederos extends Producto {
 	
 	
 	
-	public NoPerecederos(int numeroReferencia, String nombre, Float precio, int stock, Enum<Tipos> tipo, String procedencia) {
+	public NoPerecedero(int numeroReferencia, String nombre, Float precio, int stock, Enum<Tipos> tipo, String procedencia) {
 		super(numeroReferencia, nombre, precio, stock);
 		this.tipo = tipo;
 		this.procedencia = procedencia;
