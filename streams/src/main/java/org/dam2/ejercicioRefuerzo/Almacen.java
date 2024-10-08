@@ -1,6 +1,7 @@
 package org.dam2.ejercicioRefuerzo;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -23,7 +24,82 @@ public class Almacen {
 	public void setProductos(Map<Integer, Producto> productos) {
 		this.productos = productos;
 	}
-
+	
+	
+	private void mostrarPrecios() {
+		productos.;
+	}
+	
+	
+	private void servirPedido() {
+		boolean seguir;
+		List<Integer> unidades = new ArrayList<Integer>();
+		List<Producto> pedido = new ArrayList<Producto>();
+		
+		do {
+			int numeroReferencia = Teclado.leerInt("Introduce el numero de referencia:");
+			if (productos.containsKey(numeroReferencia)) {
+				int cantidad = Teclado.leerInt("Introduce la cantidad a servir: (cantidad actual -> "+productos.get(numeroReferencia).getStock()+")");
+				if (cantidad < productos.get(numeroReferencia).getStock()) {
+					if(pedido.contains(productos.get(numeroReferencia))) {
+						int posicion = pedido.indexOf(productos.get(numeroReferencia));
+						if (unidades.get(posicion) + cantidad <= productos.get(numeroReferencia).getStock()) {
+							unidades.set(posicion, unidades.get(posicion) + cantidad);	
+							System.out.println("producto agregado con exito!");
+						}else {
+						System.out.println("ERROR:Se agrego en este pedido anteriormente este producto, y con la cantidad intrucida supera el stock actual!!");	
+						}
+					}else {
+						unidades.add(cantidad);
+						pedido.add(productos.get(numeroReferencia));
+						System.out.println("producto agregado con exito!");
+					}
+				}else {
+					System.out.println("La cantidad introducida es mayor al stock actual:" + productos.get(numeroReferencia).getStock());
+				}
+			
+			}else {
+				System.out.println("El producto no existe en el almacen");
+			}
+			
+			if(Teclado.leerString("Desea seguir agregando productos? (S/N)").equalsIgnoreCase("s")) {
+				seguir = true;
+			}else {
+				seguir = false;
+			}
+		} while (seguir = true);
+		System.out.println("########## pedido #############");
+		System.out.println("productos---->unidades");
+		for(int i=0;i < pedido.size();i++) {
+			System.out.println(pedido.get(i) + "---->" +unidades.get(i) + "---->" + (pedido.get(i).getPrecioVenta()*unidades.get(i)));
+			productos.get(pedido.get(i)).setStock(-unidades.get(i));
+		}
+		System.out.println("TOTAL: "+ unidades.stream().mapToDouble(u -> u * pedido.get(unidades.indexOf(u)).getPrecioVenta()).sum()); 
+	}
+	
+	
+	private void modificarStockProducto() {
+		int numeroReferencia = Teclado.leerInt("Introduce el numero de referencia:");
+		int cantidad;
+		
+		
+		if (productos.containsKey(numeroReferencia)) {
+			do {
+				cantidad = Teclado.leerInt("Introduce la cantidad a añadir:");
+				if(cantidad >= 0)
+					productos.get(numeroReferencia).setStock(cantidad);
+				else
+					System.out.println("El numero introducido no es valido y/o no puede ser negativo");
+			} while (cantidad <= 0);
+		}else {
+			System.out.println("El producto introducido no existe!");
+		}
+		
+	}
+	
+	
+	
+	
 	private void añadirProducto() {
 		Producto producto;
 		Perecedero productoP;

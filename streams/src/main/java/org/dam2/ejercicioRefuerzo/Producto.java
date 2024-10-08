@@ -30,9 +30,14 @@ public class Producto {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public Float getPrecio() {
+	public Float getPrecioCompra() {
 		return precio;
 	}
+	
+	public Float getPrecioVenta() {
+		return 0f;
+	}
+	
 	public void setPrecio(Float precio) {
 		this.precio = precio;
 	}
@@ -40,7 +45,7 @@ public class Producto {
 		return stock;
 	}
 	public void setStock(int stock) {
-		this.stock = stock;
+		this.stock += stock;
 	}
 	
 	@Override

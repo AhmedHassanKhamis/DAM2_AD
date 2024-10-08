@@ -28,6 +28,13 @@ public class NoPerecedero extends Producto {
 		this.procedencia = procedencia;
 	}
 	
+	public Float getPrecioVenta() {
+		if ((this.tipo == Tipos.Belleza || this.tipo == Tipos.Limpieza)&& !this.procedencia.equalsIgnoreCase("españa")) {
+			return this.getPrecioCompra() * 2;
+		} else {
+			return this.getPrecioCompra() + this.getPrecioCompra() * 0.4f;
+		}
+	}
 	
 
 }
