@@ -26,13 +26,13 @@ public class Perecedero extends Producto{
 	
 	
 	public Float getPrecioVenta() {
-		long dias = ChronoUnit.DAYS.between(this.fechaCaducidad, LocalDate.now());
+		long dias = ChronoUnit.DAYS.between(LocalDate.now(),this.fechaCaducidad);
 		
 		if (dias > 5) {
 			return this.getPrecioCompra() * 2; 
 		}else if (3 <= dias && dias <= 5) {
 			return this.getPrecioCompra() + this.getPrecioCompra()/2;
-		}else if (dias < 3){
+		}else if (0 < dias &&dias < 3){
 			return this.getPrecioCompra();
 		}else {
 			return 0f;

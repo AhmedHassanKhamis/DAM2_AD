@@ -1,37 +1,90 @@
 package org.dam2.ejercicioRefuerzo;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import daw.com.Teclado;
 
 public class Almacen {
 
-	private Map<Integer, Producto> productos;
+	private HashMap<Integer, Producto> productos;
 
-	public Almacen(Map<Integer, Producto> productos) {
+	public Almacen(HashMap<Integer, Producto> productos) {
 		super();
 		this.productos = productos;
 	}
 
-	public Map<Integer, Producto> getProductos() {
+
+	public Almacen() {
+		this.productos = new HashMap<>();
+	}
+	
+	public HashMap<Integer, Producto> getProductos() {
 		return productos;
 	}
 
-	public void setProductos(Map<Integer, Producto> productos) {
+	public void setProductos(HashMap<Integer, Producto> productos) {
 		this.productos = productos;
 	}
 	
 	
-	private void mostrarPrecios() {
-		productos.;
+	public void cargarProductos() {
+		File fichero = new File("productos.dat");
+		FicheroStream ficheroProductos = new FicheroStream();
+		if (fichero.exists()) {
+			productos = ficheroProductos.leerFichero(fichero);
+		}
+	}
+	
+	public void finalizar() {
+		File fichero = new File("productos.dat");
+		FicheroStream ficheroProductos = new FicheroStream();
+		System.out.println("adios!!");
+		ficheroProductos.escribirFichero(productos,fichero);	
+		
+	}
+	
+	public void eliminarCaducados() {
+		Float suma = 0f;
+		List<Producto> productosCaducados = productos.values().stream().filter(p -> p.getFechaCaducidad().isBefore(LocalDate.now())).toList();
+		productosCaducados.forEach(p -> productos.remove(p.getNumeroReferencia()));
+		productosCaducados.stream().map(Producto::getPrecioCompra).reduce(suma,(p1, p2)-> p1 + p2);
+		System.out.println("productos eliminados:");
+		productosCaducados.stream().forEach(p -> {
+			System.out.println(p.getNumeroReferencia());
+			System.out.println(p.getNombre());
+			System.out.println(p.getStock() * p.getPrecioCompra());
+		});
+		System.out.println("total valor de compra de los caducados: "+suma);
+		
 	}
 	
 	
-	private void servirPedido() {
+	public void mostrarPrecios() {
+		Map <Integer, Float> preciosDeVenta = new HashMap<Integer, Float>() ;
+		for(Map.Entry<Integer, Producto> entry :productos.entrySet() ) {
+			preciosDeVenta.put(entry.getKey(), entry.getValue().getPrecioVenta());
+		}
+		
+		preciosDeVenta.entrySet().stream().sorted(Collections.reverseOrder(Map.Entry.comparingByValue())).forEach(p -> {
+		System.out.println(productos.get(p.getKey()).getNumeroReferencia());
+		System.out.println(productos.get(p.getKey()).getNombre());
+		System.out.println(productos.get(p.getKey()).getPrecioVenta());
+		
+		});
+		
+	}
+	
+	
+	public void servirPedido() {
 		boolean seguir;
 		List<Integer> unidades = new ArrayList<Integer>();
 		List<Producto> pedido = new ArrayList<Producto>();
@@ -67,18 +120,18 @@ public class Almacen {
 			}else {
 				seguir = false;
 			}
-		} while (seguir = true);
+		} while (seguir);
 		System.out.println("########## pedido #############");
 		System.out.println("productos---->unidades");
-		for(int i=0;i < pedido.size();i++) {
+		for(int i=0;i < pedido.size()-1;i++) {
 			System.out.println(pedido.get(i) + "---->" +unidades.get(i) + "---->" + (pedido.get(i).getPrecioVenta()*unidades.get(i)));
-			productos.get(pedido.get(i)).setStock(-unidades.get(i));
+			productos.get(pedido.get(i)).reducirStock(unidades.get(i));
 		}
 		System.out.println("TOTAL: "+ unidades.stream().mapToDouble(u -> u * pedido.get(unidades.indexOf(u)).getPrecioVenta()).sum()); 
 	}
 	
 	
-	private void modificarStockProducto() {
+	public void modificarStockProducto() {
 		int numeroReferencia = Teclado.leerInt("Introduce el numero de referencia:");
 		int cantidad;
 		
@@ -100,23 +153,23 @@ public class Almacen {
 	
 	
 	
-	private void añadirProducto() {
+	public void añadirProducto() {
 		Producto producto;
 		Perecedero productoP;
 		NoPerecedero productoNoP;
 
 		int numeroReferencia = Teclado.leerInt("Introduce el numero de referencia:");
 
-		if (!productos.containsKey(numeroReferencia)) {
+		if (productos.isEmpty() || !productos.containsKey(numeroReferencia)) {
 
 			String nombre = Teclado.leerString("Introduce el Nombre del producto:");
 			int stock = Teclado.leerInt("Introduce el stock en almacen:");
-			Float precio = Teclado.leerFloat("Introduce el stock en almacen:");
+			Float precio = Teclado.leerFloat("Introduce el Precio de compra:");
 			producto = new Producto(numeroReferencia, nombre, precio, stock);
 			String perecedero = Teclado.leerString("Es un producto perecedero? (S/N):");
 			if (perecedero.equalsIgnoreCase("S")) {
 				String fechaCaducidadString = Teclado
-						.leerString("Introduce la fecha de caducidad con el formato 'dd-mm-aaaa':");
+						.leerString("Introduce la fecha de caducidad con el formato 'aaaa-mm-aaaa':");
 				LocalDate fechaCaducidad = LocalDate.parse(fechaCaducidadString);
 				productoP = new Perecedero(numeroReferencia, nombre, precio, stock, fechaCaducidad);
 				productos.put(numeroReferencia, productoP);

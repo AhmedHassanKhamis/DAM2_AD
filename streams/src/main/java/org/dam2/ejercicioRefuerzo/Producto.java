@@ -1,5 +1,7 @@
 package org.dam2.ejercicioRefuerzo;
 
+import java.time.LocalDate;
+
 public class Producto {
 
 	private int numeroReferencia;
@@ -17,6 +19,9 @@ public class Producto {
 		this.stock = stock;
 	}
 	
+	public LocalDate getFechaCaducidad() {
+		return null;
+	}
 	
 	public int getNumeroReferencia() {
 		return numeroReferencia;
@@ -46,6 +51,9 @@ public class Producto {
 	}
 	public void setStock(int stock) {
 		this.stock += stock;
+	}
+	public void reducirStock(int stock) {
+		this.stock -= stock;
 	}
 	
 	@Override
