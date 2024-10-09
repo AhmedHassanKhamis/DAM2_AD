@@ -50,3 +50,35 @@
                         
 
 -HACER LOS EJERCICIOS DE TRADERS, EL QUE PARECE EBAY(EL DE SUBASTAS),
+
+-flatmap()
+
+
+############## 9/10/2024  #######################
+-openCSV es una libreria para cargar csv 5.7.1
+-anotar clases primero con 
+        @CSVBindByPosition(position=x)
+-para leer se necesita 
+        un nuevo builder que es el = new CsvToBeanBuilder(new FileReader("grupo.csv"))
+                                                .withType(grupo.class)
+                                                .withSeparator(":")
+                                                .build()  -> para crear los objetos 
+                                                .parse(); -> me devolvera una lista de grupos 
+
+
+-necesito otra clase para leer cosas anidadas dentro de un csv
+-estudiar opencsv y sus csv anidados
+-si es un date @CsvDate("FORMATO") para indicar que es una fecha 
+-tambien hay una anotacion @CsVCustomBind
+
+
+Se desea acceder a los datos de una BBDD de institutos.
+ Se conoce que de cada instituto se guarda su nombre, su código de centro, 
+ su número de teléfono y presupuesto. Se distinguen los institutos por su código de centro.
+  Además se guarda información sobre las personas que trabajan y estudian en él.
+
+
+De cada persona se guarda sus teléfonos de contacto (compañía de telecomunicaciones, 
+número de teléfono y sistema operativo), junto a estos datos también se guarda información sobre su nombre,
+NIF ,fecha de nacimiento y en el caso de que te tengan vehículo se guarda su modelo, su color y su matrícula.
+Se distinguen las personas por su NIF.
