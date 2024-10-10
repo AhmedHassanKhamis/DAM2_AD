@@ -88,3 +88,8 @@ Se distinguen las personas por su NIF.
 ############## 10-10-2024 #######################
 duda al profe-> es mejor crear un metodo en la clase padre para  sobrecargar un metodo a la hora de llamarlo desde una subclase o es mejor hacer el cast a la hora de llamar al metodo usando la clase?
 el problema ocurrio en la clase almacen a la hora de eliminar productos.
+
+
+
+se puede agregar un condicional a los csbvbtobindposition         @CSVBindByPosition(position=x , required /o/ regex)
+
