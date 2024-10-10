@@ -19,10 +19,6 @@ public class Producto {
 		this.stock = stock;
 	}
 	
-	public LocalDate getFechaCaducidad() {
-		return null;
-	}
-	
 	public int getNumeroReferencia() {
 		return numeroReferencia;
 	}

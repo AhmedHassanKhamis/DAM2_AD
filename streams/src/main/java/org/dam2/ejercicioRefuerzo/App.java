@@ -1,6 +1,7 @@
 package org.dam2.ejercicioRefuerzo;
 
 import java.util.Map;
+import java.util.function.Consumer;
 
 import daw.com.Teclado;
 
@@ -27,7 +28,10 @@ public class App {
 		int opcion = 0;
 		Almacen almacen = new Almacen();
 		almacen.cargarProductos();
+		Consumer<Map.Entry<Integer,Producto>> CONSUMIDOR = p -> System.out.println(p.getKey() + "->" + p.getValue());
 		do {
+			System.out.println("PRODUCTOS--------------------------------");
+			almacen.getProductos().entrySet().stream().forEach(CONSUMIDOR);
 			opcion = menu();
 			switch (opcion) {
 			case 1:

@@ -82,3 +82,9 @@ De cada persona se guarda sus teléfonos de contacto (compañía de telecomunica
 número de teléfono y sistema operativo), junto a estos datos también se guarda información sobre su nombre,
 NIF ,fecha de nacimiento y en el caso de que te tengan vehículo se guarda su modelo, su color y su matrícula.
 Se distinguen las personas por su NIF.
+
+
+
+############## 10-10-2024 #######################
+duda al profe-> es mejor crear un metodo en la clase padre para  sobrecargar un metodo a la hora de llamarlo desde una subclase o es mejor hacer el cast a la hora de llamar al metodo usando la clase?
+el problema ocurrio en la clase almacen a la hora de eliminar productos.

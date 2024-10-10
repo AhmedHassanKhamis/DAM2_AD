@@ -9,6 +9,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 import daw.com.Teclado;
@@ -41,7 +43,7 @@ public class Almacen {
 		FicheroStream ficheroProductos = new FicheroStream();
 		if (fichero.exists()) {
 			productos = ficheroProductos.leerFichero(fichero);
-		}
+		}		
 	}
 	
 	public void finalizar() {
@@ -54,7 +56,7 @@ public class Almacen {
 	
 	public void eliminarCaducados() {
 		Float suma = 0f;
-		List<Producto> productosCaducados = productos.values().stream().filter(p -> p.getFechaCaducidad().isBefore(LocalDate.now())).toList();
+		List<Producto> productosCaducados = productos.values().stream().filter(p -> p instanceof Perecedero).filter(p -> ((Perecedero) p).getFechaCaducidad().isBefore(LocalDate.now())).toList();
 		productosCaducados.forEach(p -> productos.remove(p.getNumeroReferencia()));
 		productosCaducados.stream().map(Producto::getPrecioCompra).reduce(suma,(p1, p2)-> p1 + p2);
 		System.out.println("productos eliminados:");
