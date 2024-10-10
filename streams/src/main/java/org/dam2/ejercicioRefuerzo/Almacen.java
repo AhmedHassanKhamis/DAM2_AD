@@ -73,14 +73,23 @@ public class Almacen {
 	public void mostrarPrecios() {
 		Map <Integer, Float> preciosDeVenta = new HashMap<Integer, Float>() ;
 		for(Map.Entry<Integer, Producto> entry :productos.entrySet() ) {
-			preciosDeVenta.put(entry.getKey(), entry.getValue().getPrecioVenta());
+			if (entry.getValue() instanceof Perecedero) {
+				preciosDeVenta.put(entry.getKey(), ((Perecedero)entry.getValue()).getPrecioVenta());
+			}else {
+				preciosDeVenta.put(entry.getKey(), ((NoPerecedero)entry.getValue()).getPrecioVenta());
+			}
+			
+			
 		}
 		
 		preciosDeVenta.entrySet().stream().sorted(Collections.reverseOrder(Map.Entry.comparingByValue())).forEach(p -> {
 		System.out.println(productos.get(p.getKey()).getNumeroReferencia());
 		System.out.println(productos.get(p.getKey()).getNombre());
-		System.out.println(productos.get(p.getKey()).getPrecioVenta());
-		
+		if (this.productos.get(p.getKey()) instanceof Perecedero) {
+			System.out.println(((Perecedero) productos.get(p.getKey())).getPrecioVenta());
+		}else {
+			System.out.println(((NoPerecedero) productos.get(p.getKey())).getPrecioVenta());
+		}		
 		});
 		
 	}
@@ -126,10 +135,10 @@ public class Almacen {
 		System.out.println("########## pedido #############");
 		System.out.println("productos---->unidades");
 		for(int i=0;i < pedido.size()-1;i++) {
-			System.out.println(pedido.get(i) + "---->" +unidades.get(i) + "---->" + (pedido.get(i).getPrecioVenta()*unidades.get(i)));
+			System.out.println(pedido.get(i) + "---->" +unidades.get(i) + "---->" + (((Perecedero) pedido.get(i)).getPrecioVenta()*unidades.get(i)));
 			productos.get(pedido.get(i)).reducirStock(unidades.get(i));
 		}
-		System.out.println("TOTAL: "+ unidades.stream().mapToDouble(u -> u * pedido.get(unidades.indexOf(u)).getPrecioVenta()).sum()); 
+		System.out.println("TOTAL: "+ unidades.stream().mapToDouble(u -> u * ((Perecedero) pedido.get(unidades.indexOf(u))).getPrecioVenta()).sum()); 
 	}
 	
 	
@@ -156,10 +165,6 @@ public class Almacen {
 	
 	
 	public void añadirProducto() {
-		Producto producto;
-		Perecedero productoP;
-		NoPerecedero productoNoP;
-
 		int numeroReferencia = Teclado.leerInt("Introduce el numero de referencia:");
 
 		if (productos.isEmpty() || !productos.containsKey(numeroReferencia)) {
@@ -167,14 +172,12 @@ public class Almacen {
 			String nombre = Teclado.leerString("Introduce el Nombre del producto:");
 			int stock = Teclado.leerInt("Introduce el stock en almacen:");
 			Float precio = Teclado.leerFloat("Introduce el Precio de compra:");
-			producto = new Producto(numeroReferencia, nombre, precio, stock);
 			String perecedero = Teclado.leerString("Es un producto perecedero? (S/N):");
 			if (perecedero.equalsIgnoreCase("S")) {
 				String fechaCaducidadString = Teclado
 						.leerString("Introduce la fecha de caducidad con el formato 'aaaa-mm-aaaa':");
 				LocalDate fechaCaducidad = LocalDate.parse(fechaCaducidadString);
-				productoP = new Perecedero(numeroReferencia, nombre, precio, stock, fechaCaducidad);
-				productos.put(numeroReferencia, productoP);
+				productos.put(numeroReferencia, new Perecedero(numeroReferencia, nombre, precio, stock, fechaCaducidad));
 			} else if (perecedero.equalsIgnoreCase("N")) {
 				String tipoString = Teclado.leerString("Introduce el tipo de porducto (Comestible/Limpieza/Belleza):");
 				Tipos tipo = null;

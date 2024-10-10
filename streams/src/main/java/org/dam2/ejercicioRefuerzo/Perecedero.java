@@ -32,7 +32,7 @@ public class Perecedero extends Producto{
 			return this.getPrecioCompra() * 2; 
 		}else if (3 <= dias && dias <= 5) {
 			return this.getPrecioCompra() + this.getPrecioCompra()/2;
-		}else if (0 < dias &&dias < 3){
+		}else if (0 < dias && dias < 3){
 			return this.getPrecioCompra();
 		}else {
 			return 0f;

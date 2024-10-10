@@ -35,10 +35,6 @@ public class Producto {
 		return precio;
 	}
 	
-	public Float getPrecioVenta() {
-		return 0f;
-	}
-	
 	public void setPrecio(Float precio) {
 		this.precio = precio;
 	}
