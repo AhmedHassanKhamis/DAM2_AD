@@ -1,8 +1,9 @@
 package org.dam2.ejercicioRefuerzo;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
-public class Producto {
+public abstract class Producto {
 
 	private int numeroReferencia;
 	private String nombre;
@@ -53,6 +54,25 @@ public class Producto {
 		return "Producto [numeroReferencia=" + numeroReferencia + ", nombre=" + nombre + ", precio=" + precio
 				+ ", stock=" + stock + "]";
 	}
+	
+	abstract public Float getPrecioVenta();
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(numeroReferencia);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		
+		Producto other = (Producto) obj;
+		return numeroReferencia == other.numeroReferencia;
+	}
+	
 	
 	
 }

@@ -58,7 +58,8 @@ public class Almacen {
 		Float suma = 0f;
 		List<Producto> productosCaducados = productos.values().stream().filter(p -> p instanceof Perecedero).filter(p -> ((Perecedero) p).getFechaCaducidad().isBefore(LocalDate.now())).toList();
 		productosCaducados.forEach(p -> productos.remove(p.getNumeroReferencia()));
-		productosCaducados.stream().map(Producto::getPrecioCompra).reduce(suma,(p1, p2)-> p1 + p2);
+		
+		suma = productosCaducados.stream().map(Producto::getPrecioCompra).reduce(suma,(p1, p2)-> p1 + p2);
 		System.out.println("productos eliminados:");
 		productosCaducados.stream().forEach(p -> {
 			System.out.println(p.getNumeroReferencia());
