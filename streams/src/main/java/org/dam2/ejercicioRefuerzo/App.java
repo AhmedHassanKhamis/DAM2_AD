@@ -7,13 +7,20 @@ import daw.com.Teclado;
 
 public class App {
 	
+	private Almacen almacen;
+	
+	public App ()
+	{
+		almacen = new Almacen ();
+	}
+	
 	public static void main(String[] args) {
 		App app = new App();
-		App.ejecutar();
+		app.ejecutar();
 		
 	}
 	
-	public static int menu() {
+	public  int menu() {
 		System.out.println("-----------------");
 		System.out.println("1.Añadir producto");
 		System.out.println("2.modificar stock producto");
@@ -24,9 +31,8 @@ public class App {
 		return Teclado.leerInt("introduce un opcion:");
 	}
 	
-	public static void ejecutar() {
+	public  void ejecutar() {
 		int opcion = 0;
-		Almacen almacen = new Almacen();
 		almacen.cargarProductos();
 		Consumer<Map.Entry<Integer,Producto>> CONSUMIDOR = p -> System.out.println(p.getKey() + "->" + p.getValue());
 		do {

@@ -74,12 +74,7 @@ public class Almacen {
 	public void mostrarPrecios() {
 		Map <Integer, Float> preciosDeVenta = new HashMap<Integer, Float>() ;
 		for(Map.Entry<Integer, Producto> entry :productos.entrySet() ) {
-			if (entry.getValue() instanceof Perecedero) {
-				preciosDeVenta.put(entry.getKey(), ((Perecedero)entry.getValue()).getPrecioVenta());
-			}else {
-				preciosDeVenta.put(entry.getKey(), ((NoPerecedero)entry.getValue()).getPrecioVenta());
-			}
-			
+			preciosDeVenta.put(entry.getKey(), ((Producto)entry.getValue()).getPrecioVenta());
 			
 		}
 		
@@ -100,6 +95,9 @@ public class Almacen {
 		boolean seguir;
 		List<Integer> unidades = new ArrayList<Integer>();
 		List<Producto> pedido = new ArrayList<Producto>();
+		Map <Producto, Integer> pedidoRealizado = new HashMap<>();
+		
+
 		
 		do {
 			int numeroReferencia = Teclado.leerInt("Introduce el numero de referencia:");
@@ -136,7 +134,7 @@ public class Almacen {
 		System.out.println("########## pedido #############");
 		System.out.println("productos---->unidades");
 		for(int i=0;i < pedido.size()-1;i++) {
-			System.out.println(pedido.get(i) + "---->" +unidades.get(i) + "---->" + (((Perecedero) pedido.get(i)).getPrecioVenta()*unidades.get(i)));
+			System.out.println(pedido.get(i) + "---->" +unidades.get(i) + "---->" + ( pedido.get(i).getPrecioVenta()*unidades.get(i)));
 			productos.get(pedido.get(i)).reducirStock(unidades.get(i));
 		}
 		System.out.println("TOTAL: "+ unidades.stream().mapToDouble(u -> u * ((Perecedero) pedido.get(unidades.indexOf(u))).getPrecioVenta()).sum()); 
