@@ -1,25 +1,18 @@
 package org.dam2.ejercicioRefuerzo;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.function.BiConsumer;
-import java.util.function.Consumer;
-import java.util.stream.Collectors;
-
-import daw.com.Teclado;
 
 public class Almacen {
 
-	private HashMap<Integer, Producto> productos;
+	private HashMap<String, Producto> productos;
 
-	public Almacen(HashMap<Integer, Producto> productos) {
+	public Almacen(HashMap<String, Producto> productos) {
 		super();
 		this.productos = productos;
 	}
@@ -29,187 +22,74 @@ public class Almacen {
 		this.productos = new HashMap<>();
 	}
 	
-	public HashMap<Integer, Producto> getProductos() {
+	public HashMap<String, Producto> getProductos() {
 		return productos;
 	}
 
-	public void setProductos(HashMap<Integer, Producto> productos) {
+	public void setProductos(HashMap<String, Producto> productos) {
 		this.productos = productos;
 	}
 	
 	
 	public void cargarProductos() {
 		File fichero = new File("productos.dat");
-		FicheroStream ficheroProductos = new FicheroStream();
 		if (fichero.exists()) {
-			productos = ficheroProductos.leerFichero(fichero);
+			ObjectInputStream in = null;
+			try {
+				in = new ObjectInputStream(new FileInputStream(fichero));
+				int cantidad = in.readInt();
+				for (int i = 0; i < cantidad; i++) {
+					if (in.readChar() == 'P') {
+						Perecedero producto = new Perecedero();
+						producto = producto.leerProducto(in);
+						productos.put(producto.getNumeroReferencia(), producto);
+					} else {
+						NoPerecedero producto = new NoPerecedero();
+						producto = producto.leerProducto(in);
+						productos.put(producto.getNumeroReferencia(), producto);
+					}
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			} finally {
+				if (in != null) {
+					try {
+						in.close();
+					} catch (IOException e) {
+						System.out.println("Error: " + e.getMessage());
+						e.printStackTrace();
+					}
+				}
+			}
+			
 		}		
 	}
 	
 	public void finalizar() {
 		File fichero = new File("productos.dat");
-		FicheroStream ficheroProductos = new FicheroStream();
-		System.out.println("adios!!");
-		ficheroProductos.escribirFichero(productos,fichero);	
-		
-	}
-	
-	public void eliminarCaducados() {
-		Float suma = 0f;
-		List<Producto> productosCaducados = productos.values().stream().filter(p -> p instanceof Perecedero).filter(p -> ((Perecedero) p).getFechaCaducidad().isBefore(LocalDate.now())).toList();
-		productosCaducados.forEach(p -> productos.remove(p.getNumeroReferencia()));
-		
-		suma = productosCaducados.stream().map(Producto::getPrecioCompra).reduce(suma,(p1, p2)-> p1 + p2);
-		System.out.println("productos eliminados:");
-		productosCaducados.stream().forEach(p -> {
-			System.out.println(p.getNumeroReferencia());
-			System.out.println(p.getNombre());
-			System.out.println(p.getStock() * p.getPrecioCompra());
-		});
-		System.out.println("total valor de compra de los caducados: "+suma);
-		
-	}
-	
-	
-	public void mostrarPrecios() {
-		Map <Integer, Float> preciosDeVenta = new HashMap<Integer, Float>() ;
-		for(Map.Entry<Integer, Producto> entry :productos.entrySet() ) {
-			preciosDeVenta.put(entry.getKey(), ((Producto)entry.getValue()).getPrecioVenta());
-			
-		}
-		
-		preciosDeVenta.entrySet().stream().sorted(Collections.reverseOrder(Map.Entry.comparingByValue())).forEach(p -> {
-		System.out.println(productos.get(p.getKey()).getNumeroReferencia());
-		System.out.println(productos.get(p.getKey()).getNombre());
-		if (this.productos.get(p.getKey()) instanceof Perecedero) {
-			System.out.println(((Perecedero) productos.get(p.getKey())).getPrecioVenta());
-		}else {
-			System.out.println(((NoPerecedero) productos.get(p.getKey())).getPrecioVenta());
-		}		
-		});
-		
-	}
-	
-	
-	public void servirPedido() {
-		boolean seguir;
-		List<Integer> unidades = new ArrayList<Integer>();
-		List<Producto> pedido = new ArrayList<Producto>();
-		Map <Producto, Integer> pedidoRealizado = new HashMap<>();
-		
-
-		
-		do {
-			int numeroReferencia = Teclado.leerInt("Introduce el numero de referencia:");
-			if (productos.containsKey(numeroReferencia)) {
-				int cantidad = Teclado.leerInt("Introduce la cantidad a servir: (cantidad actual -> "+productos.get(numeroReferencia).getStock()+")");
-				if (cantidad < productos.get(numeroReferencia).getStock()) {
-					if(pedido.contains(productos.get(numeroReferencia))) {
-						int posicion = pedido.indexOf(productos.get(numeroReferencia));
-						if (unidades.get(posicion) + cantidad <= productos.get(numeroReferencia).getStock()) {
-							unidades.set(posicion, unidades.get(posicion) + cantidad);	
-							System.out.println("producto agregado con exito!");
-						}else {
-						System.out.println("ERROR:Se agrego en este pedido anteriormente este producto, y con la cantidad intrucida supera el stock actual!!");	
-						}
-					}else {
-						unidades.add(cantidad);
-						pedido.add(productos.get(numeroReferencia));
-						System.out.println("producto agregado con exito!");
-					}
-				}else {
-					System.out.println("La cantidad introducida es mayor al stock actual:" + productos.get(numeroReferencia).getStock());
+		try {
+			final ObjectOutputStream  out = new ObjectOutputStream(new FileOutputStream(fichero));
+			out.writeInt(productos.size());
+			productos.entrySet().stream().forEach(p -> p.getValue().escribirProducto(out));
+			if (out != null) {
+				try {
+					out.close();
+				} catch (IOException e) {
+					e.printStackTrace();
 				}
-			
-			}else {
-				System.out.println("El producto no existe en el almacen");
 			}
-			
-			if(Teclado.leerString("Desea seguir agregando productos? (S/N)").equalsIgnoreCase("s")) {
-				seguir = true;
-			}else {
-				seguir = false;
-			}
-		} while (seguir);
-		System.out.println("########## pedido #############");
-		System.out.println("productos---->unidades");
-		for(int i=0;i < pedido.size()-1;i++) {
-			System.out.println(pedido.get(i) + "---->" +unidades.get(i) + "---->" + ( pedido.get(i).getPrecioVenta()*unidades.get(i)));
-			productos.get(pedido.get(i)).reducirStock(unidades.get(i));
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-		System.out.println("TOTAL: "+ unidades.stream().mapToDouble(u -> u * ((Perecedero) pedido.get(unidades.indexOf(u))).getPrecioVenta()).sum()); 
+		System.out.println("adios!!");
 	}
 	
-	
-	public void modificarStockProducto() {
-		int numeroReferencia = Teclado.leerInt("Introduce el numero de referencia:");
-		int cantidad;
-		
-		
-		if (productos.containsKey(numeroReferencia)) {
-			do {
-				cantidad = Teclado.leerInt("Introduce la cantidad a añadir:");
-				if(cantidad >= 0)
-					productos.get(numeroReferencia).setStock(cantidad);
-				else
-					System.out.println("El numero introducido no es valido y/o no puede ser negativo");
-			} while (cantidad <= 0);
-		}else {
-			System.out.println("El producto introducido no existe!");
-		}
-		
+	public void addProducto(String numeroReferencia, Perecedero producto) {
+		productos.put(numeroReferencia,producto);
 	}
-	
-	
-	
-	
-	public void añadirProducto() {
-		int numeroReferencia = Teclado.leerInt("Introduce el numero de referencia:");
 
-		if (productos.isEmpty() || !productos.containsKey(numeroReferencia)) {
-
-			String nombre = Teclado.leerString("Introduce el Nombre del producto:");
-			int stock = Teclado.leerInt("Introduce el stock en almacen:");
-			Float precio = Teclado.leerFloat("Introduce el Precio de compra:");
-			String perecedero = Teclado.leerString("Es un producto perecedero? (S/N):");
-			if (perecedero.equalsIgnoreCase("S")) {
-				String fechaCaducidadString = Teclado
-						.leerString("Introduce la fecha de caducidad con el formato 'aaaa-mm-aaaa':");
-				LocalDate fechaCaducidad = LocalDate.parse(fechaCaducidadString);
-				productos.put(numeroReferencia, new Perecedero(numeroReferencia, nombre, precio, stock, fechaCaducidad));
-			} else if (perecedero.equalsIgnoreCase("N")) {
-				String tipoString = Teclado.leerString("Introduce el tipo de porducto (Comestible/Limpieza/Belleza):");
-				Tipos tipo = null;
-				boolean fin = true;
-				do {
-					switch (tipoString.toLowerCase()) {
-						case "comestible":
-							tipo = Tipos.Comestible;
-							break;
-						case "limpieza":
-							tipo = Tipos.Limpieza;
-							break;
-						case "belleza":
-							tipo = Tipos.Belleza;
-							break;
-						default:
-							fin = false;
-							System.out.println("El dato introducido no se reconoce");
-							break;
-					} 
-				}while (!fin);
-				String procedencia = Teclado.leerString("Introduce el pais de procedencia:");
-				productos.put(numeroReferencia, new NoPerecedero(numeroReferencia, nombre, precio, stock, tipo, procedencia));
-
-			} else {
-				System.out.println("No se reconoce la respuesta ;(");
-			}
-			System.out.println("Producto agregado con Exito!");
-		} else {
-			System.out.println("El producto ingresado con el numero de referencia: " + numeroReferencia
-					+ " ya ha sido agregado anteriormente");
-		}
-
+	public void addProducto(String numeroReferencia, NoPerecedero producto) {
+		productos.put(numeroReferencia,producto);
 	}
 
 }

@@ -13,8 +13,9 @@ public class App {
 	
 	
 	public 	static List<Departamento> cargarDepartamentos(){
-		final Optional<Empleado> SINJEFE = Optional.
+		final Optional<Empleado> SINJEFE = Optional.empty();
 		List<Departamento> departamentos = new ArrayList<Departamento>();
+		return departamentos;
 		
 	}
 }

@@ -11,13 +11,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class FicheroStream {
-	HashMap<Integer, Producto> productos;
+	HashMap<String, Producto> productos;
 
 	public FicheroStream() {
-		this.productos = new HashMap<Integer, Producto>();
+		this.productos = new HashMap<String, Producto>();
 	}
 
-	public void escribirFichero(Map<Integer, Producto> productos, File fichero) {
+	public void escribirFichero(Map<String, Producto> productos, File fichero) {
 		ObjectOutputStream out = null;
 		try {
 			out = new ObjectOutputStream(new FileOutputStream(fichero));
@@ -26,7 +26,7 @@ public class FicheroStream {
 				if (producto instanceof Perecedero) {
 					Perecedero perecedero = (Perecedero) producto;
 					out.writeChar('P');
-					out.writeInt(perecedero.getNumeroReferencia());
+					out.writeUTF(perecedero.getNumeroReferencia());
 					out.writeUTF(perecedero.getNombre());
 					out.writeFloat(perecedero.getPrecioCompra());
 					out.writeInt(perecedero.getStock());
@@ -34,7 +34,7 @@ public class FicheroStream {
 				} else {
 					NoPerecedero noPerecedor = (NoPerecedero) producto;
 					out.writeChar('N');
-					out.writeInt(noPerecedor.getNumeroReferencia());
+					out.writeUTF(noPerecedor.getNumeroReferencia());
 					out.writeUTF(noPerecedor.getNombre());
 					out.writeFloat(noPerecedor.getPrecioCompra());
 					out.writeInt(noPerecedor.getStock());
@@ -62,21 +62,21 @@ public class FicheroStream {
 		}
 	}
 
-	public HashMap<Integer, Producto> leerFichero(File fichero) {
+	public HashMap<String, Producto> leerFichero(File fichero) {
 		ObjectInputStream in = null;
 		try {
 			in = new ObjectInputStream(new FileInputStream(fichero));
 			int cantidad = in.readInt();
 			for (int i = 0; i < cantidad; i++) {
 				if (in.readChar() == 'P') {
-					int numeroreferencia = in.readInt();
+					String numeroreferencia = in.readUTF();
 					String nombre = in.readUTF();
 					Float precio = in.readFloat();
 					int stock = in.readInt();
 					LocalDate fechacaducidad = LocalDate.parse(in.readUTF());
 					productos.put(numeroreferencia,new Perecedero(numeroreferencia, nombre, precio, stock, fechacaducidad));
 				} else {
-					int numeroreferencia = in.readInt();
+					String numeroreferencia = in.readUTF();
 					String nombre = in.readUTF();
 					Float precio = in.readFloat();
 					int stock = in.readInt();
@@ -109,7 +109,7 @@ public class FicheroStream {
 
 	}
 
-	public Map<Integer, Producto> getProductos() {
+	public Map<String, Producto> getProductos() {
 		return productos;
 	}
 

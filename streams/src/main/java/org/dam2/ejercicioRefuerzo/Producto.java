@@ -1,18 +1,20 @@
 package org.dam2.ejercicioRefuerzo;
 
-import java.time.LocalDate;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Objects;
 
 public abstract class Producto {
 
-	private int numeroReferencia;
+	private String numeroReferencia;
 	private String nombre;
 	private Float precio;
 	private int stock;
 	
 	
 	
-	public Producto(int numeroReferencia, String nombre, Float precio, int stock) {
+	public Producto(String numeroReferencia, String nombre, Float precio, int stock) {
 		super();
 		this.numeroReferencia = numeroReferencia;
 		this.nombre = nombre;
@@ -20,10 +22,13 @@ public abstract class Producto {
 		this.stock = stock;
 	}
 	
-	public int getNumeroReferencia() {
+	public Producto() {
+	}
+
+	public String getNumeroReferencia() {
 		return numeroReferencia;
 	}
-	public void setNumeroReferencia(int numeroReferencia) {
+	public void setNumeroReferencia(String numeroReferencia) {
 		this.numeroReferencia = numeroReferencia;
 	}
 	public String getNombre() {
@@ -50,10 +55,7 @@ public abstract class Producto {
 	}
 	
 	@Override
-	public String toString() {
-		return "Producto [numeroReferencia=" + numeroReferencia + ", nombre=" + nombre + ", precio=" + precio
-				+ ", stock=" + stock + "]";
-	}
+	abstract public String toString();
 	
 	abstract public Float getPrecioVenta();
 
@@ -73,6 +75,9 @@ public abstract class Producto {
 		return numeroReferencia == other.numeroReferencia;
 	}
 	
+	abstract public void escribirProducto(ObjectOutputStream out);
+	
+	abstract public Producto leerProducto(ObjectInputStream in);
 	
 	
 }
