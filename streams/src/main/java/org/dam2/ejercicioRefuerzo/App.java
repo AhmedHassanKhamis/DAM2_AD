@@ -58,7 +58,7 @@ public class App {
 	private int menu() {
 		int opcion;
 		do {
-			System.out.println("-----------------");
+			System.out.println("---------MENU--------");
 			System.out.println("0.mostrar productos");
 			System.out.println("1.Añadir producto");
 			System.out.println("2.modificar stock producto");
@@ -66,7 +66,7 @@ public class App {
 			System.out.println("4.mostrar precios");
 			System.out.println("5.eliminar caducados");
 			System.out.println("6.salir");
-			opcion = Teclado.leerInt("introduce un opcion:");
+			opcion = Teclado.leerInt("introduce el numero de una opcion:(0-6)");
 			if (opcion < 0 || opcion > 6)
 				System.out.println("Opcion incorrecta!!");
 		} while (opcion < 0 || opcion > 6);
