@@ -49,7 +49,7 @@ public class Empleado {
 	public String toString() {
 		return "Empleado [dni=" + dni + ", nombre=" + nombre + ", sexo=" + sexo + ", fechaNacimiento=" + fechaNacimiento
 				+ ", fechaIncorporacion=" + fechaIncorporacion + ", salario=" + salario + ", comision=" + comision
-				+ ", cargo=" + cargo + ", jefe=" + jefe.get().getDni() + "]";
+				+ ", cargo=" + cargo + ", jefe=" + jefe.map(Empleado::getNombre).orElse("SIN JEFE") + "]\n";
 	}
 	
 	
