@@ -31,6 +31,11 @@ public class Empleado {
 	private String cargo;
 	private Optional<Empleado> jefe;
 	
+	
+	public Empleado(String dni) {
+		this.dni = dni;
+	}
+	
 	public Empleado(String dni, String nombre, String sexo, LocalDate fechaNacimiento, LocalDate fechaIncorporacion,
 			float salario, float comision, String cargo, Empleado jefe) {
 		this.dni = dni;
@@ -44,6 +49,12 @@ public class Empleado {
 		this.jefe = Optional.ofNullable(jefe);
 	}
 	
+	public boolean tieneJefe() {
+		if(!jefe.isEmpty())
+			return !jefe.get().getDni().equalsIgnoreCase("SIN JEFE");
+		else
+			return false;
+	}
 	
 	@Override
 	public String toString() {
@@ -52,7 +63,26 @@ public class Empleado {
 				+ ", cargo=" + cargo + ", jefe=" + jefe.map(Empleado::getNombre).orElse("SIN JEFE") + "]\n";
 	}
 	
+	public String toCSV() {
+		return dni + "," + nombre + "," + sexo + "," + fechaNacimiento + "," + fechaIncorporacion + "," + salario + "," + comision + "," + cargo + "," + jefe.map(Empleado::getDni).orElse("SIN JEFE") + ";";
+	}
 	
-	
+	public static Empleado fromCSV(String LineaCSV) {
+		Empleado empleado = new Empleado();
+		String [] campos = LineaCSV.split(",");
+		empleado.setDni(campos[0]);
+		empleado.setNombre(campos[1]);
+		empleado.setSexo(campos[2]);
+		empleado.setFechaNacimiento(LocalDate.parse(campos[3]));
+		empleado.setFechaIncorporacion(LocalDate.parse(campos[4]));
+		empleado.setSalario(Float.parseFloat(campos[5]));
+		empleado.setComision(Float.parseFloat(campos[6]));
+		empleado.setCargo(campos[7]);
+		if(campos[8].equalsIgnoreCase("SIN JEFE"))
+			empleado.setJefe(Optional.empty());
+		else
+			empleado.setJefe(Optional.of(new Empleado(campos[8])));
+		return empleado;		
+	}
 	
 }

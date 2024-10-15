@@ -1,5 +1,10 @@
 package org.dam2.ejercicioDepartEmpleados;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -7,22 +12,29 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.dam2.streams.primerejercicio.Alumno;
+
+import daw.com.Pantalla;
 import daw.com.Teclado;
 
 public class App {
 
 	public static void main(String[] args) {
-			List<Departamento> departamentos = cargarDepartamentos();
+//			List<Departamento> departamentos = cargarDepartamentos();
+			List<Departamento> departamentos = leerCSV();
+			departamentos.forEach(Departamento::ponerJefe);;
+			escribirCSV(departamentos);
 			
 //			1) Obtener los datos completos de los todos los empleados por orden alfabético.
-			
+//			
 //			List<Empleado> empleados = departamentos.stream()
+//					.filter(d-> d.tieneEmpleados())
 //					.flatMap(d -> d.getEmpleados().stream())
 //					.sorted((e1,e2)->e1.getNombre().compareTo(e2.getNombre()))
 //					.toList();
 //			
 //			System.out.println(empleados);
-//			
+			
 			
 			
 //			2) Obtener el nombre y cargo de todos los empleados, ordenado por salario.
@@ -90,7 +102,7 @@ public class App {
 			
 //			10) Obtener la lista de empleados jefes, que tienen al menos un empleado a su cargo.
 //			
-//			departamentos.stream().flatMap(d->d.getEmpleados().stream()).distinct().filter(e -> e.getJefe().isEmpty()).forEach(System.out::println);
+			departamentos.stream().filter(d-> d.tieneEmpleados()).flatMap(d->d.getEmpleados().stream()).distinct().filter(e -> e.getJefe().isEmpty()).forEach(System.out::println);
 			
 //			11) Hallar el salario promedio por departamento.
 //			
@@ -112,18 +124,45 @@ public class App {
 //			14) Suponer que la empresa va a aplicar un reajuste salarial del 7%. Listar los nombres de los
 //			empleados, su salario actual y su nuevo salario, indicando para cada uno de ellos si tiene o no
 //			comisión.
-			departamentos.stream().
-			flatMap(d -> d.getEmpleados().stream()).
-			forEach (e -> System.out.println (e.getNombre() + 
-								"->" + 
-								e.getSalario() + 
-								"->" + 
-								(e.getSalario() * 1.07) +
-								"->" +
-								(e.getComision()> 0?"tiene comisi�n":"no tiene comisi�n")));
+//			departamentos.stream().
+//			flatMap(d -> d.getEmpleados().stream()).
+//			forEach (e -> System.out.println (e.getNombre() + 
+//								"->" + 
+//								e.getSalario() + 
+//								"->" + 
+//								(e.getSalario() * 1.07) +
+//								"->" +
+//								(e.getComision()> 0?"tiene comisi�n":"no tiene comisi�n")));
 	}
 
+	public static List<Departamento> leerCSV() {
+		List<Departamento> departamentos = new ArrayList<Departamento>();
+		Departamento departamento;
+		try (BufferedReader fichero = new BufferedReader(new FileReader("Departamentos.csv"))) {
+			while (fichero.ready()) {
+				departamento = Departamento.fromCSV(fichero.readLine());
+				departamentos.add(departamento);
+			}
+		}
+		catch (IOException e) {
+			Pantalla.escribirString("\nError accediendo al fichero...");
+		}
+		return departamentos;		
+	}
 	
+	
+	
+	
+	public static void escribirCSV(List<Departamento> departamentos) {
+		try (PrintWriter fichero = new PrintWriter(new FileWriter("Departamentos.csv")))
+		{
+			departamentos.forEach(d -> fichero.print(d.toCSV()));
+		}
+		catch (IOException e)
+		{
+			Pantalla.escribirString("\nError escribiendo fichero");
+		}	
+	}
 	
 	public 	static List<Departamento> cargarDepartamentos(){
 		final Optional<Empleado> SINJEFE = Optional.empty();
