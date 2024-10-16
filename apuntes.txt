@@ -93,3 +93,11 @@ el problema ocurrio en la clase almacen a la hora de eliminar productos.
 
 se puede agregar un condicional a los csbvbtobindposition         @CSVBindByPosition(position=x , required /o/ regex)
 
+
+############## 16-10-2024 ####################3###
+xml
+ -DOM (LO QUE VI EN DAW)ELEMENTOS PADRE HIJO Y DEMAS
+ -SAX
+ -ABX
+ ECHAR UN VISTAZO A VALIDAR DTDS Y XLST SCHEMAS 
+ 
