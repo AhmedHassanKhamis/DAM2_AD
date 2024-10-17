@@ -26,7 +26,7 @@ public class Instituto {
 	@CsvBindByPosition(position = 1)
 	private String nombre;
 	@CsvBindByPosition(position = 2)
-	private int numero;
+	private String numero;
 	@CsvBindByPosition(position = 3)
 	private float presupuesto;
 	@CsvBindAndSplitByPosition(position = 4,

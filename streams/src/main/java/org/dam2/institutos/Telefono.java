@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 public class Telefono {
 	@CsvBindByPosition(position = 0)
 	@EqualsAndHashCode.Include
-	private int numero;
+	private String numero;
 	@CsvBindByPosition(position = 1)
 	private String compania;
 	@CsvBindByPosition(position = 2)
