@@ -32,10 +32,10 @@ public class Persona {
 	@CsvDate("yyyy-MM-dd")
 	private LocalDate fechaNacimiento;
 	@CsvBindAndSplitByPosition(position = 3,
-			elementType = Telefono.class,
-			splitOn = "$",
-			converter = CSVToTelefono.class,
-			writeDelimiter = "$"
+			elementType = Telefono.class, // tipo de elemento de la colección
+			splitOn = "!",// separador de telefonos
+			converter = CSVToTelefono.class,// Clase convertidora
+			writeDelimiter = "!" // separador de telefonos
 			)
 	private List<Telefono> telefonos;
 	@CsvCustomBindByPosition(position = 4,converter = CSVToOptional.class)
