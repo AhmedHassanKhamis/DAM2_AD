@@ -104,3 +104,29 @@ xml
 
  ############## 17-10-2024 ####################
   
+
+############## 18-10-2024 ####################
+jabx-> 
+los nombre de las etiquetas xml no tienen porque llamrse como como los atributos de las clases
+
+El elemento raiz siempre es un wrapper
+
+ANOTACIONES---------
+@XmlRootElement // Podría ser un elemento raíz, no es necesaria
+@XmlType (propOrder = { "nombre", "dept", "sueldo", "fechaNacimiento"}) // orden en el xml, sino es alfabético
+@XmlAccessorType(XmlAccessType.FIELD) // Permite poner las anotaciones en lo atributos
+
+
+@XmlAttribute //para indicar que el atributo de la clase es un atributo en xml
+
+@XmlJavaTypeAdapter(LocalDateAdapter.class) //para indicar el adaptador de un tipo especial
+
+@XmlElementWrapper(name="empleados") // Indicar que es un contenedor
+@XmlElement(name="empleado") // elemento repetido del contenedor
+
+
+
+mostrar actores que han hecho peliculas posteriores al 2003
+
+
+

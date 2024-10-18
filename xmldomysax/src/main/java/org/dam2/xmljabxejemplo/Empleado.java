@@ -1,4 +1,4 @@
-package org.dam2.xmldomysax;
+package org.dam2.xmljabxejemplo;
 
 import java.time.LocalDate;
 
@@ -10,8 +10,6 @@ import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import org.dam2.xmljabxejemplo.LocalDateAdapter;
-
 import daw.com.Teclado;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,13 +17,11 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 
 
 // Anotaciones Lombok
 @NoArgsConstructor
 @AllArgsConstructor
-@RequiredArgsConstructor
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Builder

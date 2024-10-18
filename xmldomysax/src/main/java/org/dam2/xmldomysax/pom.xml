@@ -22,7 +22,7 @@
     	<artifactId>daw</artifactId>
     	<scope>system</scope>
     	<version>1.0</version>
-    	<systemPath>/home/usertar/Escritorio/000_CLASE/DAM2_AD/daw.jar</systemPath>
+    	<systemPath>${project.basedir}/../daw.jar</systemPath>
     </dependency>
 
 	<!-- https://mvnrepository.com/artifact/com.sun.xml.bind/jaxb-impl -->
