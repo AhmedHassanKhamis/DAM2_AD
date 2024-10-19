@@ -45,16 +45,7 @@ public class Departamento {
 		return (empleados != null && !empleados.isEmpty())? true:false;
 	}
 
-	public void ponerJefe() {
-		if (empleados != null && !empleados.isEmpty()) {
-			List<Empleado> conJefes = empleados.stream().filter(e -> e.tieneJefe()).toList();
-			conJefes.stream().forEach((e) -> {
-				e.setJefe(empleados.stream().filter(e2 -> e2.getDni().equalsIgnoreCase(e.getJefe().get().getDni()))
-						.findFirst());
 
-			});
-		}
-	}
 
 	@Override
 	public String toString() {

@@ -1,6 +1,8 @@
 package org.dam2.xmljabx;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 
 public class LocalDateAdapter extends XmlAdapter <String, LocalDate>{
@@ -9,7 +11,7 @@ public class LocalDateAdapter extends XmlAdapter <String, LocalDate>{
 	public LocalDate unmarshal(String v) throws Exception {
 		// TODO Auto-generated method stub
 //		TENGO QUE FORMATEAR LAS FECHAS PARA DEVOLVER EL OBJETO
-		return LocalDate.parse(v);
+		return LocalDate.parse(v,DateTimeFormatter.ofPattern("dd-MM-yyyy"));
 	}
 
 	@Override
@@ -17,7 +19,7 @@ public class LocalDateAdapter extends XmlAdapter <String, LocalDate>{
 		// TODO Auto-generated method stub
 //		TENGO QUE FORMATEAR LAS FECHAS PARA DEVOLVER EL STRING 
 
-		return v.toString();
+		return v.format(DateTimeFormatter.ofPattern("dd-MM-yyyy")).toString();
 	}
 
 

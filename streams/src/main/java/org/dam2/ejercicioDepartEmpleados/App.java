@@ -10,8 +10,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import org.dam2.empleydepart.Emple;
 import org.dam2.streams.primerejercicio.Alumno;
 
 import daw.com.Pantalla;
@@ -22,7 +26,6 @@ public class App {
 	public static void main(String[] args) {
 //			List<Departamento> departamentos = cargarDepartamentos();
 			List<Departamento> departamentos = leerCSV();
-			departamentos.forEach(Departamento::ponerJefe);;
 			escribirCSV(departamentos);
 			
 //			1) Obtener los datos completos de los todos los empleados por orden alfabético.
@@ -135,6 +138,7 @@ public class App {
 //								(e.getComision()> 0?"tiene comisi�n":"no tiene comisi�n")));
 	}
 
+	
 	public static List<Departamento> leerCSV() {
 		List<Departamento> departamentos = new ArrayList<Departamento>();
 		Departamento departamento;
@@ -143,6 +147,17 @@ public class App {
 				departamento = Departamento.fromCSV(fichero.readLine());
 				departamentos.add(departamento);
 			}
+			Set<String>dniDeJefes=departamentos.stream().
+			filter(d -> d.getEmpleados() != null).
+			flatMap(d ->d.getEmpleados().stream()). // stream de empleados
+			map(Empleado::getJefe). // stream de jefes de empleados
+			filter(Optional::isPresent).// filtrar los vacíos
+			map(Optional::get).map(e->e.getDni()).collect(Collectors.toSet());
+
+			Consumer<Empleado> jefeAponer = e -> e.setJefe(
+					departamentos.stream().
+			flatMap(d ->d.getEmpleados().stream()).filter(em->dniDeJefes.contains(em.getDni())
+			).filter(t->e.getJefe().get().getDni().equalsIgnoreCase(t.getDni())).findFirst());
 		}
 		catch (IOException e) {
 			Pantalla.escribirString("\nError accediendo al fichero...");

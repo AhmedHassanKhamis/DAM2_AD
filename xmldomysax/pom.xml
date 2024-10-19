@@ -16,14 +16,14 @@
 
   <dependencies>
   
-   <!-- Añadir libreria de Teclado y Pantalla -->
+   <!-- Añadir libreria de Teclado y Pantalla
 	<dependency>
     	<groupId>daw</groupId>
     	<artifactId>daw</artifactId>
     	<scope>system</scope>
     	<version>1.0</version>
     	<systemPath>/home/usertar/Escritorio/000_CLASE/DAM2_AD/daw.jar</systemPath>
-    </dependency>
+    </dependency>-->
 
 	<!-- https://mvnrepository.com/artifact/com.sun.xml.bind/jaxb-impl -->
 	<dependency>

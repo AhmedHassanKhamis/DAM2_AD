@@ -1,5 +1,11 @@
 package org.dam2.ejercicioRefuerzo;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.HashMap;
@@ -25,7 +31,7 @@ public class App {
 
 	private void ejecutar() {
 		int opcion;
-		almacen.cargarProductos();
+		cargarProductos();
 		do {
 			opcion = menu();
 			switch (opcion) {
@@ -48,7 +54,7 @@ public class App {
 				eliminarCaducados();
 				break;
 			case 6:
-				almacen.finalizar();
+				finalizar();
 				break;
 			}
 		} while (opcion != 6);
@@ -71,6 +77,61 @@ public class App {
 				System.out.println("Opcion incorrecta!!");
 		} while (opcion < 0 || opcion > 6);
 		return opcion;
+	}
+	
+	
+	
+	public void cargarProductos() {
+		File fichero = new File("productos.dat");
+		if (fichero.exists()) {
+			ObjectInputStream in = null;
+			try {
+				in = new ObjectInputStream(new FileInputStream(fichero));
+				int cantidad = in.readInt();
+				for (int i = 0; i < cantidad; i++) {
+					if (in.readChar() == 'P') {
+						Perecedero producto = new Perecedero();
+						producto = producto.leerProducto(in);
+						almacen.getProductos().put(producto.getNumeroReferencia(), producto);
+					} else {
+						NoPerecedero producto = new NoPerecedero();
+						producto = producto.leerProducto(in);
+						almacen.getProductos().put(producto.getNumeroReferencia(), producto);
+					}
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			} finally {
+				if (in != null) {
+					try {
+						in.close();
+					} catch (IOException e) {
+						System.out.println("Error: " + e.getMessage());
+						e.printStackTrace();
+					}
+				}
+			}
+			
+		}		
+	}
+	
+	public void finalizar() {
+		File fichero = new File("productos.dat");
+		try {
+			final ObjectOutputStream  out = new ObjectOutputStream(new FileOutputStream(fichero));
+			out.writeInt(almacen.getProductos().size());
+			almacen.getProductos().entrySet().stream().forEach(p -> p.getValue().escribirProducto(out));
+			if (out != null) {
+				try {
+					out.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		System.out.println("adios!!");
 	}
 	
 	

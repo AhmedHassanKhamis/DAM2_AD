@@ -56,6 +56,17 @@ public class Empleado {
 			return false;
 	}
 	
+	public void setJefe(Empleado jefe) {
+		this.jefe = Optional.ofNullable(jefe);
+	}
+	
+	
+	public void setJefe (Optional<Empleado> jefe)
+	{
+//		System.out.println("set jefe "+ jefe);
+		this.jefe = jefe== null?Optional.empty():jefe;
+	}
+	
 	@Override
 	public String toString() {
 		return "Empleado [dni=" + dni + ", nombre=" + nombre + ", sexo=" + sexo + ", fechaNacimiento=" + fechaNacimiento
