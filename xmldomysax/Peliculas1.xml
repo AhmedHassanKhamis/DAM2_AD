@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <carteleras>
     <cartelera>
-        <pelicula codigo="perro" duracion="29" fecha="10-01-1001">
+        <pelicula codigo="perro" duracion="29" fecha="10-01-2008">
             <titulo>perro</titulo>
             <nacionalidad>perro</nacionalidad>
             <genero>perro</genero>
