@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<carteleras>
-    <cartelera>
-        <pelicula codigo="perro" duracion="29" fecha="10-01-2008">
-            <titulo>perro</titulo>
-            <nacionalidad>perro</nacionalidad>
-            <genero>perro</genero>
-            <clasificacion>18</clasificacion>
-            <sinopsis>perro</sinopsis>
-            <director>perro</director>
-            <reparto>
-                <actor>perro</actor>
-            </reparto>
-        </pelicula>
-    </cartelera>
-</carteleras>
+<cartelera>
+    <pelicula codigo="022" duracion="32" fecha="02-02-2002">
+        <titulo>ahmed</titulo>
+        <nacionalidad>mora</nacionalidad>
+        <genero>moro</genero>
+        <clasificacion>hola</clasificacion>
+        <sinopsis>ahme</sinopsis>
+        <director>ahmed</director>
+        <reparto>
+            <actor>ass</actor>
+        </reparto>
+    </pelicula>
+</cartelera>

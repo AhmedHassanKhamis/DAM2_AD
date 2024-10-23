@@ -19,13 +19,12 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@XmlRootElement(name = "carteleras")
+@XmlRootElement(name = "cartelera")
 @XmlType(propOrder = {"peliculas"})
 @XmlAccessorType(XmlAccessType.FIELD) 
 public class CarteleraWrapper {
 
 	
-	@XmlElementWrapper(name="cartelera") // Indicar que es un contenedor
 	@XmlElement(name="pelicula") // elemento repetido del contenedor
 	private List<Pelicula> peliculas;
 	

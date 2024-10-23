@@ -1,4 +1,4 @@
-package org.dam2.xmljabx;
+package org.dam2.ejercicioTiempoSevila;
 import java.io.File;
 import java.time.LocalDate;
 import java.util.List;
@@ -19,7 +19,7 @@ public class LeerXMLJAXB {
 			JAXBContext context = JAXBContext.newInstance(CarteleraWrapper.class);
 			Unmarshaller ums = context.createUnmarshaller();
 			CarteleraWrapper peliculas =  (CarteleraWrapper) ums.unmarshal(new File("Peliculas1.xml"));
-			for(Pelicula pelicula : peliculas.getPeliculas()) {
+			for(Tiempo pelicula : peliculas.getPeliculas()) {
 				System.out.println(pelicula.toString());
 			}
 			

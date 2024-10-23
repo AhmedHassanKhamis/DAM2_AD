@@ -47,7 +47,7 @@ public class Pelicula {
 	private String nacionalidad;
 	private String genero;
 
-	@XmlJavaTypeAdapter(ClasificacionAdapter.class)
+	//@XmlJavaTypeAdapter(ClasificacionAdapter.class)
 	private Clasificacion clasificacion;
 	
 	private String sinopsis;
