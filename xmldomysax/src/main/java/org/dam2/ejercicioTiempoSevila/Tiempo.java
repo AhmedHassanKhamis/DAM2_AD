@@ -26,7 +26,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType (propOrder = { "localizacion", "condiciones", "pronosticoDias", "pronosticoHoras","datosRegistrados"}) // orden en el xml, sino es alfabético
+@XmlType (propOrder = { "localizacion", "condiciones", "alerta", "pronosticoDias", "pronosticoHoras","datosRegistrados"}) // orden en el xml, sino es alfabético
  // Permite poner las anotaciones en lo atributos
 public class Tiempo {
 	
@@ -39,13 +39,16 @@ public class Tiempo {
 	@XmlElement(name="condiciones_actuales")
 	private CondicionesActuales condiciones;
 	
-	@XmlElement(name="pronostico_dias")
-	private PronosticoDias pronosticoDias;
+	private String alerta;
 	
-	@XmlElement(name="pronostico_horas")
-	private PronosticoHoras pronosticoHoras;
+	@XmlElementWrapper(name = "pronostico_dias")
+	@XmlElement(name="dia")
+	private List<Dia> pronosticoDias;
 	
-	@XmlElement(name="datos_registrados")
+	@XmlElementWrapper(name="pronostico_horas")
+	@XmlElement(name="hora")
+	private List<Hora> pronosticoHoras;
+	
 	private DatosRegistrados datosRegistrados;
 	
 

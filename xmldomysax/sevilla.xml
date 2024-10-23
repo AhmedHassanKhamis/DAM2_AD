@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tiempo>
+	<localizacion id="41091">
+		<ciudad>Sevilla</ciudad>
+		<latitud>37.42</latitud>
+		<longitud>-5.89</longitud>
+	</localizacion>
+	<condiciones_actuales>
+		<ultima_observacion>09:30:00</ultima_observacion>
+		<temperatura>6</temperatura>
+		<sensacion_termica>3</sensacion_termica>
+		<condiciones>Parcialmente nublado</condiciones>
+		<icono>24_d</icono>
+		<viento direccion="Sudoeste">15</viento>
+		<precipitacion>0.0</precipitacion>
+		<presion>1006</presion>
+		<humedad>87</humedad>
+		<visibilidad>10.0</visibilidad>
+		<indice_ultravioleta>2</indice_ultravioleta>
+		<punto_rocio>4</punto_rocio>
+	</condiciones_actuales>
+	<alertas/>
+	<pronostico_dias>
+
+		<dia fecha="2016-02-27">
+			<maxima>14</maxima>
+			<minima>6</minima>
+			<condiciones>Parcialmente nublado</condiciones>
+			<icono>24_d</icono>
+			<viento direccion="Noroeste">26</viento>
+			<probabilidad_precipitacion>2</probabilidad_precipitacion>
+			<precipitacion>0.0</precipitacion>
+			<humedad_max>0</humedad_max>
+			<humedad_min>0</humedad_min>
+			<amanecer>08:00:00</amanecer>
+			<ocaso>19:12:00</ocaso>
+		</dia>
+	
+		<dia fecha="2016-02-28">
+			<maxima>18</maxima>
+			<minima>6</minima>
+			<condiciones>Despejado</condiciones>
+			<icono>23_d</icono>
+			<viento direccion="Noroeste">18</viento>
+			<probabilidad_precipitacion>2</probabilidad_precipitacion>
+			<precipitacion>0.0</precipitacion>
+			<humedad_max>0</humedad_max>
+			<humedad_min>0</humedad_min>
+			<amanecer>07:59:00</amanecer>
+			<ocaso>19:13:00</ocaso>
+		</dia>
+	
+		<dia fecha="2016-02-29">
+			<maxima>18</maxima>
+			<minima>5</minima>
+			<condiciones>Despejado</condiciones>
+			<icono>23_d</icono>
+			<viento direccion="Nordeste">8</viento>
+			<probabilidad_precipitacion>0</probabilidad_precipitacion>
+			<precipitacion>0.0</precipitacion>
+			<humedad_max>0</humedad_max>
+			<humedad_min>0</humedad_min>
+			<amanecer>07:58:00</amanecer>
+			<ocaso>19:14:00</ocaso>
+		</dia>
+	
+		<dia fecha="2016-03-01">
+			<maxima>19</maxima>
+			<minima>4</minima>
+			<condiciones>Despejado</condiciones>
+			<icono>23_d</icono>
+			<viento direccion="Nordeste">11</viento>
+			<probabilidad_precipitacion>0</probabilidad_precipitacion>
+			<precipitacion>0.0</precipitacion>
+			<humedad_max>0</humedad_max>
+			<humedad_min>0</humedad_min>
+			<amanecer>07:56:00</amanecer>
+			<ocaso>19:15:00</ocaso>
+		</dia>
+	
+		<dia fecha="2016-03-02">
+			<maxima>22</maxima>
+			<minima>8</minima>
+			<condiciones>Despejado</condiciones>
+			<icono>23_d</icono>
+			<viento direccion="N">8</viento>
+			<probabilidad_precipitacion>0</probabilidad_precipitacion>
+			<precipitacion>0.0</precipitacion>
+			<humedad_max>0</humedad_max>
+			<humedad_min>0</humedad_min>
+			<amanecer>07:55:00</amanecer>
+			<ocaso>19:16:00</ocaso>
+		</dia>
+	
+		<dia fecha="2016-03-03">
+			<maxima>23</maxima>
+			<minima>8</minima>
+			<condiciones>Despejado</condiciones>
+			<icono>23_d</icono>
+			<viento direccion="Nordeste">8</viento>
+			<probabilidad_precipitacion>0</probabilidad_precipitacion>
+			<precipitacion>0.0</precipitacion>
+			<humedad_max>0</humedad_max>
+			<humedad_min>0</humedad_min>
+			<amanecer>07:53:00</amanecer>
+			<ocaso>19:17:00</ocaso>
+		</dia>
+	
+		<dia fecha="2016-03-04">
+			<maxima>22</maxima>
+			<minima>10</minima>
+			<condiciones>Despejado</condiciones>
+			<icono>23_d</icono>
+			<viento direccion="Sudoeste">16</viento>
+			<probabilidad_precipitacion>0</probabilidad_precipitacion>
+			<precipitacion>0.0</precipitacion>
+			<humedad_max>0</humedad_max>
+			<humedad_min>0</humedad_min>
+			<amanecer>07:52:00</amanecer>
+			<ocaso>19:18:00</ocaso>
+		</dia>
+		</pronostico_dias>
+	<pronostico_horas>
+
+		<hora id="10:00:00" fecha="2016-02-27">
+	      <temperatura>7</temperatura>
+	      <sensacion_termica>4</sensacion_termica>
+	      <icono>20_d</icono>
+	      <condiciones>Nublado</condiciones>
+	      <viento direccion="Noroeste">18</viento>
+	      <probabilidad_precipitacion>0</probabilidad_precipitacion>
+	      <precipitacion>0.0</precipitacion>
+	     <humedad>79</humedad>
+	    </hora>
+	
+		<hora id="11:00:00" fecha="2016-02-27">
+	      <temperatura>9</temperatura>
+	      <sensacion_termica>9</sensacion_termica>
+	      <icono>21_d</icono>
+	      <condiciones>Muy nublado</condiciones>
+	      <viento direccion="Noroeste">19</viento>
+	      <probabilidad_precipitacion>0</probabilidad_precipitacion>
+	      <precipitacion>0.0</precipitacion>
+	     <humedad>68</humedad>
+	    </hora>
+	
+		<hora id="12:00:00" fecha="2016-02-27">
+	      <temperatura>10</temperatura>
+	      <sensacion_termica>10</sensacion_termica>
+	      <icono>21_d</icono>
+	      <condiciones>Muy nublado</condiciones>
+	      <viento direccion="Noroeste">23</viento>
+	      <probabilidad_precipitacion>0</probabilidad_precipitacion>
+	      <precipitacion>0.0</precipitacion>
+	     <humedad>59</humedad>
+	    </hora>
+	
+		<hora id="13:00:00" fecha="2016-02-27">
+	      <temperatura>11</temperatura>
+	      <sensacion_termica>11</sensacion_termica>
+	      <icono>21_d</icono>
+	      <condiciones>Muy nublado</condiciones>
+	      <viento direccion="Noroeste">24</viento>
+	      <probabilidad_precipitacion>0</probabilidad_precipitacion>
+	      <precipitacion>0.0</precipitacion>
+	     <humedad>49</humedad>
+	    </hora>
+	
+		<hora id="14:00:00" fecha="2016-02-27">
+	      <temperatura>12</temperatura>
+	      <sensacion_termica>12</sensacion_termica>
+	      <icono>21_d</icono>
+	      <condiciones>Muy nublado</condiciones>
+	      <viento direccion="Noroeste">24</viento>
+	      <probabilidad_precipitacion>7</probabilidad_precipitacion>
+	      <precipitacion>0.0</precipitacion>
+	     <humedad>45</humedad>
+	    </hora>
+	
+		<hora id="15:00:00" fecha="2016-02-27">
+	      <temperatura>12</temperatura>
+	      <sensacion_termica>12</sensacion_termica>
+	      <icono>24_d</icono>
+	      <condiciones>Parcialmente nublado</condiciones>
+	      <viento direccion="Noroeste">26</viento>
+	      <probabilidad_precipitacion>10</probabilidad_precipitacion>
+	      <precipitacion>0.0</precipitacion>
+	     <humedad>42</humedad>
+	    </hora>
+	
+		<hora id="16:00:00" fecha="2016-02-27">
+	      <temperatura>13</temperatura>
+	      <sensacion_termica>13</sensacion_termica>
+	      <icono>24_d</icono>
+	      <condiciones>Parcialmente nublado</condiciones>
+	      <viento direccion="Noroeste">26</viento>
+	      <probabilidad_precipitacion>9</probabilidad_precipitacion>
+	      <precipitacion>0.0</precipitacion>
+	     <humedad>38</humedad>
+	    </hora>
+	
+		<hora id="17:00:00" fecha="2016-02-27">
+	      <temperatura>13</temperatura>
+	      <sensacion_termica>13</sensacion_termica>
+	      <icono>24_d</icono>
+	      <condiciones>Parcialmente nublado</condiciones>
+	      <viento direccion="Noroeste">26</viento>
+	      <probabilidad_precipitacion>1</probabilidad_precipitacion>
+	      <precipitacion>0.0</precipitacion>
+	     <humedad>36</humedad>
+	    </hora>
+	
+		<hora id="18:00:00" fecha="2016-02-27">
+	      <temperatura>12</temperatura>
+	      <sensacion_termica>12</sensacion_termica>
+	      <icono>24_d</icono>
+	      <condiciones>Parcialmente nublado</condiciones>
+	      <viento direccion="Noroeste">24</viento>
+	      <probabilidad_precipitacion>3</probabilidad_precipitacion>
+	      <precipitacion>0.0</precipitacion>
+	     <humedad>37</humedad>
+	    </hora>
+	
+		<hora id="19:00:00" fecha="2016-02-27">
+	      <temperatura>11</temperatura>
+	      <sensacion_termica>11</sensacion_termica>
+	      <icono>24_d</icono>
+	      <condiciones>Parcialmente nublado</condiciones>
+	      <viento direccion="Noroeste">21</viento>
+	      <probabilidad_precipitacion>2</probabilidad_precipitacion>
+	      <precipitacion>0.0</precipitacion>
+	     <humedad>42</humedad>
+	    </hora>
+	
+		<hora id="20:00:00" fecha="2016-02-27">
+	      <temperatura>9</temperatura>
+	      <sensacion_termica>9</sensacion_termica>
+	      <icono>21_n</icono>
+	      <condiciones>Muy nublado</condiciones>
+	      <viento direccion="Noroeste">21</viento>
+	      <probabilidad_precipitacion>2</probabilidad_precipitacion>
+	      <precipitacion>0.0</precipitacion>
+	     <humedad>49</humedad>
+	    </hora>
+	
+		<hora id="21:00:00" fecha="2016-02-27">
+	      <temperatura>9</temperatura>
+	      <sensacion_termica>9</sensacion_termica>
+	      <icono>24_n</icono>
+	      <condiciones>Parcialmente nublado</condiciones>
+	      <viento direccion="Noroeste">19</viento>
+	      <probabilidad_precipitacion>3</probabilidad_precipitacion>
+	      <precipitacion>0.0</precipitacion>
+	     <humedad>56</humedad>
+	    </hora>
+	
+		<hora id="22:00:00" fecha="2016-02-27">
+	      <temperatura>8</temperatura>
+	      <sensacion_termica>5</sensacion_termica>
+	      <icono>24_n</icono>
+	      <condiciones>Parcialmente nublado</condiciones>
+	      <viento direccion="Noroeste">19</viento>
+	      <probabilidad_precipitacion>4</probabilidad_precipitacion>
+	      <precipitacion>0.0</precipitacion>
+	     <humedad>60</humedad>
+	    </hora>
+	
+		<hora id="23:00:00" fecha="2016-02-27">
+	      <temperatura>8</temperatura>
+	      <sensacion_termica>5</sensacion_termica>
+	      <icono>23_n</icono>
+	      <condiciones>Despejado</condiciones>
+	      <viento direccion="Noroeste">18</viento>
+	      <probabilidad_precipitacion>0</probabilidad_precipitacion>
+	      <precipitacion>0.0</precipitacion>
+	     <humedad>62</humedad>
+	    </hora>
+	
+		<hora id="00:00:00" fecha="2016-02-28">
+	      <temperatura>8</temperatura>
+	      <sensacion_termica>5</sensacion_termica>
+	      <icono>23_n</icono>
+	      <condiciones>Despejado</condiciones>
+	      <viento direccion="Noroeste">18</viento>
+	      <probabilidad_precipitacion>0</probabilidad_precipitacion>
+	      <precipitacion>0.0</precipitacion>
+	     <humedad>64</humedad>
+	    </hora>
+	
+		<hora id="01:00:00" fecha="2016-02-28">
+	      <temperatura>7</temperatura>
+	      <sensacion_termica>4</sensacion_termica>
+	      <icono>23_n</icono>
+	      <condiciones>Despejado</condiciones>
+	      <viento direccion="Noroeste">16</viento>
+	      <probabilidad_precipitacion>1</probabilidad_precipitacion>
+	      <precipitacion>0.0</precipitacion>
+	     <humedad>70</humedad>
+	    </hora>
+	
+		<hora id="02:00:00" fecha="2016-02-28">
+	      <temperatura>7</temperatura>
+	      <sensacion_termica>4</sensacion_termica>
+	      <icono>23_n</icono>
+	      <condiciones>Despejado</condiciones>
+	      <viento direccion="Noroeste">18</viento>
+	      <probabilidad_precipitacion>1</probabilidad_precipitacion>
+	      <precipitacion>0.0</precipitacion>
+	     <humedad>71</humedad>
+	    </hora>
+	
+		<hora id="03:00:00" fecha="2016-02-28">
+	      <temperatura>7</temperatura>
+	      <sensacion_termica>4</sensacion_termica>
+	      <icono>23_n</icono>
+	      <condiciones>Despejado</condiciones>
+	      <viento direccion="Noroeste">16</viento>
+	      <probabilidad_precipitacion>1</probabilidad_precipitacion>
+	      <precipitacion>0.0</precipitacion>
+	     <humedad>72</humedad>
+	    </hora>
+	
+		<hora id="04:00:00" fecha="2016-02-28">
+	      <temperatura>7</temperatura>
+	      <sensacion_termica>4</sensacion_termica>
+	      <icono>23_n</icono>
+	      <condiciones>Despejado</condiciones>
+	      <viento direccion="Noroeste">16</viento>
+	      <probabilidad_precipitacion>1</probabilidad_precipitacion>
+	      <precipitacion>0.0</precipitacion>
+	     <humedad>73</humedad>
+	    </hora>
+	
+		<hora id="05:00:00" fecha="2016-02-28">
+	      <temperatura>7</temperatura>
+	      <sensacion_termica>4</sensacion_termica>
+	      <icono>24_n</icono>
+	      <condiciones>Parcialmente nublado</condiciones>
+	      <viento direccion="Noroeste">18</viento>
+	      <probabilidad_precipitacion>1</probabilidad_precipitacion>
+	      <precipitacion>0.0</precipitacion>
+	     <humedad>74</humedad>
+	    </hora>
+	
+		<hora id="06:00:00" fecha="2016-02-28">
+	      <temperatura>7</temperatura>
+	      <sensacion_termica>4</sensacion_termica>
+	      <icono>24_n</icono>
+	      <condiciones>Parcialmente nublado</condiciones>
+	      <viento direccion="Noroeste">19</viento>
+	      <probabilidad_precipitacion>1</probabilidad_precipitacion>
+	      <precipitacion>0.0</precipitacion>
+	     <humedad>76</humedad>
+	    </hora>
+	
+		<hora id="07:00:00" fecha="2016-02-28">
+	      <temperatura>7</temperatura>
+	      <sensacion_termica>4</sensacion_termica>
+	      <icono>24_n</icono>
+	      <condiciones>Parcialmente nublado</condiciones>
+	      <viento direccion="Noroeste">18</viento>
+	      <probabilidad_precipitacion>2</probabilidad_precipitacion>
+	      <precipitacion>0.0</precipitacion>
+	     <humedad>76</humedad>
+	    </hora>
+	
+		<hora id="08:00:00" fecha="2016-02-28">
+	      <temperatura>7</temperatura>
+	      <sensacion_termica>4</sensacion_termica>
+	      <icono>24_d</icono>
+	      <condiciones>Parcialmente nublado</condiciones>
+	      <viento direccion="Noroeste">18</viento>
+	      <probabilidad_precipitacion>3</probabilidad_precipitacion>
+	      <precipitacion>0.0</precipitacion>
+	     <humedad>75</humedad>
+	    </hora>
+	
+		<hora id="09:00:00" fecha="2016-02-28">
+	      <temperatura>8</temperatura>
+	      <sensacion_termica>6</sensacion_termica>
+	      <icono>24_d</icono>
+	      <condiciones>Parcialmente nublado</condiciones>
+	      <viento direccion="Noroeste">14</viento>
+	      <probabilidad_precipitacion>2</probabilidad_precipitacion>
+	      <precipitacion>0.0</precipitacion>
+	     <humedad>75</humedad>
+	    </hora>
+	
+	</pronostico_horas>
+	<datos_registrados actualizacion="2016-02-27T08:42:00">
+		<dato fecha="2016-02-27T08:00:00">
+			<temperatura>6.6</temperatura>
+			<viento direccion="Oeste">18</viento>
+			<precipitacion>0.0</precipitacion>
+			<presion>1002.4</presion>
+			<humedad>83</humedad>
+		</dato>
+	
+		<dato fecha="2016-02-27T07:00:00">
+			<temperatura>6.5</temperatura>
+			<viento direccion="Oeste">15</viento>
+			<precipitacion>0.0</precipitacion>
+			<presion>1002.1</presion>
+			<humedad>83</humedad>
+		</dato>
+	
+		<dato fecha="2016-02-27T06:00:00">
+			<temperatura>6.5</temperatura>
+			<viento direccion="Oeste">18</viento>
+			<precipitacion>0.0</precipitacion>
+			<presion>1001.6</presion>
+			<humedad>83</humedad>
+		</dato>
+	
+		<dato fecha="2016-02-27T05:00:00">
+			<temperatura>7.2</temperatura>
+			<viento direccion="Sudoeste">17</viento>
+			<precipitacion>0.0</precipitacion>
+			<presion>1001.4</presion>
+			<humedad>83</humedad>
+		</dato>
+	
+		<dato fecha="2016-02-27T04:00:00">
+			<temperatura>7.1</temperatura>
+			<viento direccion="Sudoeste">14</viento>
+			<precipitacion>0.0</precipitacion>
+			<presion>1001.7</presion>
+			<humedad>84</humedad>
+		</dato>
+	
+		<dato fecha="2016-02-27T03:00:00">
+			<temperatura>7.3</temperatura>
+			<viento direccion="Oeste">22</viento>
+			<precipitacion>0.0</precipitacion>
+			<presion>1002.3</presion>
+			<humedad>83</humedad>
+		</dato>
+	
+		<dato fecha="2016-02-27T02:00:00">
+			<temperatura>6.9</temperatura>
+			<viento direccion="Sudoeste">17</viento>
+			<precipitacion>0.0</precipitacion>
+			<presion>1002.5</presion>
+			<humedad>84</humedad>
+		</dato>
+	
+		<dato fecha="2016-02-27T01:00:00">
+			<temperatura>7.3</temperatura>
+			<viento direccion="Sudoeste">15</viento>
+			<precipitacion>0.0</precipitacion>
+			<presion>1003.3</presion>
+			<humedad>83</humedad>
+		</dato>
+	
+		<dato fecha="2016-02-27T00:00:00">
+			<temperatura>8</temperatura>
+			<viento direccion="Oeste">21</viento>
+			<precipitacion>0.0</precipitacion>
+			<presion>1003.9</presion>
+			<humedad>77</humedad>
+		</dato>
+	
+		<dato fecha="2016-02-26T23:00:00">
+			<temperatura>8.4</temperatura>
+			<viento direccion="Oeste">24</viento>
+			<precipitacion>0.0</precipitacion>
+			<presion>1004.1</presion>
+			<humedad>73</humedad>
+		</dato>
+	
+		<dato fecha="2016-02-26T22:00:00">
+			<temperatura>8.9</temperatura>
+			<viento direccion="Oeste">21</viento>
+			<precipitacion>0.0</precipitacion>
+			<presion>1004.1</presion>
+			<humedad>77</humedad>
+		</dato>
+	
+		<dato fecha="2016-02-26T21:00:00">
+			<temperatura>9.9</temperatura>
+			<viento direccion="Oeste">24</viento>
+			<precipitacion>0.0</precipitacion>
+			<presion>1004.1</presion>
+			<humedad>78</humedad>
+		</dato>
+	
+		<dato fecha="2016-02-26T20:00:00">
+			<temperatura>10.3</temperatura>
+			<viento direccion="Oeste">17</viento>
+			<precipitacion>0.0</precipitacion>
+			<presion>1004</presion>
+			<humedad>80</humedad>
+		</dato>
+	
+		<dato fecha="2016-02-26T19:00:00">
+			<temperatura>10.8</temperatura>
+			<viento direccion="Oeste">22</viento>
+			<precipitacion>0.0</precipitacion>
+			<presion>1003.2</presion>
+			<humedad>83</humedad>
+		</dato>
+	
+		<dato fecha="2016-02-26T18:00:00">
+			<temperatura>10.8</temperatura>
+			<viento direccion="Sudoeste">21</viento>
+			<precipitacion>1.1</precipitacion>
+			<presion>1003.2</presion>
+			<humedad>87</humedad>
+		</dato>
+	
+		<dato fecha="2016-02-26T17:00:00">
+			<temperatura>10.8</temperatura>
+			<viento direccion="Oeste">32</viento>
+			<precipitacion>1</precipitacion>
+			<presion>1004.4</presion>
+			<humedad>88</humedad>
+		</dato>
+	
+		<dato fecha="2016-02-26T16:00:00">
+			<temperatura>12.7</temperatura>
+			<viento direccion="Sudoeste">31</viento>
+			<precipitacion>4.2</precipitacion>
+			<presion>1004.7</presion>
+			<humedad>93</humedad>
+		</dato>
+	
+		<dato fecha="2016-02-26T15:00:00">
+			<temperatura>13.7</temperatura>
+			<viento direccion="Sudoeste">37</viento>
+			<precipitacion>0.1</precipitacion>
+			<presion>1006.2</presion>
+			<humedad>85</humedad>
+		</dato>
+	
+		<dato fecha="2016-02-26T14:00:00">
+			<temperatura>12</temperatura>
+			<viento direccion="Sudoeste">23</viento>
+			<precipitacion>2.8</precipitacion>
+			<presion>1008.3</presion>
+			<humedad>94</humedad>
+		</dato>
+	
+		<dato fecha="2016-02-26T13:00:00">
+			<temperatura>13.5</temperatura>
+			<viento direccion="Sur">15</viento>
+			<precipitacion>0.0</precipitacion>
+			<presion>1010.2</presion>
+			<humedad>82</humedad>
+		</dato>
+	
+		<dato fecha="2016-02-26T12:00:00">
+			<temperatura>12.2</temperatura>
+			<viento direccion="Sur">14</viento>
+			<precipitacion>0.0</precipitacion>
+			<presion>1012</presion>
+			<humedad>81</humedad>
+		</dato>
+	
+		<dato fecha="2016-02-26T11:00:00">
+			<temperatura>10.5</temperatura>
+			<viento direccion="Sudoeste">13</viento>
+			<precipitacion>0.0</precipitacion>
+			<presion>1013.5</presion>
+			<humedad>89</humedad>
+		</dato>
+	
+		<dato fecha="2016-02-26T10:00:00">
+			<temperatura>9.7</temperatura>
+			<viento direccion="Sur">9</viento>
+			<precipitacion>0.0</precipitacion>
+			<presion>1014.3</presion>
+			<humedad>91</humedad>
+		</dato>
+	
+		<dato fecha="2016-02-26T09:00:00">
+			<temperatura>8.5</temperatura>
+			<viento direccion="Sudoeste">9</viento>
+			<precipitacion>0.0</precipitacion>
+			<presion>1014.3</presion>
+			<humedad>94</humedad>
+		</dato>
+	
+	</datos_registrados>
+</tiempo>

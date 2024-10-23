@@ -1,31 +1,28 @@
 package org.dam2.ejercicioTiempoSevila;
 
+import java.time.LocalTime;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.XmlValue;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(propOrder = {"ciudad","latitud","longitud"})
-public class Localizacion {
-
-	@EqualsAndHashCode.Include
+public class Viento {
+	
 	@XmlAttribute
-	private String id;
-	private String ciudad;
-	private float latitud;
-	private float longitud;
+	private Direccion direccion;
 	
-	
+	@XmlValue
+	private String velocidad;
+
 }
