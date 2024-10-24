@@ -31,6 +31,7 @@ public class Tiempo {
 	@XmlElement(name="condiciones_actuales")
 	private CondicionesActuales condiciones;
 	
+	@XmlElement(nillable = true)
 	private String alerta;
 	
 	@XmlElement(name="pronostico_dias")

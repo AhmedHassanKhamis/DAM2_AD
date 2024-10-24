@@ -124,7 +124,7 @@ ANOTACIONES---------
 @XmlElementWrapper(name="empleados") // Indicar que es un contenedor
 @XmlElement(name="empleado") // elemento repetido del contenedor
 
-
+@XmlTransient -> PARA IGNORAR ELEMENTOS
 
 mostrar actores que han hecho peliculas posteriores al 2003
 

@@ -17,6 +17,10 @@ public class App {
 		Tiempo tiempo = LeerXml();
 		System.out.println(tiempo);
 		
+//		la humedad media de todos los datos registrados
+		
+		System.out.println(tiempo.getDatosRegistrados().getDatos_registrados().stream().mapToDouble(Dato::getHumedad).average().orElse(0));
+		
 	}
 
 	
