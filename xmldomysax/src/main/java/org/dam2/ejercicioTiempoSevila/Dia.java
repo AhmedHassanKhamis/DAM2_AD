@@ -10,8 +10,6 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import org.dam2.xmljabx.LocalDateAdapter;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,9 +23,10 @@ import lombok.NoArgsConstructor;
 @XmlType(propOrder = {"maxima","minima","condiciones","icono","viento","probabilidadPrecipitacion","precipitacion","humedadMax","humedadMin","amanecer","ocaso"})
 public class Dia {
 	
+	@XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
 	@XmlAttribute
-	@XmlJavaTypeAdapter(LocalDateAdapter.class)
 	private LocalDate fecha;
+	
 	private int maxima;
 	private int minima;
 	private String condiciones;
@@ -42,10 +41,13 @@ public class Dia {
 	private int humedadMin;
 	
 //	PREGUNTAR SI SE TIENE QUE HACER UN UNICO ADAPTADOR PARA TODO EL TIPO DE FECHAS
-	@XmlJavaTypeAdapter(LocalDateAdapter.class)  
+	  
+//	private LocalTime amanecer;
+	@XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
 	private LocalTime amanecer;
 //	PREGUNTAR SI SE TIENE QUE HACER UN UNICO ADAPTADOR PARA TODO EL TIPO DE FECHAS
-	@XmlJavaTypeAdapter(LocalDateAdapter.class)
+//	private LocalTime ocaso;
+	@XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
 	private LocalTime ocaso;
 
 }

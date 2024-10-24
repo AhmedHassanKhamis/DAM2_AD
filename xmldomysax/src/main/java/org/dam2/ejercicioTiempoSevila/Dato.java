@@ -7,8 +7,6 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import org.dam2.xmljabx.LocalDateAdapter;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,9 +23,10 @@ public class Dato {
 
 //	PREGUNTAR SI SE TIENE QUE HACER UN UNICO ADAPTADOR PARA TODO EL TIPO DE FECHAS
 	@XmlAttribute
-	@XmlJavaTypeAdapter(LocalDateAdapter.class)  
+	@XmlJavaTypeAdapter(LocalDateTimeAdapter.class)  
+//	private LocalDateTime fecha;
 	private LocalDateTime fecha;
-	
+
 	
 	private float temperatura;
 	private Viento viento;

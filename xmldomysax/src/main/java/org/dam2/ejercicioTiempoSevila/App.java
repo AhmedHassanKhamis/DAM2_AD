@@ -60,10 +60,15 @@ public class App {
 			Unmarshaller ums = context.createUnmarshaller();
 			tiempo = (Tiempo) ums.unmarshal(new File("sevilla.xml"));
 			context = JAXBContext.newInstance(Tiempo.class);
+						
+			
 			// Crear marshaller, objeto que se encarga de escribir el XML
 			ms = context.createMarshaller();
-
 			ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+			System.out.println("pocho");
+
+			
+			
 			ms.marshal(tiempo, System.out);
 
 		} catch (JAXBException e) {

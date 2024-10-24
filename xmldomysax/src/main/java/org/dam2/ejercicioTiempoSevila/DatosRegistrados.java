@@ -9,8 +9,6 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import org.dam2.xmljabx.LocalDateAdapter;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,10 +21,10 @@ import lombok.NoArgsConstructor;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class DatosRegistrados {
 	
-	@XmlJavaTypeAdapter(LocalDateAdapter.class) 
+	@XmlJavaTypeAdapter(LocalDateTimeAdapter.class) 
 	@XmlAttribute
+//	private LocalDateTime actualizacion;
 	private LocalDateTime actualizacion;
-	
 	
 	@XmlElement(name="dato")
 	private List<Dato> datos_registrados;

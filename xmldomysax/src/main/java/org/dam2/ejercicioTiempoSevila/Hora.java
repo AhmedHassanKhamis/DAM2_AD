@@ -10,8 +10,6 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import org.dam2.xmljabx.LocalDateAdapter;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -26,12 +24,18 @@ import lombok.NoArgsConstructor;
 public class Hora {
 	
 //	PREGUNTAR SI SE TIENE QUE HACER UN UNICO ADAPTADOR PARA TODO EL TIPO DE FECHAS
+	
+	  
+//	private LocalTime id;
+	@XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
 	@XmlAttribute
-	@XmlJavaTypeAdapter(LocalDateAdapter.class)  
 	private LocalTime id;
+
+	
+	@XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
 	@XmlAttribute
-	@XmlJavaTypeAdapter(LocalDateAdapter.class)
 	private LocalDate fecha;
+	
 	private int temperatura;
 	@XmlElement(name = "sensacion_termica")
 	private int sensacionTermica;
