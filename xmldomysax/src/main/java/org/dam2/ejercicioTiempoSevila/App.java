@@ -9,31 +9,29 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
-import daw.com.Teclado;
-
 public class App {
 
 	public static void main(String[] args) {
 		Tiempo tiempo = LeerXml();
 		System.out.println(tiempo);
-		
+		Tiempo tiempoAMano = PedirDatos();
 //		la humedad media de todos los datos registrados
-		
-		System.out.println(tiempo.getDatosRegistrados().getDatos_registrados().stream().mapToDouble(Dato::getHumedad).average().orElse(0));
+		EscribirXml(tiempoAMano);
+//		System.out.println(tiempo.getDatosRegistrados().getDatos_registrados().stream().mapToDouble(Dato::getHumedad).average().orElse(0));
 		
 	}
 
 	
 	
 	
-	public static void EscribirXml() {
+	public static void EscribirXml(Tiempo tiempo) {
 
 		JAXBContext context;
 		Marshaller ms;
 
-		Tiempo tiempo = new Tiempo();
-		Controlador<Tiempo> controlador = new ControladorTiempoConsola();
-		controlador.leerDatos(tiempo);
+//		Tiempo tiempo = new Tiempo();
+//		Controlador<Tiempo> controlador = new ControladorTiempoConsola();
+//		controlador.leerDatos(tiempo);
 
 		// Escribir XML
 		try {
@@ -45,7 +43,7 @@ public class App {
 
 			ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 			ms.marshal(tiempo, System.out);
-			ms.marshal(tiempo, new FileWriter("Peliculas1.xml"));
+			ms.marshal(tiempo, new FileWriter("Tiempo1.xml"));
 
 		} catch (JAXBException | IOException e) {
 			// TODO Auto-generated catch block
@@ -78,6 +76,14 @@ public class App {
 		} catch (JAXBException e) {
 			e.printStackTrace();
 		}
+		return tiempo;
+	}
+	
+	
+	public static Tiempo PedirDatos() {
+		Tiempo tiempo = new Tiempo();
+		Controlador<Tiempo> controlador = new ControladorTiempoConsola();
+		controlador.leerDatos(tiempo);
 		return tiempo;
 	}
 

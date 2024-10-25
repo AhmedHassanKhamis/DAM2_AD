@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<tiempo>
+    <localizacion id="77">
+        <ciudad>Madrid</ciudad>
+        <latitud>0.0</latitud>
+        <longitud>0.0</longitud>
+    </localizacion>
+    <condiciones_actuales>
+        <ultima_observacion>00:00:00</ultima_observacion>
+        <temperatura>0.0</temperatura>
+        <sensacion_termica>0.0</sensacion_termica>
+        <condiciones>nublado</condiciones>
+        <icono>00</icono>
+        <viento direccion="ESTE">32</viento>
+        <precipitacion>0.0</precipitacion>
+        <presion>0.0</presion>
+        <humedad>0.0</humedad>
+        <visibilidad>0.0</visibilidad>
+        <indice_ultravioleta>0</indice_ultravioleta>
+        <punto_rocio>0</punto_rocio>
+    </condiciones_actuales>
+    <alerta>ninguna</alerta>
+    <datos_registrados actualizacion="2016-02-26T19:00:00">
+        <dato fecha="2016-02-26T19:00:00">
+            <temperatura>0.0</temperatura>
+            <viento direccion="ESTE">32</viento>
+            <precipitacion>0.0</precipitacion>
+            <presion>0.0</presion>
+            <humedad>0</humedad>
+        </dato>
+    </datos_registrados>
+</tiempo>
