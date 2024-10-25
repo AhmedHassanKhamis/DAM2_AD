@@ -1,0 +1,12 @@
+
+  {
+    "id": "002",
+    "nombre": "e2",
+    "departamento": "d2",
+    "sueldo": 200.0,
+    "fechaNacimiento":{
+		"dia":25,
+		"mes":10,
+		"anio":2024	
+	}
+  }

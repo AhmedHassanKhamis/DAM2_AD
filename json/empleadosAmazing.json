@@ -4,13 +4,21 @@
     "nombre": "e1",
     "departamento": "d1",
     "sueldo": 200.0,
-    "fechaNacimiento": "2024-10-25"
+    "fechaNacimiento": {
+      "dia": 25,
+      "mes": 10,
+      "anio": 2024
+    }
   },
   {
     "id": "002",
     "nombre": "e2",
     "departamento": "d2",
     "sueldo": 200.0,
-    "fechaNacimiento": "2024-10-25"
+    "fechaNacimiento": {
+      "dia": 25,
+      "mes": 10,
+      "anio": 2024
+    }
   }
 ]
