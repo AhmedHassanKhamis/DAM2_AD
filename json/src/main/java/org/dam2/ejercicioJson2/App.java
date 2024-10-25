@@ -1,30 +1,34 @@
-package org.dam2.ejercicioJson1;
+package org.dam2.ejercicioJson2;
 
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
+import java.util.List;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+
+import org.dam2.ejercicioJson1.Personas;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
 public class App {
 
 	public static void main(String[] args) {
-		Personas personas = LeerPersonas();
-		System.out.println(personas);
 
-		escribirPersonasXml(personas);
+		List<PruebaDeNivel> pruebas;
+		pruebas = LeerPruebasDeNivel();
 		
-		mostrarPersonasJson(personas);
-
+		System.out.println(pruebas);
+		
 	}
 
-	public static void escribirPersonasXml(Personas personas) {
+	public static void escribirPruebasDeNivelXml(List<PruebaDeNivel> pruebas) {
 
 		JAXBContext context;
 		Marshaller ms;
@@ -37,13 +41,13 @@ public class App {
 		try {
 
 			// Crear contexto
-			context = JAXBContext.newInstance(Personas.class);
+			context = JAXBContext.newInstance(PruebaDeNivel.class);
 			// Crear marshaller, objeto que se encarga de escribir el XML
 			ms = context.createMarshaller();
 
 			ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-			ms.marshal(personas, System.out);
-			ms.marshal(personas, new FileWriter("personas.xml"));
+			ms.marshal(pruebas, System.out);
+			ms.marshal(pruebas, new FileWriter("pruebasdenivel.xml"));
 
 		} catch (JAXBException | IOException e) {
 			// TODO Auto-generated catch block
@@ -51,30 +55,33 @@ public class App {
 		}
 	}
 
-	public static Personas LeerPersonas() {
-		Personas personas = null;
+	
+	public static List<PruebaDeNivel> LeerPruebasDeNivel() {
+		List<PruebaDeNivel> pruebas = null;
 		try {
 			Gson gson = new Gson();
-			Reader reader = new FileReader(new File("personas.json"));
-			personas = gson.fromJson(reader, Personas.class);
+			Reader reader = new FileReader(new File("pruebasdenivel.json"));
+			TypeToken<List<PruebaDeNivel>> listaPruebas = new TypeToken<List<PruebaDeNivel>>() {};
+			pruebas = gson.fromJson(reader, listaPruebas);
 
 			reader.close();
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 
-		return personas;
+		return pruebas;
 	}
 
-	public static void mostrarPersonasJson(Personas personas) {
+	public static void mostrarPruebasDeNivel(List<PruebaDeNivel> pruebas) {
 		try {
 			Gson gson;
 			GsonBuilder creadorGson = new GsonBuilder().setPrettyPrinting();
 			gson = creadorGson.create();
-	        System.out.println(gson.toJson(personas));
+	        System.out.println(gson.toJson(pruebas));
 		} catch (Exception e) {
-			// TODO: handle exception
 			System.out.println(e);
 		}
 	}
+	
+	
 }

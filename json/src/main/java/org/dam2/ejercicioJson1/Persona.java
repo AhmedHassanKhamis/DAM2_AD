@@ -1,13 +1,11 @@
 package org.dam2.ejercicioJson1;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlList;
 import javax.xml.bind.annotation.XmlType;
-
-import org.dam2.json.Empleado;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,9 +22,11 @@ import lombok.NoArgsConstructor;
 @XmlAccessorType(XmlAccessType.FIELD) // Permite poner las anotaciones en lo atributos
 public class Persona {
 	
+	@EqualsAndHashCode.Include
 	private String nombre;
 	private float altura;
 	private float peso;
+	@XmlList
 	private List<String> pasatiempos;
 	private boolean soltero;
 	private Direccion direccion;

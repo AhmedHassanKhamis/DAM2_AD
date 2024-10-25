@@ -1,7 +1,5 @@
 package org.dam2.ejercicioJson1;
 
-import java.util.List;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
@@ -25,6 +23,4 @@ public class Direccion {
 	private String numero;
 	private String pais;
 	
-	
-
 }

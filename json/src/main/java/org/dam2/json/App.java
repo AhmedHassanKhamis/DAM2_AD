@@ -23,7 +23,6 @@ public class App
     {
     	
     	Gson gson;
-        String json;
         List<Empleado> empleados = new ArrayList<Empleado>();
         Empleado empleado = Empleado.builder()
         		.id("001")
