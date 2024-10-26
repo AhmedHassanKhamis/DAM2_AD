@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<pruebas>
+    <prueba>
+        <$id>1</$id>
+        <Nivel>Prueba de nivel - Para cursos segundo cuatrimestre</Nivel>
+        <Inicio_Imparticion>2015-01-09T00:00:00</Inicio_Imparticion>
+        <Horas>2</Horas>
+        <URL>https://sede.fg.ull.es/es/idioma/detalle/A15050163/aleman-prueba-de-nivel-para-cursos-segundo-cuatrimestre</URL>
+        <Profesorado>
+            <Profesor>
+                <$id>2</$id>
+                <Nombre_completo>Reinhard Dlugay</Nombre_completo>
+            </Profesor>
+        </Profesorado>
+    </prueba>
+    <prueba>
+        <$id>3</$id>
+        <Nivel>Prueba de nivel - Para cursos segundo cuatrimestre</Nivel>
+        <Inicio_Imparticion>2015-01-09T00:00:00</Inicio_Imparticion>
+        <Horas>2</Horas>
+        <URL>https://sede.fg.ull.es/es/idioma/detalle/A15050167/espa-ol-prueba-de-nivel-para-cursos-segundo-cuatrimestre</URL>
+        <Profesorado>
+            <Profesor>
+                <$id>4</$id>
+                <Nombre_completo>Beatriz Hernández Bravo</Nombre_completo>
+            </Profesor>
+        </Profesorado>
+    </prueba>
+    <prueba>
+        <$id>5</$id>
+        <Nivel>Prueba de nivel - Para cursos segundo cuatrimestre</Nivel>
+        <Inicio_Imparticion>2015-01-07T00:00:00</Inicio_Imparticion>
+        <Horas>1</Horas>
+        <URL>https://sede.fg.ull.es/es/idioma/detalle/A15050162/frances-prueba-de-nivel-para-cursos-segundo-cuatrimestre</URL>
+        <Profesorado>
+            <Profesor>
+                <$id>6</$id>
+                <Nombre_completo>Marie-Morgane Le Folgoc</Nombre_completo>
+            </Profesor>
+        </Profesorado>
+    </prueba>
+    <prueba>
+        <$id>7</$id>
+        <Nivel>Prueba de nivel - para cursos de Inglés para la Docencia y preparatorio de GESE Trinity</Nivel>
+        <Inicio_Imparticion>2015-02-10T00:00:00</Inicio_Imparticion>
+        <Horas>4</Horas>
+        <URL>https://sede.fg.ull.es/es/idioma/detalle/A15050182/ingles-prueba-de-nivel-para-cursos-de-ingles-para-la-docencia-y-preparatorio-de-gese-trinity</URL>
+        <Profesorado>
+            <Profesor>
+                <$id>8</$id>
+                <Nombre_completo>María Luisa Capón Mouriz</Nombre_completo>
+            </Profesor>
+        </Profesorado>
+    </prueba>
+    <prueba>
+        <$id>9</$id>
+        <Nivel>Prueba de nivel - Para cursos segundo cuatrimestre</Nivel>
+        <Inicio_Imparticion>2015-01-09T00:00:00</Inicio_Imparticion>
+        <Horas>3</Horas>
+        <URL>https://sede.fg.ull.es/es/idioma/detalle/A15050007/ingles-prueba-de-nivel-para-cursos-segundo-cuatrimestre</URL>
+        <Profesorado>
+            <Profesor>
+                <$id>10</$id>
+                <Nombre_completo>María Luisa Capón Mouriz</Nombre_completo>
+            </Profesor>
+            <Profesor>
+                <$id>11</$id>
+                <Nombre_completo>Richard James Murison</Nombre_completo>
+            </Profesor>
+            <Profesor>
+                <$id>12</$id>
+                <Nombre_completo>María Isabel Rodríguez Rodríguez</Nombre_completo>
+            </Profesor>
+            <Profesor>
+                <$id>13</$id>
+                <Nombre_completo>Beatriz Freire Betancor</Nombre_completo>
+            </Profesor>
+            <Profesor>
+                <$id>14</$id>
+                <Nombre_completo>Peggy Gerd Henriksson Carlsson</Nombre_completo>
+            </Profesor>
+            <Profesor>
+                <$id>15</$id>
+                <Nombre_completo>Eva Miriam Amaral Ribeiro Sampaio de Andrade</Nombre_completo>
+            </Profesor>
+            <Profesor>
+                <$id>16</$id>
+                <Nombre_completo>Marta María González Orta</Nombre_completo>
+            </Profesor>
+        </Profesorado>
+    </prueba>
+    <prueba>
+        <$id>17</$id>
+        <Nivel>Prueba de nivel - Para preparatorios del FCE/CAE/CPE/IELTS</Nivel>
+        <Inicio_Imparticion>2015-01-12T00:00:00</Inicio_Imparticion>
+        <Horas>1</Horas>
+        <URL>https://sede.fg.ull.es/es/idioma/detalle/A15050166/ingles-prueba-de-nivel-para-preparatorios-del-fce-cae-cpe-ielts</URL>
+        <Profesorado>
+            <Profesor>
+                <$id>18</$id>
+                <Nombre_completo>Clive Tyrell</Nombre_completo>
+            </Profesor>
+        </Profesorado>
+    </prueba>
+    <prueba>
+        <$id>19</$id>
+        <Nivel>Prueba de nivel - Para cursos segundo cuatrimestre</Nivel>
+        <Inicio_Imparticion>2015-01-12T00:00:00</Inicio_Imparticion>
+        <Horas>2</Horas>
+        <URL>https://sede.fg.ull.es/es/idioma/detalle/A15050164/italiano-prueba-de-nivel-para-cursos-segundo-cuatrimestre</URL>
+        <Profesorado>
+            <Profesor>
+                <$id>20</$id>
+                <Nombre_completo>Nicola Cataldo</Nombre_completo>
+            </Profesor>
+        </Profesorado>
+    </prueba>
+</pruebas>

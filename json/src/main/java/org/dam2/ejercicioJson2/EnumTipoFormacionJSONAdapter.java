@@ -1,33 +1,27 @@
 package org.dam2.ejercicioJson2;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
+
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
-public class LocalDateTimeJSONAdapter extends TypeAdapter<LocalDateTime>{
+public class EnumTipoFormacionJSONAdapter extends TypeAdapter<TipoFormacion>{
 
 	@Override
-	public void write(JsonWriter out, LocalDateTime value) throws IOException {
+	public void write(JsonWriter out, TipoFormacion value) throws IOException {
 		// TODO Auto-generated method stub
-		if (value != null)
+		if(value != null)
 			out.value(value.toString());
 		else
 			out.nullValue();
 		
-		
 	}
 
 	@Override
-	public LocalDateTime read(JsonReader in) throws IOException {
+	public TipoFormacion read(JsonReader in) throws IOException {
 		// TODO Auto-generated method stub
-		return LocalDateTime.parse(in.nextString());
+		return TipoFormacion.crearTipoFormacion(in.nextString());
 	}
-
-
-
-
-	
 
 }

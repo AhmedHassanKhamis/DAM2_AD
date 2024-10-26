@@ -1,11 +1,12 @@
 package org.dam2.ejercicioJson2;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,11 +18,12 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(onlyExplicitlyIncluded =  true)	
-@XmlType (propOrder = { "profesores"}) // orden en el xml, sino es alfabético
+@EqualsAndHashCode(onlyExplicitlyIncluded =  true)
+@XmlRootElement(name = "pruebas")
 @XmlAccessorType(XmlAccessType.FIELD) // Permite poner las anotaciones en lo atributos
-public class Profesorado {
+public class PruebasDeNivelWrapper {
 	
-	@XmlElement(name="Profesor")
-	private List<Profesor> profesores;
+	@XmlElement(name = "prueba")
+	private List<PruebaDeNivel> pruebas;
+
 }
