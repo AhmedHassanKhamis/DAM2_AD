@@ -130,3 +130,14 @@ mostrar actores que han hecho peliculas posteriores al 2003
 
 
 
+
+################# cosas pendientes #################
+sacar la escritura del tipo fuera en el ejercicio de refuerzo2 los datos que son comunes entre deportistas
+super.escribirDeportista(out)
+
+
+tengo que hacer que al leer los datos se lea el objeto a si mismo, dicho de otra manera no tener de declarar las variables de nuevo y castear el objeto
+
+
+
+hacer que la app main se crea el objecto y se llame a si misma

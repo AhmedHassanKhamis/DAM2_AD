@@ -13,6 +13,7 @@ public abstract class Deportista {
 	
 	
 	public Deportista() {
+		this ("","",LocalDate.now());
 	}
 	
 	
@@ -20,7 +21,7 @@ public abstract class Deportista {
 		super();
 		this.dni = dni;
 		this.nombre = nombre;
-		this.fechaNacimiento = fechaNacimiento;
+		setFechaNacimiento (fechaNacimiento);
 	}
 	
 	
@@ -40,7 +41,8 @@ public abstract class Deportista {
 		return fechaNacimiento;
 	}
 	public void setFechaNacimiento(LocalDate fechaNacimiento) {
-		this.fechaNacimiento = fechaNacimiento;
+		if (fechaNacimiento   != null &&  fechaNacimiento.isBefore(LocalDate.now().minusYears(15)))
+			this.fechaNacimiento = fechaNacimiento;
 	}
 	
 	@Override
