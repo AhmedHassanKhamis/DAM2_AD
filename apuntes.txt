@@ -132,12 +132,14 @@ mostrar actores que han hecho peliculas posteriores al 2003
 
 
 ################# cosas pendientes #################
-sacar la escritura del tipo fuera en el ejercicio de refuerzo2 los datos que son comunes entre deportistas
+sacar la escritura del tipo fuera en el ejercicio de refuerzo2 los datos que son comunes entre deportistas(LISTO)
 super.escribirDeportista(out)
 
 
 tengo que hacer que al leer los datos se lea el objeto a si mismo, dicho de otra manera no tener de declarar las variables de nuevo y castear el objeto
+(preguntar como saco el codigo repetido del if en caso de lectura de distinto caracter)
 
 
 
-hacer que la app main se crea el objecto y se llame a si misma
+
+hacer que la app main se crea el objecto y se llame a si misma (LISTO)

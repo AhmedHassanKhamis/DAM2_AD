@@ -15,52 +15,55 @@ import java.util.TreeMap;
 import daw.com.Teclado;
 
 public class App {
+	private TreeMap<String, Deportista> deportistas;
+
+	public App() {
+		this.deportistas = new TreeMap<String, Deportista>();
+	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		LocalDateTime inicio = LocalDateTime.now();
-		
-		TreeMap<String, Deportista> deportistas = cargarDeportistas();
-		ejecutar(deportistas);
-		Duration duracion = Duration.between(inicio, LocalDateTime.now());
-		System.out.println("Tiempo utilizado:"+duracion.toHours()+":"+duracion.toMinutes()+":"+duracion.toSeconds());
-		
-		
-	}
-	
+		App app = new App();
+		app.cargarDeportistas();
+		app.ejecutar();
 
-	public static void ejecutar(TreeMap<String, Deportista> deportistas) {
+		Duration duracion = Duration.between(inicio, LocalDateTime.now());
+		System.out.println(
+				"Tiempo utilizado:" + duracion.toHours() + ":" + duracion.toMinutes() + ":" + duracion.toSeconds());
+
+	}
+
+	private void ejecutar() {
 		int opcion;
 		do {
-			
 			opcion = menu();
 			switch (opcion) {
 			case 0:
-				mostrarDeportistas(deportistas);
+				mostrarDeportistas();
 				break;
 			case 1:
-				altaDeportista(deportistas);
+				altaDeportista();
 				break;
 			case 2:
-				bajaDeportista(deportistas);
+				bajaDeportista();
 				break;
 			case 3:
-				edicionDeportista(deportistas);
+				edicionDeportista();
 				break;
 			case 4:
-				listarPorTipo(deportistas);
+				listarPorTipo();
 				break;
 			case 5:
-				finalizar(deportistas);
+				finalizar();
 				break;
 			}
 		} while (opcion != 5);
 	}
 
-	
-	private static TreeMap<String, Deportista> cargarDeportistas() {
+	private void cargarDeportistas() {
 		// TODO Auto-generated method stub
-		TreeMap<String,Deportista> deportistas = new TreeMap<String, Deportista>();
+		TreeMap<String, Deportista> deportistas = new TreeMap<String, Deportista>();
 		File fichero = new File("deportistas.dat");
 		if (fichero.exists()) {
 			ObjectInputStream in = null;
@@ -68,18 +71,18 @@ public class App {
 				in = new ObjectInputStream(new FileInputStream(fichero));
 				int cantidad = in.readInt();
 				if (cantidad > 0) {
-				for (int i = 0; i < cantidad; i++) {
-					if (in.readChar() == 'A') {
-						Atleta deportista = new Atleta();
-						deportista = (Atleta) deportista.leerDeportista(in);
-						deportistas.put(deportista.getDni(), deportista);
-					} else {
-						Ciclista deportista  = new Ciclista();
-						deportista = (Ciclista) deportista.leerDeportista(in);
-						deportistas.put(deportista.getDni(), deportista);
+					for (int i = 0; i < cantidad; i++) {
+						if (in.readChar() == 'A') {
+							Atleta deportista = new Atleta();
+							deportista.leerDeportista(in);
+							deportistas.put(deportista.getDni(), deportista);
+						} else {
+							Ciclista deportista = new Ciclista();
+							deportista.leerDeportista(in);
+							deportistas.put(deportista.getDni(), deportista);
+						}
 					}
-				}
-				}else {
+				} else {
 					System.out.println("no existen deportistas al momento!");
 				}
 			} catch (IOException e) {
@@ -94,22 +97,29 @@ public class App {
 					}
 				}
 			}
-			
-		}else {
+
+		} else {
 			deportistas = new TreeMap<String, Deportista>();
 		}
-		return deportistas;
-		
+		this.deportistas = deportistas;
+
 	}
 
-
-	private static void finalizar(TreeMap<String, Deportista> deportistas) {
+	private void finalizar() {
 		// TODO Auto-generated method stub
 		File fichero = new File("deportistas.dat");
 		try {
-			final ObjectOutputStream  out = new ObjectOutputStream(new FileOutputStream(fichero));
+			final ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(fichero));
 			out.writeInt(deportistas.size());
-			deportistas.entrySet().stream().forEach(d -> d.getValue().escribirDeportista(out));
+//			deportistas.entrySet().stream().forEach(d -> d.getValue().escribirDeportista(out));
+			for (Deportista deportista : deportistas.values()) {
+				if (deportista instanceof Atleta) {
+					out.writeChar('A');
+				} else {
+					out.writeChar('C');
+				}
+				deportista.escribirDeportista(out);
+			}
 			if (out != null) {
 				try {
 					out.close();
@@ -123,101 +133,102 @@ public class App {
 		System.out.println("adios!!");
 	}
 
-
-	private static void listarPorTipo(TreeMap<String, Deportista> deportistas) {
+	private void listarPorTipo() {
 		// TODO Auto-generated method stub
 		String tipo = Teclado.leerString("Introduce el tipo a listar, Atleta o Ciclista?(A/C)");
-		if(tipo.equalsIgnoreCase("A"))
-			deportistas.entrySet().stream().filter(d -> d.getValue() instanceof Atleta).sorted((d1, d2) -> d1.getValue().getNombre().compareTo(d2.getValue().getNombre())).forEach(System.out::println);
+		if (tipo.equalsIgnoreCase("A"))
+			deportistas.entrySet().stream().filter(d -> d.getValue() instanceof Atleta)
+					.sorted((d1, d2) -> d1.getValue().getNombre().compareTo(d2.getValue().getNombre()))
+					.forEach(System.out::println);
 		else if (tipo.equalsIgnoreCase("C"))
-			deportistas.entrySet().stream().filter(d -> d.getValue() instanceof Ciclista).sorted((d1, d2) -> d1.getValue().getNombre().compareTo(d2.getValue().getNombre())).forEach(System.out::println);
+			deportistas.entrySet().stream().filter(d -> d.getValue() instanceof Ciclista)
+					.sorted((d1, d2) -> d1.getValue().getNombre().compareTo(d2.getValue().getNombre()))
+					.forEach(System.out::println);
 		else
 			System.out.println("no se reconoce el tipo de deportista introducido");
 	}
 
-	
-	//####################################################################################################
+	// ####################################################################################################
 //		SE TIENE QUE HACER EL CONTROL DE DATOS INTRODUCIDOS
-	//####################################################################################################
-	private static void edicionDeportista(TreeMap<String, Deportista> deportistas) {
+	// ####################################################################################################
+	private void edicionDeportista() {
 		// TODO Auto-generated method stub
 		String dni = Teclado.leerString("Introduce el dni del deportista");
-		if(deportistas.containsKey(dni)) {
+		if (deportistas.containsKey(dni)) {
 			String nombre = Teclado.leerString("nombre:");
 			LocalDate fechaNacimiento = LocalDate.parse(Teclado.leerString("fecha nacimiento:(AAAA-MM-DD)"));
 			String tipo = Teclado.leerString("Es Atleta o Ciclista?(A/C)");
-			if(tipo.equalsIgnoreCase("A")) {
+			if (tipo.equalsIgnoreCase("A")) {
 				String lugarPrueba = Teclado.leerString("lugar prueba:");
 				float metros = Teclado.leerFloat("metros recorridos:");
 				LocalTime marca = LocalTime.parse(Teclado.leerString("marca:(HH:MM:SS)"));
 				deportistas.put(dni, new Atleta(dni, nombre, fechaNacimiento, lugarPrueba, metros, marca));
 				System.out.println("modificado con exito!");
-			}else if(tipo.equalsIgnoreCase("C")) {
+			} else if (tipo.equalsIgnoreCase("C")) {
 				String nombrePrueba = Teclado.leerString("nombre prueba:");
 				int numeroEtapas = Teclado.leerInt("etapas:");
 				int puesto = Teclado.leerInt("puesto:");
 				int etapasGanadas = Teclado.leerInt("etapas ganadas:");
-				deportistas.put(dni, new Ciclista(dni, nombre, fechaNacimiento, nombrePrueba, numeroEtapas, puesto, etapasGanadas));
+				deportistas.put(dni,
+						new Ciclista(dni, nombre, fechaNacimiento, nombrePrueba, numeroEtapas, puesto, etapasGanadas));
 				System.out.println("modificado con exito!");
-			}else {
+			} else {
 				System.out.println("no se reconoce el tipo de deportista introducido");
 			}
-		}else {
+		} else {
 			System.out.println("el dni introducido no existe!");
-		}	
+		}
 	}
 
-
-	private static void bajaDeportista(TreeMap<String, Deportista> deportistas) {
+	private void bajaDeportista() {
 		// TODO Auto-generated method stub
 		String dni = Teclado.leerString("Introduce el dni del deportista");
-		if(deportistas.containsKey(dni)) {
+		if (deportistas.containsKey(dni)) {
 			deportistas.remove(dni);
 			System.out.println("Deportista eliminado con exito!");
-		}else {
+		} else {
 			System.out.println("el dni introducido no existe!");
-		}	
+		}
 	}
-	
+
 //####################################################################################################
 //	SE TIENE QUE HACER EL CONTROL DE DATOS INTRODUCIDOS
 //####################################################################################################
-	private static void altaDeportista(TreeMap<String, Deportista> deportistas) {
+	private void altaDeportista() {
 		// TODO Auto-generated method stub
 		String dni = Teclado.leerString("Introduce el dni del deportista");
-		if(!deportistas.containsKey(dni)) {
+		if (!deportistas.containsKey(dni)) {
 			String nombre = Teclado.leerString("nombre:");
 			LocalDate fechaNacimiento = LocalDate.parse(Teclado.leerString("fecha nacimiento:(AAAA-MM-DD)"));
 			String tipo = Teclado.leerString("Es Atleta o Ciclista?(A/C)");
-			if(tipo.equalsIgnoreCase("A")) {
+			if (tipo.equalsIgnoreCase("A")) {
 				String lugarPrueba = Teclado.leerString("lugar prueba:");
 				float metros = Teclado.leerFloat("metros recorridos:");
 				LocalTime marca = LocalTime.parse(Teclado.leerString("marca:(HH:MM:SS)"));
 				deportistas.put(dni, new Atleta(dni, nombre, fechaNacimiento, lugarPrueba, metros, marca));
 				System.out.println("agregado con exito!");
-			}else if(tipo.equalsIgnoreCase("C")) {
+			} else if (tipo.equalsIgnoreCase("C")) {
 				String nombrePrueba = Teclado.leerString("nombre prueba:");
 				int numeroEtapas = Teclado.leerInt("etapas:");
 				int puesto = Teclado.leerInt("puesto:");
 				int etapasGanadas = Teclado.leerInt("etapas ganadas:");
-				deportistas.put(dni, new Ciclista(dni, nombre, fechaNacimiento, nombrePrueba, numeroEtapas, puesto, etapasGanadas));
+				deportistas.put(dni,
+						new Ciclista(dni, nombre, fechaNacimiento, nombrePrueba, numeroEtapas, puesto, etapasGanadas));
 				System.out.println("agregado con exito!");
-			}else {
+			} else {
 				System.out.println("no se reconoce el tipo de deportista introducido");
 			}
-		}else {
+		} else {
 			System.out.println("el dni introducido ya existe!");
-		}	
+		}
 	}
 
-
-	private static void mostrarDeportistas(TreeMap<String, Deportista> deportistas) {
+	private void mostrarDeportistas() {
 		// TODO Auto-generated method stub
 		deportistas.entrySet().stream().forEach(System.out::println);
 	}
 
-
-	public static int menu() {
+	private int menu() {
 		int opcion;
 		do {
 			System.out.println("---------MENU--------");

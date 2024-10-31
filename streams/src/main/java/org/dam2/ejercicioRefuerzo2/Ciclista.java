@@ -79,10 +79,8 @@ public class Ciclista extends Deportista{
 	public void escribirDeportista (ObjectOutputStream out) {
 		// TODO Auto-generated method stub
 		try {
-			out.writeChar('C');
-			out.writeUTF(getDni());
-			out.writeUTF(getNombre());
-			out.writeUTF(getFechaNacimiento().toString());
+//			out.writeChar('C');
+			super.escribirDeportista(out);
 			out.writeUTF(nombrePrueba);
 			out.writeInt(numeroEtapas);
 			out.writeInt(puesto);
@@ -96,15 +94,9 @@ public class Ciclista extends Deportista{
 
 
 	@Override
-	public Deportista leerDeportista(ObjectInputStream in) {
-		// TODO Auto-generated method stub
-		String dni = null, nombre = null, nombrePrueba = null;
-		LocalDate fechaNacimiento = null;
-		int numeroEtapas = 0,puesto = 0,etapasGanadas = 0;
+	public void leerDeportista(ObjectInputStream in) {
 		try {
-			dni = in.readUTF();
-			nombre = in.readUTF();
-			fechaNacimiento = LocalDate.parse(in.readUTF());
+			super.leerDeportista(in);
 			nombrePrueba = in.readUTF();
 			numeroEtapas = in.readInt();
 			puesto = in.readInt();
@@ -113,7 +105,6 @@ public class Ciclista extends Deportista{
 			// TODO: handle exception
 			System.out.println(e);
 		}
-		return new Ciclista(dni, nombre, fechaNacimiento, nombrePrueba, numeroEtapas, puesto, etapasGanadas);
 	}
 	
 	

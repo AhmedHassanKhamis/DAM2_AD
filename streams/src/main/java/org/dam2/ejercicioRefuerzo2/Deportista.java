@@ -50,9 +50,26 @@ public abstract class Deportista {
 		return "Deportista [dni=" + dni + ", nombre=" + nombre + ", fechaNacimiento=" + fechaNacimiento + "]";
 	}
 	
-	abstract public void escribirDeportista(ObjectOutputStream out);
+	public void escribirDeportista(ObjectOutputStream out) {
+		try {
+			out.writeUTF(getDni());
+			out.writeUTF(getNombre());
+			out.writeUTF(getFechaNacimiento().toString());	
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	};
 	
-	abstract public Deportista leerDeportista(ObjectInputStream in);
+	public void leerDeportista(ObjectInputStream in) {
+		try {
+			setDni(in.readUTF());
+			setNombre(in.readUTF());
+			setFechaNacimiento(LocalDate.parse(in.readUTF()));
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	
+	};
 
 
 	@Override
