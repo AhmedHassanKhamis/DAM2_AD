@@ -1,0 +1,84 @@
+####################################################
+                        OPENCSV
+####################################################
+	@CsvBindByPosition(position = 0)
+	@CsvDate("yyyy-MM-dd")
+	@CsvCustomBindByPosition(position=8,converter = OptionalToText.class)
+
+StatefulBeanToCsvBuilder
+CSVParserBuilder
+CSVReaderBuilder
+
+
+
+
+
+
+
+@CsvBindAndSplitByPosition(position = 3, 
+								elementType= Emple.class, // tipo de elemento de la colección
+								splitOn = ";", // separador de empleados
+								converter = CSVToEmple.class // Clase convertidora
+								,writeDelimiter = ";")
+
+PARA LAS CLASES ADAPTADORAS DE DATOS NO SIMPLES
+public class BooleanToText extends AbstractBeanField<String, Boolean>{
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+PARA LA CLASE QUE VA A DESENCADENAR LA ESCRITURA DE COLECCIONES. POR EJEMPLO ESCRIBIR/LEER UNA LISTA 
+
+public class NOMBRE extends AbstractCsvConverter {
+
+	@Override
+	public Object convertToRead(String value) throws CsvDataTypeMismatchException, CsvConstraintViolationException {
+		// TODO Auto-generated method stub
+		StringReader stringReader = new StringReader(value);
+
+		
+		CSVParser icsvParser = new CSVParserBuilder().
+							withSeparator(':'). // campos del empleado separados por :
+							build();
+		
+		// Crear reader a partir de String
+		CSVReader csvReader = new CSVReaderBuilder(stringReader).
+							withCSVParser(icsvParser).
+							build();
+		
+        return new CsvToBeanBuilder<Emple>(csvReader).
+                                withType(OBJETO.class).
+                                build().
+                                stream().
+                                findFirst().
+                                orElseGet(OBJETO::new);// devolver el OBJETO leído o vacío
+                                
+	}
+	
+	@Override
+	public String convertToWrite(Object value) throws CsvDataTypeMismatchException
+	{
+		Writer writer = new StringWriter();
+		try {
+		     StatefulBeanToCsv beanToCsv = new StatefulBeanToCsvBuilder(writer).
+		    		 withSeparator(':'). // separador de campos
+		    		 withApplyQuotesToAll(false).// no poner comillas
+		    		 withLineEnd("").//separador de elementos
+		    		 build();
+		     beanToCsv.write(List.of(value));
+		     //System.out.println(writer.toString());
+		} catch (CsvDataTypeMismatchException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (CsvRequiredFieldEmptyException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return writer.toString();
+	}
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
