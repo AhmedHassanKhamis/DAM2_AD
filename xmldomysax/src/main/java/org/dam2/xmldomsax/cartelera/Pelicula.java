@@ -1,4 +1,4 @@
-package dam2.org.xmldomsax.cartelera;
+package org.dam2.xmldomsax.cartelera;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

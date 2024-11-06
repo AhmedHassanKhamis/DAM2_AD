@@ -58,23 +58,15 @@ public class App {
 
 	public static void escribirPruebasDeNivelXml(List<PruebaDeNivel> pruebas) {
 
-		JAXBContext context;
-		Marshaller ms;
 		
 		PruebasDeNivelWrapper lista = new PruebasDeNivelWrapper(pruebas);
-
-//		Tiempo tiempo = new Tiempo();
-//		Controlador<Tiempo> controlador = new ControladorTiempoConsola();
-//		controlador.leerDatos(tiempo);
-
 		// Escribir XML
-		
 		try {
 
 			// Crear contexto
-			context = JAXBContext.newInstance(PruebasDeNivelWrapper.class);
+			JAXBContext context = JAXBContext.newInstance(PruebasDeNivelWrapper.class);
 			// Crear marshaller, objeto que se encarga de escribir el XML
-			ms = context.createMarshaller();
+			Marshaller ms = context.createMarshaller();
 
 			ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 			ms.marshal(lista, System.out);

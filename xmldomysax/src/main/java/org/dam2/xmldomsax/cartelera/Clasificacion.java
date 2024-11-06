@@ -1,4 +1,4 @@
-package dam2.org.xmldomsax.cartelera;
+package org.dam2.xmldomsax.cartelera;
 
 
 import javax.xml.bind.annotation.XmlAccessType;
