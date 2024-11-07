@@ -21,14 +21,14 @@ import lombok.NoArgsConstructor;
 public class Corredor {
 	
 	@EqualsAndHashCode.Include
-	@CsvBindByPosition(position = 1)
+	@CsvBindByPosition(position = 0)
 	private String dni;
-	@CsvBindByPosition(position = 2)
+	@CsvBindByPosition(position = 1)
 	private String nombre;
-	@CsvBindByPosition(position = 3)
+	@CsvBindByPosition(position = 2)
 	@CsvDate("yyyy-MM-dd")
 	private LocalDate fechaNacimiento;
-	@CsvCustomBindByPosition(position=4,
+	@CsvCustomBindByPosition(position=3,
 			converter = BooleanAdapter.class)
 			// extends AbstractBeanField<String, ElementoAAdaptar>
 	private boolean profesional;

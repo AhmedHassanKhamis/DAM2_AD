@@ -21,11 +21,10 @@ public class CSVToCorredor extends AbstractCsvConverter {
 	@Override
 	public Object convertToRead(String value) throws CsvDataTypeMismatchException, CsvConstraintViolationException {
 		StringReader stringReader = new StringReader(value);
-		CSVParser icsvParser = new CSVParserBuilder().withSeparator(':').build();
+		CSVParser icsvParser = new CSVParserBuilder().withSeparator('/').build();
 		CSVReader csvReader = new CSVReaderBuilder(stringReader).withCSVParser(icsvParser).build();
-		List<Corredor> arrayList = new CsvToBeanBuilder<Corredor>(csvReader).withType(Corredor.class).build().parse();
-
-		return arrayList;
+		return new CsvToBeanBuilder<Corredor>(csvReader).withType(Corredor.class).build().stream().findFirst().orElseGet(Corredor::new);
+		 
 	}
 
 	@Override
@@ -34,8 +33,9 @@ public class CSVToCorredor extends AbstractCsvConverter {
 		Writer writer = new  StringWriter(); 
 		try {
 			StatefulBeanToCsv beanToCsv = new StatefulBeanToCsvBuilder(writer).
-					withSeparator(':').
+					withSeparator('/').
 					withApplyQuotesToAll(false).
+					withLineEnd("").
 					build();
 					beanToCsv.write(List.of(value));
 		} catch (Exception e) {

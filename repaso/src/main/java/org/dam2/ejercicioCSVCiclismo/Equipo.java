@@ -20,15 +20,15 @@ import lombok.NoArgsConstructor;
 public class Equipo {
 
 	@EqualsAndHashCode.Include
-	@CsvBindByPosition(position = 1) 
+	@CsvBindByPosition(position = 0) 
 	private String nombre;
-	@CsvBindByPosition(position = 2) 
+	@CsvBindByPosition(position = 1) 
 	private String nombrePatrocinador;
-	@CsvBindByPosition(position = 3) 
+	@CsvBindByPosition(position = 2) 
 	private String nacionalidad;
-	@CsvBindByPosition(position = 4) 
+	@CsvBindByPosition(position = 3) 
 	private float donacion;
-	@CsvBindAndSplitByPosition(position = 6,
+	@CsvBindAndSplitByPosition(position = 4,
 			elementType= Corredor.class, // tipo de elemento de la colección
 			splitOn = ";", // separador de elementos
 			converter = CSVToCorredor.class, // Clase convertidora extends AbstractCsvConverter
@@ -42,6 +42,12 @@ public class Equipo {
 		this.corredores = new ArrayList<Corredor>();
 	}
 	
+	
+	public boolean addCorredor(Corredor corredor) {
+		if(corredores == null)
+			corredores = new ArrayList<Corredor>();
+		return corredores.add(corredor);
+	}
 
 	
 }

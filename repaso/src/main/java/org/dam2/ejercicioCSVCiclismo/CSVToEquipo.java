@@ -23,8 +23,8 @@ public class CSVToEquipo extends AbstractCsvConverter {
 		StringReader stringReader = new StringReader(value);
 		CSVParser icsvParser = new CSVParserBuilder().withSeparator(':').build();
 		CSVReader csvReader = new CSVReaderBuilder(stringReader).withCSVParser(icsvParser).build();
-		List<Equipo> arrayList = new CsvToBeanBuilder<Equipo>(csvReader).withType(Equipo.class).build().parse();
-		return arrayList;
+		return  new CsvToBeanBuilder<Equipo>(csvReader).withType(Equipo.class).build().stream().findFirst().orElseGet(Equipo::new);
+		
 	}
 
 	@Override
@@ -36,6 +36,7 @@ public class CSVToEquipo extends AbstractCsvConverter {
 			StatefulBeanToCsv beanToCsv = new StatefulBeanToCsvBuilder(writer).
 					withSeparator(':').
 					withApplyQuotesToAll(false).
+					withLineEnd("").
 					build();
 					beanToCsv.write(List.of(value));
 		} catch (Exception e) {
