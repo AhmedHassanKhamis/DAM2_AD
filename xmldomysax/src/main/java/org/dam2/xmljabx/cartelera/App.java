@@ -1,4 +1,4 @@
-package org.dam2.xmljabx;
+package org.dam2.xmljabx.cartelera;
 
 public class App {
 

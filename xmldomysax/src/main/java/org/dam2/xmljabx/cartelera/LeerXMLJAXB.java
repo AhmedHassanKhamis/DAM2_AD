@@ -1,4 +1,4 @@
-package org.dam2.xmljabx;
+package org.dam2.xmljabx.cartelera;
 import java.io.File;
 import java.time.LocalDate;
 import java.util.List;
@@ -18,7 +18,7 @@ public class LeerXMLJAXB {
 			Marshaller ms;
 			JAXBContext context = JAXBContext.newInstance(CarteleraWrapper.class);
 			Unmarshaller ums = context.createUnmarshaller();
-			CarteleraWrapper peliculas =  (CarteleraWrapper) ums.unmarshal(new File("Peliculas1.xml"));
+			CarteleraWrapper peliculas =  (CarteleraWrapper) ums.unmarshal(new File("Cartelera.xml"));
 			for(Pelicula pelicula : peliculas.getPeliculas()) {
 				System.out.println(pelicula.toString());
 			}

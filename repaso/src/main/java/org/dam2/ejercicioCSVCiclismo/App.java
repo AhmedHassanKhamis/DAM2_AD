@@ -20,7 +20,7 @@ public class App {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		List<Vuelta> vueltas = leerCsv();
-		
+
 //		
 //		Corredor corredor1 = Corredor
 //				.builder()
@@ -221,95 +221,76 @@ public class App {
 //		vueltas.add(vuelta1);
 //		vueltas.add(vuelta2);
 //		
-		
-		
-		
-		
+
 //		System.out.println(vueltas);
 //		vueltas.stream().forEach(System.out::println);
 //		escribirCsv(vueltas);
-		
-		
+
 //		1-Listado del nombre, año y director de todas las vueltas con más de 10 etapas., ordenado por año en
 //		sentido creciente (de menor a mayor) (1 punto)
-		
+
 //		vueltas.stream().filter(vuelta -> vuelta.getNumeroEtapas() > 10).sorted((v1,v2)-> v1.getAnio() - v2.getAnio()).map(vuelta -> vuelta.getNombre() + "->" + vuelta.getAnio() + "->" + vuelta.getDirector()).forEach(System.out::println);
-		
+
 //		2-Listado del nombre de todos los corredores que participen en vueltas ciclistas con un premio
 //		superior a 30000 euros.
-		
+
 //		vueltas.stream().filter(vuelta -> vuelta.getPremio() > 3000).flatMap(vuelta -> vuelta.getEquipos().stream()).flatMap(equipo -> equipo.getCorredores().stream()).map(corredor -> corredor.getNombre()).forEach(System.out::println);
-		
+
 //		3-Listado de todos equipos con corredores profesionales menores de edad.
-		
+
 //		vueltas.stream().flatMap(vuelta -> vuelta.getEquipos().stream()).filter(equipo -> equipo.getCorredores().stream().anyMatch(corredor -> corredor.getFechaNacimiento().isAfter(LocalDate.now().minusYears(18)))).filter(equipo -> equipo.getCorredores().stream().anyMatch(corredor -> corredor.isProfesional())).forEach(System.out::println);
-		
+
 //		4-Listado del director de las vueltas que tengan patrocinadores de nacionalidad “española” desde
 //		2010 a 2020 ambos incluidos.
-		
+
 //		vueltas.stream().filter(vuelta -> vuelta.getAnio() <= 2020 ).filter(vuelta -> vuelta.getAnio() >= 2010).filter(vuelta -> vuelta.getEquipos().stream().anyMatch(equipo -> equipo.getNacionalidad().equalsIgnoreCase("España"))).map(Vuelta::getDirector).forEach(System.out::println);;
-		
+
 //		5-Listado del nombre y dni de los corredores mayores de edad por nombre de vuelta ciclista. Es decir
 //		para cada nombre de vuelta ciclista mostrar el nombre y el dni de sus corredores mayores de edad.
-		
-		vueltas.stream().collect(Collectors.groupingBy(Vuelta::getNombre,Collectors.flatMapping(Vuelta::getEquipos, Collectors.flatMapping(Equipo::getCorredores,Collectors))));
 
-		
+//		vueltas.stream().collect(Collectors.groupingBy(Vuelta::getNombre,
+//				Collectors.flatMapping(Vuelta::getEquipos, Collectors.flatMapping(Equipo::getCorredores, Collectors))));
+
 		vueltas.stream()
-			.collect(Collectors.groupingBy(
-				Vuelta::getNombre,
-				Collectors.flatMapping(
-					vuelta -> vuelta.getEquipos().stream()
-						.flatMap(equipo -> equipo.getCorredores().stream())
-						.filter(corredor -> corredor.getFechaNacimiento().isBefore(LocalDate.now().minusYears(18))),
-					Collectors.mapping(
-						corredor -> corredor.getNombre() + " -> " + corredor.getDni(),
-						Collectors.toList()
-					)
-				)
-			))
-			.forEach((nombreVuelta, corredores) -> {
-				System.out.println(nombreVuelta + ": " + corredores);
-			});
-		
-		
-		
+				.collect(Collectors.groupingBy(Vuelta::getNombre, Collectors.flatMapping(
+						vuelta -> vuelta.getEquipos().stream().flatMap(equipo -> equipo.getCorredores().stream())
+								.filter(corredor -> corredor.getFechaNacimiento()
+										.isBefore(LocalDate.now().minusYears(18))),
+						Collectors.mapping(corredor -> corredor.getNombre() + " -> " + corredor.getDni(),
+								Collectors.toList()))))
+				.forEach((nombreVuelta, corredores) -> {
+					System.out.println(nombreVuelta + ": " + corredores);
+				});
 
 	}
-	
-	public static List<Vuelta> leerCsv(){
+
+	public static List<Vuelta> leerCsv() {
 		List<Vuelta> vueltas = new ArrayList<Vuelta>();
-		
+
 		try {
-			vueltas = new CsvToBeanBuilder(new FileReader("vueltas.csv"))
-		 .withType(Vuelta.class)
-		 .build()
-		 .parse();// stream()
+			vueltas = new CsvToBeanBuilder(new FileReader("vueltas.csv")).withType(Vuelta.class).build().parse();// stream()
 
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println(e);
 		}
-		
+
 		return vueltas;
 	}
-	
+
 	public static void escribirCsv(List<Vuelta> vueltas) {
 
 		try {
 			Writer writer = new FileWriter("vueltas.csv");
-			StatefulBeanToCsv beanToCsv = new StatefulBeanToCsvBuilder(writer)
-					.withSeparator(',')
-					.withApplyQuotesToAll(false)
-					.build();
+			StatefulBeanToCsv beanToCsv = new StatefulBeanToCsvBuilder(writer).withSeparator(',')
+					.withApplyQuotesToAll(false).build();
 			beanToCsv.write(vueltas);
 			writer.close();
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println(e);
 		}
-		
-		
+
 	}
 
 }

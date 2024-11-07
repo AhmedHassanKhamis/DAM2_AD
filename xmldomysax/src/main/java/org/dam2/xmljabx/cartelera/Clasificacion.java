@@ -1,4 +1,4 @@
-package org.dam2.xmljabx;
+package org.dam2.xmljabx.cartelera;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

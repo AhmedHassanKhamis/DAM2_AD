@@ -1,4 +1,4 @@
-package org.dam2.xmldomsax.cartelera;
+package org.dam2.xmldomsax.cartelera.miguel;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

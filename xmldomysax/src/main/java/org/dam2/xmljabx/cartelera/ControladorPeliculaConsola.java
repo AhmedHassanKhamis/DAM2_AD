@@ -1,4 +1,4 @@
-package org.dam2.xmljabx;
+package org.dam2.xmljabx.cartelera;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
