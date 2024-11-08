@@ -20,7 +20,7 @@ public class App {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		List<Vuelta> vueltas = leerCsv();
-
+		System.out.println(vueltas);
 //		
 //		Corredor corredor1 = Corredor
 //				.builder()
