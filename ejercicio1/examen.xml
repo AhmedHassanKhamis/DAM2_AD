@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Members>
+    <member name="Molecule Man">
+        <age>29</age>
+        <secretIdentity>Dan Jukes</secretIdentity>
+        <powers>Radiation blast</powers>
+    </member>
+    <member name="Madame Uppercut">
+        <age>39</age>
+        <secretIdentity>Jane Wilson</secretIdentity>
+        <powers>Million tonne punch Damage resistance Superhuman reflexes</powers>
+    </member>
+    <member name="Mikel">
+        <age>29</age>
+        <secretIdentity>Wild Teacher</secretIdentity>
+        <powers>Superhuman kwowing</powers>
+    </member>
+</Members>
