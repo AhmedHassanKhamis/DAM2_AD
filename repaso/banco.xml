@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<banco nombre="Banco Rico">
+	<cuentas>
+		<cuenta ncc="001">
+			<saldo>2500</saldo>
+			<!-- Personal, Empresa, OnLine -->
+			<tipo>Personal</tipo>
+			<cliente>
+				<dni>5555555H</dni>
+				<nombre>miguel</nombre>
+				<edad>20</edad>
+			</cliente>
+			<cliente>
+				<dni>6666666L</dni>
+				<nombre>pedro</nombre>
+				<edad>25</edad>
+			</cliente>
+			<cliente>
+				<dni>2222222K</dni>
+				<nombre>luis</nombre>
+				<edad>36</edad>
+			</cliente>
+		</cuenta>
+	</cuentas>
+</banco>

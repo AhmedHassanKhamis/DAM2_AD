@@ -57,15 +57,12 @@ public class App {
 	public static Tiempo LeerXml() {
 		Tiempo tiempo = null;
 		try {
-			Marshaller ms;
 			JAXBContext context = JAXBContext.newInstance(Tiempo.class);
 			Unmarshaller ums = context.createUnmarshaller();
-			tiempo = (Tiempo) ums.unmarshal(new File("sevilla.xml"));
-			context = JAXBContext.newInstance(Tiempo.class);
-						
+			tiempo = (Tiempo) ums.unmarshal(new File("sevilla.xml"));						
 			
 			// Crear marshaller, objeto que se encarga de escribir el XML
-			ms = context.createMarshaller();
+			Marshaller ms = context.createMarshaller();
 			ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 			System.out.println("pocho");
 
