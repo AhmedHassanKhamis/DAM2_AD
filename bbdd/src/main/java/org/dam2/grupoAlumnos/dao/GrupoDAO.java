@@ -1,10 +1,13 @@
-package org.dam2.grupoAlumnos;
+package org.dam2.grupoAlumnos.dao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
+import org.dam2.grupoAlumnos.modelo.Alumno;
+import org.dam2.grupoAlumnos.modelo.Grupo;
 
 public class GrupoDAO implements DAOInterface<Grupo, String>{
 
@@ -70,7 +73,7 @@ public class GrupoDAO implements DAOInterface<Grupo, String>{
 
 		
 		
-		return null;
+		return grupos;
 	}
 
 	@Override
@@ -80,6 +83,7 @@ public class GrupoDAO implements DAOInterface<Grupo, String>{
 		String sql = "DELETE FROM GRUPOS WHERE NOMBRE = ?";
 		try {
 			PreparedStatement pst = ConexionBBDD.conectar().prepareStatement(sql);
+			pst.setString(1, ov.getNombre());
 			afectados = pst.executeUpdate();
 						
 		} catch (Exception e) {
@@ -96,7 +100,7 @@ public class GrupoDAO implements DAOInterface<Grupo, String>{
 	public int save(Grupo ov) {
 		// TODO Auto-generated method stub
 		int afectados = 0;
-		String sql = "INSERT INTO GRUPOS VALUES(?,?,?,?)";
+		String sql = "INSERT INTO GRUPOS VALUES(?,?,?)";
 		try {
 			PreparedStatement pst = ConexionBBDD.conectar().prepareStatement(sql);
 			pst.setString(1, ov.getNombre());
@@ -118,12 +122,12 @@ public class GrupoDAO implements DAOInterface<Grupo, String>{
 	public int update(Grupo ov) {
 		// TODO Auto-generated method stub
 		int afectados =0;
-		String sql = "UPDATE GRUPOS SET NOMBRE= ?, TUTOR= ?, CURSO=?";
+		String sql = "UPDATE GRUPOS SET TUTOR= ?, CURSO=? WHERE NOMBRE = ?";
 		try {
 			PreparedStatement pst = ConexionBBDD.conectar().prepareStatement(sql);
-			pst.setString(1, ov.getNombre());
+			pst.setString(3, ov.getNombre());
 			pst.setString(2, ov.getTutor());
-			pst.setInt(3, ov.getCurso());
+			pst.setInt(1, ov.getCurso());
 			
 			
 			

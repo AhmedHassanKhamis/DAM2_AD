@@ -1,4 +1,4 @@
-package org.dam2.grupoyalumnos.modelo;
+package org.dam2.grupoAlumnos.modelo;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -8,19 +8,16 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
-@NoArgsConstructor
-@AllArgsConstructor
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-
 public class Alumno {
-	@EqualsAndHashCode.Include
-	@NonNull
-	private String nia;
 	
+	@EqualsAndHashCode.Include
+	private String nia;
 	private String nombre;
 	private LocalDate fechaNacimiento;
 	private boolean beca;

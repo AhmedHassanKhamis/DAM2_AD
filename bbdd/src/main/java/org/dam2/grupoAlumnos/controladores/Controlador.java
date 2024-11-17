@@ -1,4 +1,4 @@
-package org.dam2.grupoyalumnos.controladores;
+package org.dam2.grupoAlumnos.controladores;
 
 public interface Controlador<T> {
 

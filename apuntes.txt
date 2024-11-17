@@ -143,3 +143,25 @@ tengo que hacer que al leer los datos se lea el objeto a si mismo, dicho de otra
 
 
 hacer que la app main se crea el objecto y se llame a si misma (LISTO)
+
+
+
+
+
+
+
+######################### 17/11/2024  #############################
+CREATE TABLE ALUMNOS(
+NIA VARCHAR(45) PRIMARY KEY,
+NOMBRE VARCHAR(255),
+FECHANACIMIENTO DATE,
+BECA BOOLEAN,
+CURSO VARCHAR(45) DEFAULT 'SIN',
+FOREIGN KEY (CURSO) REFERENCES GRUPOS (NOMBRE)
+);
+
+CREATE TABLE GRUPOS(
+NOMBRE VARCHAR(45) PRIMARY KEY,
+TUTOR VARCHAR(45),
+CURSO INT
+);

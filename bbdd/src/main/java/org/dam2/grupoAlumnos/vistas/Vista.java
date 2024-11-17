@@ -1,4 +1,4 @@
-package org.dam2.grupoyalumnos.vistas;
+package org.dam2.grupoAlumnos.vistas;
 
 public abstract class Vista <T>{
 	private T modelo;

@@ -1,4 +1,4 @@
-package org.dam2.grupoAlumnos;
+package org.dam2.grupoAlumnos.modelo;
 
 import java.util.List;
 

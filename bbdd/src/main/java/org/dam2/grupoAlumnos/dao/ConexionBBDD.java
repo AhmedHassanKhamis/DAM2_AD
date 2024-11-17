@@ -1,4 +1,4 @@
-package org.dam2.grupoyalumnos.dao;
+package org.dam2.grupoAlumnos.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,6 +7,8 @@ import java.sql.SQLException;
 public class ConexionBBDD {
 	
 	private static Connection conexion = null; 
+	
+	
 	
 	public static Connection conectar ()
 	{

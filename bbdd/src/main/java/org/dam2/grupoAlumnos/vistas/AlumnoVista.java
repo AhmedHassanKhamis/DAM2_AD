@@ -1,8 +1,6 @@
-package org.dam2.grupoyalumnos.vistas;
+package org.dam2.grupoAlumnos.vistas;
 
-import org.dam2.grupoyalumnos.modelo.Alumno;
-
-import dam2.org.xmldomysax.Empleado;
+import org.dam2.grupoAlumnos.modelo.Alumno;
 
 public class AlumnoVista extends Vista<Alumno> {
 
