@@ -165,3 +165,8 @@ NOMBRE VARCHAR(45) PRIMARY KEY,
 TUTOR VARCHAR(45),
 CURSO INT
 );
+
+
+
+############## 20/11/24 ###################
+-JPA CON HIBERNATEA
