@@ -169,4 +169,4 @@ CURSO INT
 
 
 ############## 20/11/24 ###################
--JPA CON HIBERNATEA
+-JPA CON HIBERNATE
