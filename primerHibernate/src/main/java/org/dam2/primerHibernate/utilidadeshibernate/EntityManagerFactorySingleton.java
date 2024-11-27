@@ -1,4 +1,4 @@
-package org.dam2.utilidadeshibernate;
+package org.dam2.primerHibernate.utilidadeshibernate;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;

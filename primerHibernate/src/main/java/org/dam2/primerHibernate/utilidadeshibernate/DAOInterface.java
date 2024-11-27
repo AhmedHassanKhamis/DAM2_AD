@@ -1,4 +1,4 @@
-package org.dam2.utilidadeshibernate;
+package org.dam2.primerHibernate.utilidadeshibernate;
 
 import java.util.List;
 import java.util.Optional;
