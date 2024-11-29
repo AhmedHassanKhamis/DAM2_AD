@@ -51,6 +51,8 @@ public class Alumno implements Serializable{
    
     @Column(name="FECHA_NACIMIENTO")
     private LocalDate fecha;
+    
+    
 
       
 }

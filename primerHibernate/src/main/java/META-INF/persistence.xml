@@ -7,6 +7,8 @@
   <persistence-unit name="hibernate" transaction-type="RESOURCE_LOCAL">
      <provider>org.hibernate.ejb.HibernatePersistence</provider>
 	<class>org.dam2.primerHibernate.modelo.Alumno</class>
+	<class>org.dam2.primerHibernate.modelo.Grupo</class>
+	
 	<!-- Coge todas las clases del proyecto -->
 
 	<exclude-unlisted-classes>true</exclude-unlisted-classes>
