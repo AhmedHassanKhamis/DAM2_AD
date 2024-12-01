@@ -26,20 +26,19 @@ import lombok.Singular;
 @Entity
 @Table(name = "GRUPOS")
 public class Grupo {
-	
+
 	@EqualsAndHashCode.Include
 	@Id
-	@Column(name = "NOMBRE_GRUPO",length = 25)
+	@Column(name = "NOMBRE_GRUPO", length = 25)
 	private String nombre;
 	@Column(name = "TUTOR", length = 45)
 	private String tutor;
 	@Column(name = "CURSO")
 	private int curso;
-	
 
-	 @Singular
-	 @OneToMany(cascade=CascadeType.MERGE, fetch=FetchType.EAGER)// Por defecto LAZY
-	 @JoinColumn(name="FK_NOMBRE_GRUPO")
-	private List<Alumno> alumnos;
+//	@Singular
+//	@OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER) // Por defecto LAZY
+//	@JoinColumn(name = "FK_NOMBRE_GRUPO")
+//	private List<Alumno> alumnos;
 
 }

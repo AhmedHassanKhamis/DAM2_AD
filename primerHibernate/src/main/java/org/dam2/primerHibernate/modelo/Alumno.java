@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
@@ -52,7 +53,9 @@ public class Alumno implements Serializable{
     @Column(name="FECHA_NACIMIENTO")
     private LocalDate fecha;
     
-    
+    @ManyToOne(optional = false, cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    @JoinColumn(name="FK_NOMBRE_GRUPO")
+    private Grupo grupo;
 
       
 }
