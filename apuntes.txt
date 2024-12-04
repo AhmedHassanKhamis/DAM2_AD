@@ -170,3 +170,57 @@ CURSO INT
 
 ############## 20/11/24 ###################
 -JPA CON HIBERNATE
+
+
+############## 04/12/24 ###################
+-el tamaño de length general (10/30/50)
+-alumnos,grupo,modulo,profesores,calificacion,Direccion.
+-los alumnos estan en un grupos 
+-los modulos son impartidos por los profesores
+-un alumno tiene una calificacion en cada modulo
+-
+
+-----METODOS
+-cargar datos (crear alumnos,grupos,modulos,direcciones,profes)
+-poner calificacion a varios alumnos en varios modulos.
+-eliminar alumnos de un grupo
+-listar los distintos modulos que cursan los alumnos de un grupo
+-subirpunto a todos los alumnos en un modulo
+-mostrar los alumnos aprobados de un modulo
+
+
+
+----alumno
+-dni
+-nombre
+-fechaNacimiento
+-direccion (es una clase)
+
+
+-----direccion
+-calle
+-portal (int)
+-poblacion
+
+
+-----profesor
+-dni
+-nombre
+-especialidad
+
+-----grupo
+-nombre
+-ubicacion ej:(aula 131)
+-set de alumnos "one2one"
+-tutor(profesor) "one2one"
+
+-----modulo
+-id
+-nombre
+-profesor(profesor)
+
+-----calificacion
+para relacionar las notas de un alumno que tiene varios modulos
+un alumno puede tener varios modulos
+un modulo puede tener varios alumnos
+un grupo puede tener varios alumnos
