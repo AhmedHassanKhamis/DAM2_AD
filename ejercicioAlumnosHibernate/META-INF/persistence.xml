@@ -13,6 +13,8 @@
 		<class>org.dam2.modelo.Direccion</class>
 		<class>org.dam2.modelo.Modulo</class>
 		<class>org.dam2.modelo.Profesor</class>
+		<class>org.dam2.modelo.Calificacion</class>
+
 
 		<!-- Coge todas las clases del proyecto -->
 

@@ -2,6 +2,7 @@ package org.dam2.modelo;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -9,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -19,6 +21,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.Singular;
 //Anotaciones Lombok
 @Builder
 @Data
@@ -45,10 +48,5 @@ public class Alumno implements Serializable {
 	@OneToOne(cascade=CascadeType.MERGE, fetch=FetchType.EAGER)
     @JoinColumn(name="idDireccion")
 	private Direccion direccion;
-	
-	@ManyToOne(optional = false, cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-    @JoinColumn(name="FK_NOMBRE_GRUPO")
-    private Grupo grupo;
-	
-
+		
 }

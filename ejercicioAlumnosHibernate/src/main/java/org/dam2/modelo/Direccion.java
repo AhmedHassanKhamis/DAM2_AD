@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 
 //Anotaciones JPA
 @Entity
-@Table(name="Grupos")
+@Table(name="Direcciones")
 public class Direccion {
 
 	@EqualsAndHashCode.Include
