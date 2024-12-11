@@ -64,7 +64,7 @@ public class App
     	calificaciones.stream().filter(c -> c.getModulo().getNombre().equalsIgnoreCase(modulo)).map(c -> {
     		c.setNota(c.getNota() + 1);
     		return c;
-    	}).forEach(calificacionDAO::save);
+    	}).forEach(calificacionDAO::update);
     }
     
     
