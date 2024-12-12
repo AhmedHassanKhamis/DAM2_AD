@@ -7,6 +7,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -32,6 +33,8 @@ import lombok.Singular;
 //Anotaciones JPA
 @Entity
 @Table(name="Alumnos")
+@EntityListeners(AlumnoListener.class)// Trigger para borrar alumno
+
 public class Alumno implements Serializable {
 	
 	@EqualsAndHashCode.Include

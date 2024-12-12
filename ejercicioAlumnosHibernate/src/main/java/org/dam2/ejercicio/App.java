@@ -40,7 +40,7 @@ public class App
     	app.PonerNotas();
 //    	app.ListarAlumnosGrupo();
 //    	app.ListarModulosAlumno();
-//    	app.EliminarAlumno();
+    	app.EliminarAlumno();
 //    	app.EliminarAlumnosGrupo();
 //    	app.SubirPunto();
 //    	app.MostrarAprobados();
@@ -73,7 +73,7 @@ public class App
     public void EliminarAlumnosGrupo(){
     	
     	List<Grupo> grupos = (List<Grupo>)grupoDAO.findAll();
-    	List<Calificacion> calificaciones = (List<Calificacion>) calificacionDAO.findAll();
+//    	List<Calificacion> calificaciones = (List<Calificacion>) calificacionDAO.findAll();
 
     	String nombreGrupo = Teclado.leerString("introduce el nombre del grupo:");
     	
@@ -81,7 +81,7 @@ public class App
     	List<Alumno> alumnosGrado = grupos.stream().filter(g -> g.getNombre().equalsIgnoreCase(nombreGrupo))
     	    	.flatMap(g -> g.getAlumnos().stream()).toList(); 
     	
-    	calificaciones.stream().filter(c -> alumnosGrado.contains(c.getAlumno())).forEach(calificacionDAO::delete);
+//    	calificaciones.stream().filter(c -> alumnosGrado.contains(c.getAlumno())).forEach(calificacionDAO::delete);
     	alumnosGrado.stream().forEach(alumnoDAO::delete);
     }
     
@@ -91,9 +91,9 @@ public class App
     public void EliminarAlumno() {
     	String dni = Teclado.leerString("introduce el dni del alumno a eliminar:");
     	Alumno alumno = alumnoDAO.findById(dni).get();
-    	List<Calificacion> calificaciones = (List<Calificacion>) calificacionDAO.findAll();
-
-    	calificaciones.stream().filter(c -> c.getAlumno().equals(alumno)).forEach(calificacionDAO::delete);
+//    	List<Calificacion> calificaciones = (List<Calificacion>) calificacionDAO.findAll();
+//
+//    	calificaciones.stream().filter(c -> c.getAlumno().equals(alumno)).forEach(calificacionDAO::delete);
     	alumnoDAO.delete(alumno);
     }
     
