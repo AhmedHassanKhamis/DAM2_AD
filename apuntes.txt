@@ -224,3 +224,9 @@ para relacionar las notas de un alumno que tiene varios modulos
 un alumno puede tener varios modulos
 un modulo puede tener varios alumnos
 un grupo puede tener varios alumnos
+
+
+############## 18/12/24 ###################
+hibernate con jpa
+ <!-- Cargar datos -->
+ <property name="hibernate.hbm2ddl.import_files" value="/META-INF/data.sql" />

@@ -99,7 +99,7 @@ public class App {
 //    	idAsistenciaMedica de cada asistencia médica (No debes lanzar otra consulta). Comprueba
 //    	cuántas consultas lanza Hibernate internamente.
 
-		query = "SELECT s.idSeguro, a.idAsistenciaMedica FROM Seguro s " + "LEFT JOIN s.asistencias a";
+		query = "SELECT s.idSeguro, a.idAsistenciaMedica FROM Seguro s LEFT JOIN s.asistencias a";
 		streamArray = seguroDAO.executeQuery(query);
 		streamArray.forEach(o -> System.out.println(o[0] + "," + o[1]));
 
