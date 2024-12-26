@@ -1,4 +1,4 @@
-package org.dam2.modelo;
+package org.dam2.modeloEJ1;
 
 import java.time.LocalDate;
 import java.util.List;

@@ -1,15 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <persistence xmlns="http://java.sun.com/xml/ns/persistence"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
- http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
 	version="1.0">
 
 	<persistence-unit name="hibernate" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<class>org.dam2.modelo.Empleado</class>
-		<class>org.dam2.modelo.Departamento</class>
-
+		<class>org.dam2.modeloEJ2.Instituto</class>
+		<class>org.dam2.modeloEJ2.Persona</class>
+		<class>org.dam2.modeloEJ2.Profesor</class>
+		<class>org.dam2.modeloEJ2.Estudiante</class>
+		<class>org.dam2.modeloEJ2.Grado</class>
+		<class>org.dam2.modeloEJ2.ProfesorListener</class>
+		<class>org.dam2.modeloEJ2.Direccion</class>
+		<class>org.dam2.modeloEJ2.Contacto</class>
 
 
 		<!-- Coge todas las clases del proyecto -->
@@ -21,12 +25,13 @@
 			<property name="hibernate.connection.url" value="jdbc:h2:~/test" />
 			<property name="javax.persistence.jdbc.user" value="sa" />
 			<property name="javax.persistence.jdbc.password" value="" />
-			
-			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
+
+			<property name="hibernate.dialect"
+				value="org.hibernate.dialect.H2Dialect" />
 			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="true" />
-			<property name="hibernate.hbm2ddl.import_files" value="/META-INF/data.sql" />
+			<!--<property name="hibernate.hbm2ddl.import_files" value="/META-INF/data.sql" /> -->
 		</properties>
 	</persistence-unit>
 

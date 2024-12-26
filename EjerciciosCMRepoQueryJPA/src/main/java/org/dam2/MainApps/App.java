@@ -1,10 +1,10 @@
-package org.dam2.EjerciciosCMRepoQueryJPA;
+package org.dam2.MainApps;
 
 
 import java.util.stream.Stream;
 
-import org.dam2.modelo.Departamento;
-import org.dam2.modelo.Empleado;
+import org.dam2.modeloEJ1.Departamento;
+import org.dam2.modeloEJ1.Empleado;
 import org.dam2.utilidadeshibernate.GenericJPADAO;
 
 /**
