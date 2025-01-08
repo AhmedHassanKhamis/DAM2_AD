@@ -54,6 +54,6 @@
 			<attribute name="m2e-apt" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/DAM/DAM2_AD/daw.jar"/>
+	<classpathentry kind="lib" path="/home/usertar/Escritorio/000_CLASE/DAM2_AD/daw.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

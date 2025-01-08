@@ -366,6 +366,7 @@ public class App
 
 //		ESTA ESTA ESTA ESETA FJSDKHBNFUIDOAJSBNFUIDSBA U ~~~~~~~~~~~##################### ESTA MAL
 		query = "SELECT e.jefe, e.nomEmp, COUNT(e2) FROM Empleado e LEFT JOIN Empleado e2 ON e.nIDEmp = e2.jefe GROUP BY e.jefe, e.nomEmp";
+		query = "SELECT e.jefe, e.nomEmp, COUNT(e2) FROM Empleado e GROUP BY e.jefe, e.nomEmp";
 		streamArray = departamentoDAO.executeQuery(query);
 		streamArray.findFirst().ifPresent(e -> System.out.println(e[0]+", "+e[1]));	
 		

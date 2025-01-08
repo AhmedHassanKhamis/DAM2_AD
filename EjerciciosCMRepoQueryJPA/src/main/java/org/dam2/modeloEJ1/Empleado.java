@@ -12,6 +12,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -51,7 +52,7 @@ public class Empleado {
 	private float comisionE;
 	@Column(length = 15, nullable = true)
 	private String cargoE;
-	@OneToOne(cascade=CascadeType.MERGE, fetch=FetchType.EAGER)
+	@ManyToOne(cascade=CascadeType.MERGE, fetch=FetchType.EAGER)
     @JoinColumn(name="jefeID")
 	private Empleado jefe;
 }

@@ -32,14 +32,13 @@ import lombok.experimental.SuperBuilder;
 @Entity
 @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 @EntityListeners(CuentaListener.class)
-abstract public class Cuenta implements Serializable{
+public abstract class Cuenta implements Serializable{
 	@EqualsAndHashCode.Include
 	@Id
 	private int numero;
 	private float saldo;
 	
     @ManyToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER) // Relación perezosa por defecto
-    // Tabla relación libros autores
     @JoinTable(
         name = "REL_CUENTAS_CLIENTES",
         joinColumns = {@JoinColumn(name = "FK_CUENTA", nullable = false)},
