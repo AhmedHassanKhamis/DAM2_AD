@@ -23,7 +23,7 @@ public class CuentaPersonal extends Cuenta {
 	private boolean tarjetaCredito;
 
 	@Override
-	public void Retirar(float cantidad) {
+	public void retirar(float cantidad) {
 		float suma = (float) getTitulares().stream().mapToDouble(Cliente::getMaxAval).sum();
 		float limiteNegativo = -suma * 0.50f; // Límite negativo permitido.
 
@@ -35,7 +35,7 @@ public class CuentaPersonal extends Cuenta {
 	}
 
 	@Override
-	public void Transferencia(float cantidad, Cuenta destino) {
+	public void transferencia(float cantidad, Cuenta destino) {
 		float suma = (float) getTitulares().stream().mapToDouble(Cliente::getMaxAval).sum();
 		float comision = Math.min(cantidad * 0.002f, 4);
 		System.out.println("COMISION: " + comision);
@@ -44,7 +44,7 @@ public class CuentaPersonal extends Cuenta {
 
 		if ((getSaldo() - totalADescontar) >= limiteNegativo) { // Verifica que no excede el límite.
 			setSaldo(getSaldo() - totalADescontar); // Descontar saldo
-			destino.RecibirTransferencia(cantidad);
+			destino.recibirTransferencia(cantidad);
 	        System.out.println("Transferencia realizada con éxito.");
 		} else {
 			System.out.println("Saldo insuficiente para realizar esta operación.");

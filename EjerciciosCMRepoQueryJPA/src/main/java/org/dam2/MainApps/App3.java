@@ -31,8 +31,8 @@ public class App3 {
 	public static void main(String[] args) {
 		App3 app = new App3();
 
-		app.Inicializar();
-		app.CargarDatos();
+		app.inicializar();
+		app.cargarDatos();
 		app.ejecutar();
 		
 		
@@ -44,31 +44,31 @@ public class App3 {
 			opcion = menu();
 			switch (opcion) {
 			case 0:
-				CrearCuenta();
+				crearCuenta();
 				break;
 			case 1:
-				Ingresar();
+				ingresar();
 				break;
 			case 2:
-				Retirar();
+				retirar();
 				break;
 			case 3:
-				Transferencia();
+				transferencia();
 				break;
 			case 4:
-				ConsultarSaldoCuenta();
+				consultarSaldoCuenta();
 				break;
 			case 5:
-				ConsultarSumaSaldos();
+				consultarSumaSaldos();
 				break;	
 			case 6:
-				ConsultarMaxSaldo();
+				consultarMaxSaldo();
 				break;
 			case 7:
-				ConsultarMayorTeleco();
+				consultarMayorTeleco();
 				break;
 			case 8:
-				ConsultarEmpresasNegativos();
+				consultarEmpresasNegativos();
 				break;
 			case 9:
 				System.out.println("GRACIAS POR UTILIZAR NUESTRO SISTEMA.");
@@ -103,7 +103,7 @@ public class App3 {
 		return clientes;
 	}
 	
-	private void CrearCuenta() {
+	private void crearCuenta() {
 		List<Cliente> titulares = CrearClientes();
 		System.out.println("CUENTA--------------");
 		int numero = Teclado.leerInt("Numero de cuenta: ");
@@ -131,12 +131,12 @@ public class App3 {
 		}
 	}
 
-	private void Ingresar() {
+	private void ingresar() {
 		int numCuenta = Teclado.leerInt("Numero de cuenta: ");
 		Cuenta cuenta = cuentaDAO.findById(numCuenta).orElse(null);
 		if (cuenta != null) {
 			int cantidad = Teclado.leerInt("Cantidad: ");
-			cuenta.Ingresar((float)cantidad);
+			cuenta.ingresar((float)cantidad);
 			cuentaDAO.update(cuenta);
 			System.out.println("operacion realizada con exito!");
 			System.out.println("saldo actual: "+ cuenta.getSaldo());
@@ -146,12 +146,12 @@ public class App3 {
 		
 	}
 
-	private void Retirar() {
+	private void retirar() {
 		int numCuenta = Teclado.leerInt("Numero de cuenta: ");
 		Cuenta cuenta = cuentaDAO.findById(numCuenta).orElse(null);
 		if (cuenta != null) {
 			int cantidad = Teclado.leerInt("Cantidad: ");
-			cuenta.Retirar((float)cantidad);
+			cuenta.retirar((float)cantidad);
 			cuentaDAO.update(cuenta);
 			System.out.println("saldo actual: "+ cuenta.getSaldo());
 		}else {
@@ -160,14 +160,14 @@ public class App3 {
 		
 	}
 
-	private void Transferencia() {
+	private void transferencia() {
 		int numOrigen = Teclado.leerInt("Numero de origen: ");
 		Cuenta cuentaOrigen = cuentaDAO.findById(numOrigen).orElse(null);
 		int numDestino = Teclado.leerInt("Numero de destino: ");
 		Cuenta cuentaDestino = cuentaDAO.findById(numDestino).orElse(null);
 		if (cuentaOrigen != null && cuentaDestino != null) {
 			int cantidad = Teclado.leerInt("Cantidad: ");
-			cuentaOrigen.Transferencia(cantidad, cuentaDestino);
+			cuentaOrigen.transferencia(cantidad, cuentaDestino);
 			cuentaDAO.update(cuentaDestino);
 			cuentaDAO.update(cuentaOrigen);
 			System.out.println("Saldo: "+ cuentaOrigen.getSaldo());
@@ -178,7 +178,7 @@ public class App3 {
 		
 	}
 
-	private void ConsultarSaldoCuenta() {
+	private void consultarSaldoCuenta() {
 		int numCuenta = Teclado.leerInt("Numero de cuenta: ");
 		Cuenta cuenta = cuentaDAO.findById(numCuenta).orElse(null);
 		if (cuenta != null) {
@@ -189,7 +189,7 @@ public class App3 {
 		}
 	}
 
-	private void ConsultarSumaSaldos() {
+	private void consultarSumaSaldos() {
 		String query = "select c.numero, c.saldo from Cuenta c";
 		streamArray = cuentaDAO.executeQuery(query);
 		streamArray.forEach(c -> System.out.println("NUM: "+c[0]+", SALDO: "+c[1]));
@@ -198,7 +198,7 @@ public class App3 {
 		
 	}
 
-	private void ConsultarMaxSaldo() {
+	private void consultarMaxSaldo() {
 		 String query = "SELECT t.nombre, t.nif, SUM(c.saldo) AS totalSaldo FROM Cuenta c JOIN c.titulares t GROUP BY t.nombre, t.nif ORDER BY totalSaldo DESC";
 
 			    streamArray = cuentaDAO.executeQuery(query);
@@ -218,7 +218,7 @@ public class App3 {
 		
 	}
 
-	private void ConsultarMayorTeleco() {
+	private void consultarMayorTeleco() {
 	    String query = "SELECT t.compania, COUNT(t.compania) AS total FROM Cliente c JOIN c.telefonos t GROUP BY t.compania ORDER BY total DESC ";
 	    streamArray = clienteDAO.executeQuery(query);
 	    if (streamArray != null) {
@@ -235,7 +235,7 @@ public class App3 {
 	    }
 	}
 
-	private void ConsultarEmpresasNegativos() {
+	private void consultarEmpresasNegativos() {
 	    String query = "SELECT c.numero, c.nombreEmpresa, c.saldo FROM CuentaEmpresa c WHERE c.saldo < 0 ORDER BY c.saldo ASC ";
 
 	    streamArray = cuentaEmpresaDAO.executeQuery(query);
@@ -270,13 +270,13 @@ public class App3 {
 		return opcion;
 	}
 
-	private void CargarDatos() {
+	private void cargarDatos() {
 		// TODO Auto-generated method stub
 		cuentas = (List<Cuenta>) cuentaDAO.findAll();
 	}
 
 
-	public void Inicializar() {
+	public void inicializar() {
 		clienteDAO = new GenericJPADAO (Cliente.class,"hibernate");
 		cuentaDAO = new GenericJPADAO (Cuenta.class,"hibernate");
 		cuentaEmpresaDAO = new GenericJPADAO (CuentaEmpresa.class,"hibernate");

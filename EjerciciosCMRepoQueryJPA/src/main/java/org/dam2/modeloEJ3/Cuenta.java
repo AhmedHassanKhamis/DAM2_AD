@@ -47,15 +47,15 @@ public abstract class Cuenta implements Serializable{
     @Singular
 	private List<Cliente> titulares;
     
-    public void Ingresar(float cantidad) {
+    public void ingresar(float cantidad) {
     	saldo += cantidad;    	
     }
     
-    public abstract void Retirar(float cantidad);
+    public abstract void retirar(float cantidad);
     
-    public abstract void Transferencia(float cantidad, Cuenta destino);
+    public abstract void transferencia(float cantidad, Cuenta destino);
     
-    public void RecibirTransferencia(float cantidad) {
+    public void recibirTransferencia(float cantidad) {
         setSaldo(getSaldo() + cantidad); // Incrementa el saldo con la cantidad recibida
     }
 

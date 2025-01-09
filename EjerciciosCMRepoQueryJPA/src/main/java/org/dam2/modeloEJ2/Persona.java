@@ -31,7 +31,7 @@ import lombok.experimental.SuperBuilder;
 
 @Entity
 @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
-abstract public class Persona implements Serializable{
+public abstract class Persona implements Serializable{
 	@EqualsAndHashCode.Include
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)

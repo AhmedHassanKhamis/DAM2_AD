@@ -24,8 +24,8 @@ public class App2 {
 	public static void main(String[] args) {
 		App2 app = new App2();
 
-		app.Inicializar();
-		app.CargarDatos();
+		app.inicializar();
+		app.cargarDatos();
 //		app.eliminarProfesor();
 //		app.localizarPersona();
 //		app.convocarSesionTutoria();
@@ -130,7 +130,7 @@ public class App2 {
 		scanner.close();
 	}
 	
-	private void CargarDatos() {
+	private void cargarDatos() {
 		List<Instituto> institutos = new ArrayList<Instituto>();
 		
 		Direccion direccion1 = Direccion.builder()
@@ -303,7 +303,7 @@ public class App2 {
 	}
 
 
-	public void Inicializar() {
+	public void inicializar() {
 		institutoDAO = new GenericJPADAO (Instituto.class,"hibernate");
 		personaDAO = new GenericJPADAO (Persona.class,"hibernate");
     }
