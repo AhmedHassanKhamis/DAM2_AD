@@ -41,15 +41,21 @@ public class Instituto {
 	@Embedded
 	private Direccion direccion;
 	
-	@Singular
-	@OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY) // Por defecto LAZY
-	@JoinColumn(name = "codigoInstituto")
-	private List<Estudiante> estudiantes;
+//	@Singular
+//	@OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY) // Por defecto LAZY
+//	@JoinColumn(name = "codigoInstituto")
+//	private List<Estudiante> estudiantes;
+//	
+//	@Singular
+//	@OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY) // Por defecto LAZY
+//	@JoinColumn(name = "codigoInstituto")
+//	private List<Profesor> profesores;
 	
 	@Singular
 	@OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY) // Por defecto LAZY
-	@JoinColumn(name = "codigoInstituto")
-	private List<Profesor> profesores;
+//	@JoinColumn(name = "codigoInstituto")
+	private List<Persona> personas;
+
 	
 
 }

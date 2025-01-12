@@ -31,7 +31,7 @@ public class App2 {
 //		app.convocarSesionTutoria();
 //		app.mostrarAlumnosMenoresSinTutor();
 //		app.listarProfesoresFueraPoblacion();
-		app.listarProfesoresSinTutorandos();
+//		app.listarProfesoresSinTutorandos();
 
 	}
 	
@@ -189,8 +189,7 @@ public class App2 {
 				.nombre("Villablanca")
 				.telefono(502312321)
 				.direccion(direccion1)
-				.estudiantes(List.of(estudiante1,estudianteextra))
-				.profesore(profesor1)
+				.personas(List.of(estudiante1,estudianteextra,profesor1))
 				.build();
 		
 		Direccion direccion2 = Direccion.builder()
@@ -237,8 +236,7 @@ public class App2 {
 				.nombre("Instituto Central")
 				.telefono(601234567)
 				.direccion(direccion2)
-				.estudiante(estudiante2)
-				.profesore(profesor2)
+				.personas(List.of(estudiante2,profesor2))
 				.build();
 		
 		
@@ -281,14 +279,147 @@ public class App2 {
 			.tutor(profesor3)
 			.build();
 
+			Estudiante estudiante4 = Estudiante.builder()
+				.nombre("Luis")
+				.fechaNacimiento(LocalDate.of(2005, 1, 10))
+				.poblacion("Barcelona")
+				.contacto(contacto5)
+				.curso(1)
+				.grupo("DAW")
+				.grado(Grado.FPSUPERIOR)
+				.delegado(false)
+				.tutor(profesor3)
+				.build();
+
+			Estudiante estudiante5 = Estudiante.builder()
+				.nombre("Laura")
+				.fechaNacimiento(LocalDate.of(2005, 2, 15))
+				.poblacion("Barcelona")
+				.contacto(contacto5)
+				.curso(1)
+				.grupo("DAW")
+				.grado(Grado.FPSUPERIOR)
+				.delegado(false)
+				.tutor(profesor3)
+				.build();
+
+			Estudiante estudiante6 = Estudiante.builder()
+				.nombre("Pedro")
+				.fechaNacimiento(LocalDate.of(2005, 3, 20))
+				.poblacion("Barcelona")
+				.contacto(contacto5)
+				.curso(1)
+				.grupo("DAW")
+				.grado(Grado.FPSUPERIOR)
+				.delegado(false)
+				.tutor(profesor3)
+				.build();
+
+			Estudiante estudiante7 = Estudiante.builder()
+				.nombre("Lucia")
+				.fechaNacimiento(LocalDate.of(2005, 4, 25))
+				.poblacion("Barcelona")
+				.contacto(contacto5)
+				.curso(1)
+				.grupo("DAW")
+				.grado(Grado.FPSUPERIOR)
+				.delegado(false)
+				.tutor(profesor3)
+				.build();
+
+			Estudiante estudiante8 = Estudiante.builder()
+				.nombre("Miguel")
+				.fechaNacimiento(LocalDate.of(2005, 5, 30))
+				.poblacion("Barcelona")
+				.contacto(contacto5)
+				.curso(1)
+				.grupo("DAW")
+				.grado(Grado.FPSUPERIOR)
+				.delegado(false)
+				.tutor(profesor3)
+				.build();
+
+			Estudiante estudiante9 = Estudiante.builder()
+				.nombre("Sara")
+				.fechaNacimiento(LocalDate.of(2005, 6, 5))
+				.poblacion("Barcelona")
+				.contacto(contacto5)
+				.curso(1)
+				.grupo("DAW")
+				.grado(Grado.FPSUPERIOR)
+				.delegado(false)
+				.tutor(profesor3)
+				.build();
+
+			Estudiante estudiante10 = Estudiante.builder()
+				.nombre("Jorge")
+				.fechaNacimiento(LocalDate.of(2005, 7, 10))
+				.poblacion("Barcelona")
+				.contacto(contacto5)
+				.curso(1)
+				.grupo("DAW")
+				.grado(Grado.FPSUPERIOR)
+				.delegado(false)
+				.tutor(profesor3)
+				.build();
+
+			Estudiante estudiante11 = Estudiante.builder()
+				.nombre("Elena")
+				.fechaNacimiento(LocalDate.of(2005, 8, 15))
+				.poblacion("Barcelona")
+				.contacto(contacto5)
+				.curso(1)
+				.grupo("DAW")
+				.grado(Grado.FPSUPERIOR)
+				.delegado(false)
+				.tutor(profesor3)
+				.build();
+
+			Estudiante estudiante12 = Estudiante.builder()
+				.nombre("Raul")
+				.fechaNacimiento(LocalDate.of(2005, 9, 20))
+				.poblacion("Barcelona")
+				.contacto(contacto5)
+				.curso(1)
+				.grupo("DAW")
+				.grado(Grado.FPSUPERIOR)
+				.delegado(false)
+				.tutor(profesor3)
+				.build();
+
+			Estudiante estudiante13 = Estudiante.builder()
+				.nombre("Marta")
+				.fechaNacimiento(LocalDate.of(2005, 10, 25))
+				.poblacion("Barcelona")
+				.contacto(contacto5)
+				.curso(1)
+				.grupo("DAW")
+				.grado(Grado.FPSUPERIOR)
+				.delegado(false)
+				.tutor(profesor3)
+				.build();
+			
+			Estudiante estudiante14 = Estudiante.builder()
+					.nombre("HOSDFIDSFJIDSO")
+					.fechaNacimiento(LocalDate.of(2005, 10, 25))
+					.poblacion("Barcelona")
+					.contacto(contacto5)
+					.curso(1)
+					.grupo("DAW")
+					.grado(Grado.FPSUPERIOR)
+					.delegado(false)
+					.tutor(profesor3)
+					.build();
+
+
 		Instituto instituto3 = Instituto.builder()
 			.codigo("A003")
 			.nombre("Instituto Norte")
 			.telefono(701234567)
 			.direccion(direccion3)
-			.estudiante(estudiante3)
-			.profesore(profesor3)
+			.personas(List.of(profesor3,estudiante3,estudiante4, estudiante5, estudiante6, estudiante7, estudiante8, estudiante9, estudiante10, estudiante11, estudiante12, estudiante13, estudiante14))
 			.build();
+		
 
 		institutos.add(instituto3);
 		institutos.add(instituto2);

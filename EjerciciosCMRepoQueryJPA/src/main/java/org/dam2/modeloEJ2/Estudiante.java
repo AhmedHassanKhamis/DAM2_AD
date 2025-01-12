@@ -2,6 +2,7 @@ package org.dam2.modeloEJ2;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
@@ -26,6 +27,7 @@ import lombok.experimental.SuperBuilder;
 
 //Anotaciones JPA
 @Entity
+@EntityListeners(EstudianteListener.class)
 public class Estudiante extends Persona {
 	
 	private int curso;

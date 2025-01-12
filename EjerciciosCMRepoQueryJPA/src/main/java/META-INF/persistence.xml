@@ -16,6 +16,7 @@
 		<class>org.dam2.modeloEJ2.Persona</class>
 		<class>org.dam2.modeloEJ2.Profesor</class>
 		<class>org.dam2.modeloEJ2.Estudiante</class>
+		<class>org.dam2.modeloEJ2.EstudianteListener</class>
 		<class>org.dam2.modeloEJ2.Grado</class>
 		<class>org.dam2.modeloEJ2.ProfesorListener</class>
 		<class>org.dam2.modeloEJ2.Direccion</class>
