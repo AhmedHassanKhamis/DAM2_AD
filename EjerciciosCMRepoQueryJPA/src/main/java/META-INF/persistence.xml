@@ -21,6 +21,7 @@
 		<class>org.dam2.modeloEJ2.ProfesorListener</class>
 		<class>org.dam2.modeloEJ2.Direccion</class>
 		<class>org.dam2.modeloEJ2.Contacto</class>
+		<class>org.dam2.modeloEJ2.Curso</class>
 		
 		
 		<!-- <class>org.dam2.modeloEJ3.Cliente</class>
