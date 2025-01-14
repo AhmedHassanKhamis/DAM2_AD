@@ -8,7 +8,7 @@ import java.util.Optional;
 import java.util.Scanner;
 
 import org.dam2.modeloEJ2.Contacto;
-import org.dam2.modeloEJ2.Curso;
+import org.dam2.modeloEJ2.Registro;
 import org.dam2.modeloEJ2.Direccion;
 import org.dam2.modeloEJ2.Estudiante;
 import org.dam2.modeloEJ2.Grado;
@@ -22,6 +22,7 @@ public class App2 {
 
 	private GenericJPADAO<Persona, Long> personaDAO;
 	private GenericJPADAO<Instituto, String> institutoDAO;
+	private GenericJPADAO<Registro, Integer> registroDAO;
 
 	public static void main(String[] args) {
 		App2 app = new App2();
@@ -430,36 +431,15 @@ public class App2 {
 		institutos.add(instituto);
 		
 		institutos.forEach(institutoDAO::save);
+		Estudiante estudiantePrueba = (Estudiante) personaDAO.findById((long) 3).get();
+		Registro registro3 = Registro.builder()
+				.curso(1)
+				.instituto(instituto3)
+				.estudiante(estudiantePrueba)
+				.build();
+		registroDAO.save(registro3);
 		
-		
-		
-		// Buscar los estudiantes y los institutos en la base de datos
-		List<Estudiante> estudiantes = personaDAO.executeQuery("SELECT e FROM Estudiante e").toList();
-		List<Instituto> institutos2 = institutoDAO.executeQuery("SELECT i FROM Instituto i").toList();
-
-		// Crear cursos para los estudiantes respetando los límites del enumerado de grado
-		List<Curso> cursos = new ArrayList<>();
-		Random random = new Random();
-		for (Instituto inst : institutos2) {
-			for (Persona persona : inst.getPersonas()) {
-				if (persona instanceof Estudiante) {
-					Estudiante estudiante = (Estudiante) persona;
-					int maxCursos = estudiante.getGrado() == Grado.FPSUPERIOR ? 2 : 4; // Asignar máximo 2 cursos para FPSUPERIOR, 4 para otros
-					int cursoAleatorio = random.nextInt(maxCursos) + 1; // Asignar un curso aleatorio dentro del límite
-					Curso curso = Curso.builder()
-						.curso(cursoAleatorio)
-						.instituto(inst)
-						.estudiante(estudiante)
-						.build();
-					cursos.add(curso);
-				}
-			}
-		}
-
-		// Guardar los cursos en la base de datos
-		GenericJPADAO<Curso, Integer> cursoDAO = new GenericJPADAO<>(Curso.class, "hibernate");
-		cursos.forEach(cursoDAO::save);
-		
+		String query = "SELECT ";
 		
 	}
 
@@ -467,6 +447,7 @@ public class App2 {
 	public void inicializar() {
 		institutoDAO = new GenericJPADAO (Instituto.class,"hibernate");
 		personaDAO = new GenericJPADAO (Persona.class,"hibernate");
+		registroDAO = new GenericJPADAO(Registro.class, "hibernate");
     }
 	
 

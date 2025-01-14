@@ -25,8 +25,8 @@ import lombok.NoArgsConstructor;
 
 //Anotaciones JPA
 @Entity
-@Table(name = "asignacion_cursos")
-public class Curso {
+@Table(name = "Registros")
+public class Registro {
 
 	@EqualsAndHashCode.Include
 	@Id
