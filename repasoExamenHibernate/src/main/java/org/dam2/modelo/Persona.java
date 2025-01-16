@@ -1,14 +1,11 @@
-package org.dam2.modeloEJ2;
+package org.dam2.modelo;
 
-import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -22,27 +19,26 @@ import lombok.NoArgsConstructor;
 import lombok.Singular;
 import lombok.experimental.SuperBuilder;
 
-//Anotaciones Lombok
-@SuperBuilder 
+@SuperBuilder
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 
 @Entity
-@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
-public abstract class Persona implements Serializable{
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public abstract class Persona {
+	
 	@EqualsAndHashCode.Include
 	@Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-	private long nif;
+	private String nif;
 	private String nombre;
 	private LocalDate fechaNacimiento;
 	private String poblacion;
-	
-	@Singular
-	@OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER) // Por defecto LAZY
+	@OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
 	@JoinColumn(name = "nif_persona")
-	private List<Contacto> contactos;
+	@Singular
+	private Set<Contacto> contactos;
+	
 
 }

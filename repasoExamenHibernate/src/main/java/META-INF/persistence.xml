@@ -5,32 +5,19 @@
 	version="1.0">
 
 	<persistence-unit name="hibernate" transaction-type="RESOURCE_LOCAL">
-		<!-- <provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<class>org.dam2.modeloEJ1.Departamento</class>
-		<class>org.dam2.modeloEJ1.Empleado</class>
-		<class>org.dam2.modeloEJ1.Sexo</class>-->
-	
-		
-		
-		<class>org.dam2.modeloEJ2.Instituto</class>
-		<class>org.dam2.modeloEJ2.Persona</class>
-		<class>org.dam2.modeloEJ2.Profesor</class>
-		<class>org.dam2.modeloEJ2.Estudiante</class>
-		<class>org.dam2.modeloEJ2.EstudianteListener</class>
-		<class>org.dam2.modeloEJ2.Grado</class>
-		<class>org.dam2.modeloEJ2.ProfesorListener</class>
-		<class>org.dam2.modeloEJ2.Direccion</class>
-		<class>org.dam2.modeloEJ2.Contacto</class>
-		<!-- <class>org.dam2.modeloEJ2.Registro</class>-->
-		
-		
-		<!-- <class>org.dam2.modeloEJ3.Cliente</class>
-		<class>org.dam2.modeloEJ3.Cuenta</class>
-		<class>org.dam2.modeloEJ3.CuentaEmpresa</class>
-		<class>org.dam2.modeloEJ3.CuentaPersonal</class>
-		<class>org.dam2.modeloEJ3.Local</class>
-		<class>org.dam2.modeloEJ3.Telefono</class> -->
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 
+
+		<class>org.dam2.modelo.Instituto</class>
+		<class>org.dam2.modelo.Persona</class>
+		<class>org.dam2.modelo.Profesor</class>
+		<class>org.dam2.modelo.Estudiante</class>
+		<class>org.dam2.modelo.EstudianteListener</class>
+		<class>org.dam2.modelo.Estudio</class>
+		<class>org.dam2.modelo.ProfesorListener</class>
+		<class>org.dam2.modelo.Direccion</class>
+		<class>org.dam2.modelo.Contacto</class>
+		<class>org.dam2.modelo.Registro</class>
 
 
 		<!-- Coge todas las clases del proyecto -->
@@ -48,7 +35,8 @@
 			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
 			<property name="hibernate.show_sql" value="false" />
 			<property name="hibernate.format_sql" value="true" />
-			<!-- <property name="hibernate.hbm2ddl.import_files" value="/META-INF/data.sql" /> -->
+			<!-- <property name="hibernate.hbm2ddl.import_files"
+			value="/META-INF/data.sql" /> -->
 		</properties>
 	</persistence-unit>
 

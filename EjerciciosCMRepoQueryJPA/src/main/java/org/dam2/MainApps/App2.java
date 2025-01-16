@@ -431,15 +431,19 @@ public class App2 {
 		institutos.add(instituto);
 		
 		institutos.forEach(institutoDAO::save);
-		Estudiante estudiantePrueba = (Estudiante) personaDAO.findById((long) 3).get();
-		Registro registro3 = Registro.builder()
-				.curso(1)
-				.instituto(instituto3)
-				.estudiante(estudiantePrueba)
-				.build();
-		registroDAO.save(registro3);
 		
-		String query = "SELECT ";
+		
+		
+		
+//		Estudiante estudiantePrueba = (Estudiante) personaDAO.findById((long) 3).get();
+//		Registro registro3 = Registro.builder()
+//				.curso(1)
+//				.instituto(instituto3)
+//				.estudiante(estudiantePrueba)
+//				.build();
+//		registroDAO.save(registro3);
+//		
+//		String query = "SELECT ";
 		
 	}
 
