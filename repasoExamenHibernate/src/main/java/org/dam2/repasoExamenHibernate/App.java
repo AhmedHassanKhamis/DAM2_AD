@@ -17,6 +17,8 @@ import org.dam2.modelo.Profesor;
 import org.dam2.modelo.Registro;
 import org.dam2.utilidadeshibernate.GenericJPADAO;
 
+import daw.com.Teclado;
+
 /**
  * Hello world!
  *
@@ -24,9 +26,11 @@ import org.dam2.utilidadeshibernate.GenericJPADAO;
 public class App 
 {
 
-	private GenericJPADAO<Persona, Long> personaDAO;
-	private GenericJPADAO<Instituto, String> institutoDAO;
+	private GenericJPADAO<Persona, String> personaDAO;
+	private GenericJPADAO<Instituto, Integer> institutoDAO;
 	private GenericJPADAO<Registro, Integer> registroDAO;
+	private GenericJPADAO<Contacto, Integer> contactoDAO;
+	private GenericJPADAO<Direccion, Integer> direccionDAO;
 
 	
     public static void main( String[] args )
@@ -36,9 +40,53 @@ public class App
     	app.inicializarDAO();
     	app.cargarDatos();
 //    	app.pedirDatos();
+//    	app.eliminarProfesor();
+    	app.localizarPersona();
+    	
     
     
     }
+
+
+	private void localizarPersona() {
+		// TODO Auto-generated method stub
+		String nif = Teclado.leerString("introduce el nif de la persona a localizar");
+//		Persona p = personaDAO.findById(nif).orElse(null);
+		String queryStr = "SELECT p FROM Persona p LEFT JOIN FETCH p.contactos WHERE p.nif = ?1";
+		Persona p = (Persona) personaDAO.executeQuery(queryStr,nif).findFirst().orElse(null);
+		
+		if (p != null) {
+			System.out.println(p.getContactos());
+			if (p instanceof Profesor) {
+				System.out.println("Vinculación: Profesor");
+			} else if (p instanceof Estudiante) {
+				System.out.println("Vinculación: Estudiante");
+			}
+		} else {
+			System.out.println("LA PERSONA NO EXISTE!!");
+		}
+
+	}
+
+
+	private void eliminarProfesor() {
+		// TODO Auto-generated method stub
+		String nif = Teclado.leerString("introduce el nif del profesor a eliminar");
+//		if( !personaDAO.findById(nif).isEmpty()) {
+//			String query = "DELETE P FROM Profesor P WHERE P.nif = ?1";
+//			personaDAO.executeQuery(query, nif);
+//		}else {
+//			System.out.println("EL PROFESOR NO EXISTE!!");
+//		}
+//		
+		Persona p = personaDAO.findById(nif).orElse(null);
+		if (p != null) {
+			personaDAO.delete(p);
+		}else {
+			System.out.println("EL PROFESOR NO EXISTE!!");
+		}
+
+	}
 
 
 	private void cargarDatos() {
@@ -47,13 +95,53 @@ public class App
 //		List<Persona> personas =  new ArrayList<Persona>();
 //		List<Instituto> institutos =  new ArrayList<Instituto>();
 		List<Registro> registros = new ArrayList<Registro>();
-		
+//		List<Contacto> contactos = new ArrayList<Contacto>();
+//		List<Direccion> direcciones = new ArrayList<Direccion>();
+
+
+//		###############	CONTACTOS
+
 		
 		Contacto contacto1 = Contacto.builder()
 				.email("ahmed@gmail.com")
 				.tipo("personal")
 				.build();
 		
+		Contacto contacto2 = Contacto.builder()
+				.email("angela@yahoo.com")
+				.tipo("Educativo")
+				.build();
+		
+		Contacto contacto3 = Contacto.builder()
+				.email("profesor1@gmail.com")
+				.tipo("Laboral")
+				.build();
+		
+		
+		Contacto contacto4 = Contacto.builder()
+				.email("nacho@hotmail.com")
+				.tipo("Educativo")
+				.build();
+		
+		
+		Contacto contacto5 = Contacto.builder()
+				.email("marlon@yopmail.com")
+				.tipo("Educativo")
+				.build();
+		
+		
+		Contacto contacto6 = Contacto.builder()
+				.email("profesor2@gmail.com")
+				.tipo("Laboral")
+				.build();
+		
+//		contactos.addAll(List.of(contacto1, contacto2, contacto3, contacto4, contacto5, contacto6));
+//		
+//		contactos.stream().forEach(contactoDAO::save);
+//		
+		
+//		###############	PERSONAS
+
 		
 		Estudiante estudiante1 = Estudiante.builder()
 				.nif("00A")
@@ -67,11 +155,6 @@ public class App
 				.build();
 		
 		
-		Contacto contacto2 = Contacto.builder()
-				.email("angela@yahoo.com")
-				.tipo("Educativo")
-				.build();
-		
 		
 		Estudiante estudiante2 = Estudiante.builder()
 				.nif("00B")
@@ -83,31 +166,7 @@ public class App
 				.estudio(Estudio.FPSUPERIOR)
 				.delegado(false)
 				.build();
-		
-		Contacto contacto3 = Contacto.builder()
-				.email("profesor1@gmail.com")
-				.tipo("Laboral")
-				.build();
-		
-		Profesor profesor1 = Profesor.builder()
-				.nif("00C")
-				.nombre("profesor1")
-				.fechaNacimiento(LocalDate.parse("1982-01-12"))
-				.poblacion("Rivas")
-				.contacto(contacto3)
-				.departamento("informatica")
-				.despacho("E10")
-				.tutorados(Set.of(estudiante1,estudiante2))
-				.build();
-		
-		
-		
-		
-		Contacto contacto4 = Contacto.builder()
-				.email("nacho@hotmail.com")
-				.tipo("Educativo")
-				.build();
-		
+
 		
 		Estudiante estudiante3 = Estudiante.builder()
 				.nif("00D")
@@ -120,12 +179,7 @@ public class App
 				.delegado(true)
 				.build();
 		
-		
-		Contacto contacto5 = Contacto.builder()
-				.email("marlon@yopmail.com")
-				.tipo("Educativo")
-				.build();
-		
+
 		
 		Estudiante estudiante4 = Estudiante.builder()
 				.nif("00E")
@@ -138,9 +192,15 @@ public class App
 				.delegado(false)
 				.build();
 		
-		Contacto contacto6 = Contacto.builder()
-				.email("profesor2@gmail.com")
-				.tipo("Laboral")
+		Profesor profesor1 = Profesor.builder()
+				.nif("00C")
+				.nombre("profesor1")
+				.fechaNacimiento(LocalDate.parse("1982-01-12"))
+				.poblacion("Rivas")
+				.contacto(contacto3)
+				.departamento("informatica")
+				.despacho("E10")
+				.tutorados(Set.of(estudiante1,estudiante2))
 				.build();
 		
 		Profesor profesor2 = Profesor.builder()
@@ -157,13 +217,28 @@ public class App
 		
 //		personas.addAll(List.of(estudiante1, estudiante2, estudiante3, estudiante4, profesor1, profesor2));
 				
-// 		personas.forEach(personaDAO::save);
+// 		personas.stream().forEach(personaDAO::save);
+		
+		
+//		###############	DIRECCIONES
+
 		
 		Direccion direccion1 = Direccion.builder()
 				.calle("villablanca1")
 				.codPostal(39203)
 				.poblacion("Madrid")
 				.build();
+		
+		Direccion direccion2 =Direccion.builder()
+				.calle("puerto porzuna")
+				.codPostal(28031)
+				.poblacion("Madrid")
+				.build();
+		
+//		direcciones.addAll(List.of(direccion1,direccion2));
+//		direcciones.stream().forEach(direccionDAO::save);
+		
+//		###############	INSTITUTOS
 		
 		Instituto instituto1 = Instituto.builder()
 				.codigoCentro(1)
@@ -172,11 +247,6 @@ public class App
 				.telefono(606439533)
 				.build();
 		
-		Direccion direccion2 =Direccion.builder()
-				.calle("puerto porzuna")
-				.codPostal(28031)
-				.poblacion("Madrid")
-				.build();
 		
 		Instituto instituto2 = Instituto.builder()
 				.codigoCentro(2)
@@ -187,7 +257,7 @@ public class App
 		
 //		institutos.addAll(List.of(instituto1,instituto2));
 		
-//		institutos.forEach(institutoDAO::save);
+//		institutos.stream().forEach(institutoDAO::save);
 		
 		
 		
@@ -240,6 +310,10 @@ public class App
 		personaDAO = new GenericJPADAO(Persona.class,"hibernate");
 		institutoDAO = new GenericJPADAO(Instituto.class, "hibernate");
 		registroDAO = new GenericJPADAO(Registro.class, "hibernate");
+		contactoDAO = new GenericJPADAO(Contacto.class, "hibernate");
+		direccionDAO = new GenericJPADAO(Direccion.class, "hibernate");
+
+
 	}
 
 
