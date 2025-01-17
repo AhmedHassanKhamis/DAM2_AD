@@ -1,6 +1,7 @@
 package org.dam2.modelo;
 
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,6 +18,7 @@ import lombok.experimental.SuperBuilder;
 @EqualsAndHashCode(callSuper = true)
 
 @Entity
+@EntityListeners(ProfesorListener.class)
 public class Profesor extends Persona{
 	
 	private String departamento;

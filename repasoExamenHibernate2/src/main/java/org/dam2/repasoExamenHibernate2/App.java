@@ -3,6 +3,7 @@ package org.dam2.repasoExamenHibernate2;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 import org.dam2.modelo.Contacto;
 import org.dam2.modelo.Direccion;
@@ -13,6 +14,8 @@ import org.dam2.modelo.Profesor;
 import org.dam2.modelo.Registro;
 import org.dam2.modelo.TipoEstudio;
 import org.dam2.utilidadeshibernate.GenericJPADAO;
+
+import daw.com.Teclado;
 
 public class App 
 {
@@ -25,9 +28,97 @@ public class App
     	App app = new App();
     	app.inicializar();
     	app.cargarDatos();
+//    	app.eliminarProfesor();
+//    	app.localizarPersona();
+//    	app.convocarTutoria();
+//    	app.query1();
+    	app.query2();
+    	app.query3();
     	
     	
     }
+
+	private void query3() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void query2() {
+		// TODO Auto-generated method stub
+//		String query ="SELECT p from Registro r, Profesor p where r.persona.nif = p.nif and r.instituto.direccion.poblacion != r.persona.poblacion";
+		String query ="SELECT r.persona FROM Registro r JOIN r.instituto i JOIN r.persona p WHERE TYPE(p) = Profesor AND i.direccion.poblacion != p.poblacion";
+
+		List<Persona> fueraPoblacion =  personaDAO.executeQuery(query).toList();
+		if (fueraPoblacion != null && !fueraPoblacion.isEmpty()) {
+			fueraPoblacion.forEach(System.out::println);
+		}
+	}
+
+	private void query1() {
+		// TODO Auto-generated method stub
+		String query ="SELECT e from Estudiante e where fechaNacimiento > ?1 and e.tutor = null";
+		LocalDate menor = LocalDate.now().minusYears(18);
+		List<Estudiante> menoresSinTutor = (List<Estudiante>) personaDAO.executeQuery(query, menor).toList();
+		if (menoresSinTutor != null && !menoresSinTutor.isEmpty()) {
+			menoresSinTutor.forEach(System.out::println);
+		}
+		
+		
+	}
+
+	private void convocarTutoria() {
+		// TODO Auto-generated method stub
+		String nif = Teclado.leerString("Introduce el nif del profesor a convocar: ");
+		Profesor profesor = (Profesor) personaDAO.findById(nif).orElse(null);
+		LocalDate fecha = LocalDate.parse(Teclado.leerString("Introduce la fecha de convocatoria(AAAA-mm-dd): "));
+		if (profesor != null) {
+			String query = "SELECT E FROM Estudiante E where E.tutor = ?1";
+			List<Estudiante> convocados = personaDAO.executeQuery(query, profesor).toList();
+			if (convocados != null && !convocados.isEmpty()) {
+				convocados.stream()
+						.forEach(c -> System.out
+								.println(c.getNombre() + " quedas convocado/a a la sesión de tutoría en el despacho "
+										+ profesor.getDespacho() + " con fecha " + fecha));
+			} else {
+				System.out.println("EL PROFESOR NO TIENE TUTORANDOS");
+			}
+		} else {
+			System.out.println("NO EXISTE EL PROFESOR!");
+		}
+	}
+
+	private void localizarPersona() {
+		// TODO Auto-generated method stub
+		String nif = Teclado.leerString("Introduce el nif de la persona a localizar: ");
+		String query = "SELECT P FROM Persona P LEFT JOIN FETCH P.contactos where P.nif = ?1";
+		Persona persona = (Persona) personaDAO.executeQuery(query, nif).findFirst().orElse(null);
+		if (persona != null) {
+			System.out.println(persona.getContactos());
+
+			if (persona instanceof Estudiante) {
+				System.out.println("vinculacion de estudiante");
+			} else {
+				System.out.println("vinculacion de profesor");
+			}
+
+		} else {
+			System.out.println("NO EXISTE EL PROFESOR!");
+		}
+	}
+
+	
+	
+	private void eliminarProfesor() {
+		// TODO Auto-generated method stub
+		String nif = Teclado.leerString("Introduce el nif del profesor a borrar: ");
+		Profesor profesor = (Profesor ) personaDAO.findById(nif).orElse(null);
+		if (profesor != null) {
+			personaDAO.delete(profesor);
+		}else {
+			System.out.println("NO EXISTE EL PROFESOR!");
+		}
+
+	}
 
 	private void cargarDatos() {
 		// TODO Auto-generated method stub
@@ -102,13 +193,13 @@ public class App
 		Estudiante estudiante2 = Estudiante.builder()
 				.nif("00B")
 				.nombre("Dylan")
-				.fechaNacimiento(LocalDate.of(2003, 12, 03))
+				.fechaNacimiento(LocalDate.of(2013, 12, 03))
 				.poblacion("Madrid")
 				.contacto(contacto2)
 				.tipoEstudio(TipoEstudio.FPSUPERIOR)
 				.grupo("DAM")
 				.delegado(true)
-				.tutor(profesor1)
+				.tutor(null)
 				.build();
 		
 		Estudiante estudiante3 = Estudiante.builder()
@@ -128,7 +219,7 @@ public class App
 				.nif("00D")
 				.nombre("Peter")
 				.fechaNacimiento(LocalDate.of(1000, 9, 10))
-				.poblacion("LAGALAXIA")
+				.poblacion("Madrid")
 				.contacto(contacto4)
 				.tipoEstudio(TipoEstudio.ESO)
 				.grupo("ESO")
@@ -138,7 +229,7 @@ public class App
 		
 		Direccion direccion1 = Direccion.builder()
 				.calle("Villablanca")
-				.poblacion("Madrid")
+				.poblacion("LAGALAXIA")
 				.codigoPostal(29045)
 				.build();
 		
