@@ -38,7 +38,7 @@ public class App
 
 	private void query1() {
 		// TODO Auto-generated method stub
-		String query = "SELECT m FROM Material m where m in (select r.material from Registro r where fechaVisualizacion > r.material.fechaEstreno )";
+		String query = "SELECT m FROM Material m where m in (select r.material from Registro r where fechaVisualizacion < r.material.fechaEstreno )";
 		
 //		String query = "SELECT m FROM Material m where m in (select r.material from Registro r where fechaVisualizacion > r.material.fechaEstreno.plusYears(2) )";
 
