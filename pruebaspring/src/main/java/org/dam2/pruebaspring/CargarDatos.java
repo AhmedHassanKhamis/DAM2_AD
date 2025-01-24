@@ -11,23 +11,35 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 @Component
-@Order(value = 2)
-public class MiPrimeraApp implements CommandLineRunner {
-	
+@Order(value = 1)
+public class CargarDatos implements CommandLineRunner {
+
 	@Autowired
-	@Qualifier(value = "labuena")
+	@Qualifier(value = "otro")
 	IServicioAlumno servicioAlumno;
-	
-	
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-				
 		
-		servicioAlumno.buscarPorClave("021").ifPresentOrElse(System.out::println, ()-> System.out.println("No existe el dato!"));
+		Alumno a = Alumno.builder()
+				.nia("001")
+				.nombre("a1")
+				.fecha(LocalDate.now())
+				.nota(10)
+				.build();
 		
-		servicioAlumno.buscarTodos().forEach(System.out::println);
+		servicioAlumno.insertar(a);
 		
+
+		 a = Alumno.builder()
+				.nia("002")
+				.nombre("a2")
+				.fecha(LocalDate.now().minusYears(10))
+				.nota(8)
+				.build();
+		 
+		servicioAlumno.insertar(a);
+
 		
 		
 	}

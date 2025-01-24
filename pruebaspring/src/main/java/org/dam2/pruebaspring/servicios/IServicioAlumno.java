@@ -4,7 +4,7 @@ import java.util.Optional;
 import java.util.stream.Stream;
 
 import org.dam2.pruebaspring.modelo.Alumno;
-import org.springframework.stereotype.Service;
+
 public interface IServicioAlumno {
 	
 	boolean insertar (Alumno a);
