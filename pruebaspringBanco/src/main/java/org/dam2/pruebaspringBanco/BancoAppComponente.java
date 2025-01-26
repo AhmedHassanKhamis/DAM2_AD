@@ -17,7 +17,7 @@ public class BancoAppComponente implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
 		
-//		System.out.println(servicioCliente.mayorCompania());
+		servicioCliente.mayorCompania().ifPresentOrElse(System.out::println, ()-> System.out.println("no existen compañias con clientes!"));
 	}
 
 }

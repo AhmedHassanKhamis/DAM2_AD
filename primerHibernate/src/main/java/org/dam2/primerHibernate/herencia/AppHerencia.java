@@ -1,4 +1,4 @@
-package org.dam2.herencia;
+package org.dam2.primerHibernate.herencia;
 
 import java.util.List;
 
@@ -7,8 +7,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import org.dam2.muchosamuchos.Libro;
-import org.dam2.utilidadeshibernate.GenericJPADAO;
+import org.dam2.primerHibernate.utilidadeshibernate.GenericJPADAO;
 
 public class AppHerencia {
 

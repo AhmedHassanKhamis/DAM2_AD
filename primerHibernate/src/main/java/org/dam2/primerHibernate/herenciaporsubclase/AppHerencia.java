@@ -1,4 +1,4 @@
-package org.dam2.herenciaporsubclase;
+package org.dam2.primerHibernate.herenciaporsubclase;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import org.dam2.utilidadeshibernate.GenericJPADAO;
+import org.dam2.primerHibernate.utilidadeshibernate.GenericJPADAO;
 
 
 

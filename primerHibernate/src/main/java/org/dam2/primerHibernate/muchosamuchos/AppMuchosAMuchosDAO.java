@@ -1,8 +1,8 @@
-package org.dam2.muchosamuchos;
+package org.dam2.primerHibernate.muchosamuchos;
 
 import java.util.HashSet;
 
-import org.dam2.utilidadeshibernate.GenericJPADAO;
+import org.dam2.primerHibernate.utilidadeshibernate.GenericJPADAO;
 
 public class AppMuchosAMuchosDAO {
 

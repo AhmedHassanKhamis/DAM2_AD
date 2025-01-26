@@ -1,4 +1,4 @@
-package org.dam2.hibernate;
+package org.dam2.primerHibernate.hibernate;
 
 import java.io.Serializable;
 import java.time.LocalDate;

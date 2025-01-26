@@ -47,6 +47,21 @@ public class CargarDatos implements CommandLineRunner {
 				.build();
 		 
 		servicioCliente.insertar(cliente);
+		
+		
+		 telefono = Telefono.builder()
+					.compania("Telefonica")
+					.numero(999999999)
+					.build();
+			
+			 cliente = Cliente.builder()
+					.nif("003c")
+					.nombre("Pedro")
+					.maxAval(26000)
+					.telefono(telefono)
+					.build();
+			 
+			servicioCliente.insertar(cliente);
 
 	}
 

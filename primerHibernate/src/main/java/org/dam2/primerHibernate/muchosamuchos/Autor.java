@@ -1,4 +1,4 @@
-package org.dam2.muchosamuchos;
+package org.dam2.primerHibernate.muchosamuchos;
 
 import java.io.Serializable;
 import java.util.HashSet;
@@ -12,10 +12,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-
-import org.dam2.unoamuchos.Depart;
-import org.dam2.unoamuchos.Empleado;
-import org.dam2.unoamuchos.Depart.DepartBuilder;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

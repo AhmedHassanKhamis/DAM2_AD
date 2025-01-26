@@ -1,4 +1,4 @@
-package org.dam2.unoauno;
+package org.dam2.primerHibernate.unoauno;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -11,7 +11,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.PrimaryKeyJoinColumn;
 
-import org.dam2.hibernate.Alumno.AlumnoBuilder;
 import org.hibernate.annotations.GenericGenerator;
 
 import lombok.AllArgsConstructor;

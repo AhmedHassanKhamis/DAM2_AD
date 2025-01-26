@@ -1,4 +1,4 @@
-package org.dam2.consultas;
+package org.dam2.primerHibernate.consultas;
 
 import java.util.HashSet;
 import java.util.List;

@@ -1,4 +1,4 @@
-package org.dam2.hibernate;
+package org.dam2.primerHibernate.hibernate;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -8,7 +8,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import org.dam2.utilidadeshibernate.EntityManagerFactorySingleton;
+import org.dam2.primerHibernate.utilidadeshibernate.EntityManagerFactorySingleton;
 
 /**
  * Hello world!

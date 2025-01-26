@@ -1,4 +1,4 @@
-package org.dam2.consultas;
+package org.dam2.primerHibernate.consultas;
 
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -7,7 +7,7 @@ import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
-import org.dam2.utilidadeshibernate.GenericJPADAO;
+import org.dam2.primerHibernate.utilidadeshibernate.GenericJPADAO;
 
 public class AppConsultasConDAO {
 	//@SuppressWarnings("unchecked")

@@ -1,9 +1,10 @@
-package org.dam2.consultas;
+package org.dam2.primerHibernate.consultas;
 
 import java.util.HashSet;
 import java.util.Set;
 
-import org.dam2.utilidadeshibernate.GenericJPADAO;
+import org.dam2.primerHibernate.utilidadeshibernate.GenericJPADAO;
+
 
 public class AppConsultasConJoin {
 

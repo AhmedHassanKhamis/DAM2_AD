@@ -1,4 +1,4 @@
-package org.dam2.muchosamuchos;
+package org.dam2.primerHibernate.muchosamuchos;
 
 import java.util.HashSet;
 

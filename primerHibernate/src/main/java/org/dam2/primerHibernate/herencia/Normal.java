@@ -1,9 +1,7 @@
-package org.dam2.herencia;
+package org.dam2.primerHibernate.herencia;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-
-import org.dam2.herencia.Persona.PersonaBuilder;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

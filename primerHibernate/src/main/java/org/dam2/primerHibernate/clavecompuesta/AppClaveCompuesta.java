@@ -1,11 +1,11 @@
-package org.dam2.clavecompuesta;
+package org.dam2.primerHibernate.clavecompuesta;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-import org.dam2.utilidadeshibernate.GenericJPADAO;
+import org.dam2.primerHibernate.utilidadeshibernate.GenericJPADAO;
 
 public class AppClaveCompuesta {
 	  public static void main(String[] args) {

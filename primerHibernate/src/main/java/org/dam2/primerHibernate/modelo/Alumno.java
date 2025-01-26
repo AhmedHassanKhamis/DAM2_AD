@@ -28,8 +28,8 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 // Anotaciones Lombok
-@Builder
 @Data
+@Builder
 @EqualsAndHashCode(onlyExplicitlyIncluded=true)
 @NoArgsConstructor
 @AllArgsConstructor

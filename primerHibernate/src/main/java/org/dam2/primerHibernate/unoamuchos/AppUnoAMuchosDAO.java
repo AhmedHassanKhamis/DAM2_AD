@@ -1,9 +1,9 @@
-package org.dam2.unoamuchos;
+package org.dam2.primerHibernate.unoamuchos;
 
 import java.time.LocalDate;
 import java.util.stream.Stream;
 
-import org.dam2.utilidadeshibernate.GenericJPADAO;
+import org.dam2.primerHibernate.utilidadeshibernate.GenericJPADAO;
 
 public class AppUnoAMuchosDAO {
 

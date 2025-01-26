@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import org.dam2.pruebaspringBanco.modelo.Cliente;
+import org.dam2.pruebaspringBanco.modelo.CompaniaTotal;
 import org.dam2.pruebaspringBanco.modelo.Telefono;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -17,6 +18,7 @@ public interface ClienteRepositorio extends CrudRepository<Cliente, String> {
 	@Query("SELECT c.telefonos FROM Cliente c where c.nif = ?1")
 	List<Telefono> listadoTelefonos(String nia);
 	
-	@Query("Select t.compania, COUNT(t.compania) as total from Telefono t group by t.compania order by total desc")
-	Stream<Object[]> mayorCompania();
+	
+	@Query("Select t.compania as compania, COUNT(t.compania) as total from Telefono t group by t.compania order by total desc")
+	Stream<CompaniaTotal> mayorCompania();
 }

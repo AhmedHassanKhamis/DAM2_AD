@@ -1,10 +1,11 @@
-package org.dam2.unoauno;
+package org.dam2.primerHibernate.unoauno;
 
 
 
 import java.time.LocalDate;
 
-import org.dam2.utilidadeshibernate.GenericJPADAO;
+import org.dam2.primerHibernate.utilidadeshibernate.GenericJPADAO;
+
 
 public class App1a1DAO {
 

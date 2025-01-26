@@ -1,4 +1,4 @@
-package org.dam2.muchosauno;
+package org.dam2.primerHibernate.muchosauno;
 
 import java.time.LocalDate;
 

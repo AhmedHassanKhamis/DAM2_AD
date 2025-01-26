@@ -1,4 +1,4 @@
-package org.dam2.unoauno;
+package org.dam2.primerHibernate.unoauno;
 
 import javax.persistence.PrePersist;
 

@@ -1,4 +1,4 @@
-package org.dam2.unoamuchos;
+package org.dam2.primerHibernate.unoamuchos;
 
 
 import java.time.LocalDate;

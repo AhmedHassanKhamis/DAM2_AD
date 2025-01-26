@@ -1,4 +1,4 @@
-package org.dam2.muchosamuchos;
+package org.dam2.primerHibernate.muchosamuchos;
 
 import java.io.Serializable;
 import java.util.HashSet;
@@ -16,8 +16,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-
-import org.dam2.muchosamuchos.Autor.AutorBuilder;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

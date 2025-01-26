@@ -1,4 +1,4 @@
-package org.dam2.consultas;
+package org.dam2.primerHibernate.consultas;
 
 import java.io.Serializable;
 import java.time.LocalDate;

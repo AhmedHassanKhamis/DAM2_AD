@@ -1,8 +1,8 @@
-package org.dam2.clavecompuesta;
+package org.dam2.primerHibernate.clavecompuesta;
 
 import java.time.LocalDate;
 
-import org.dam2.utilidadeshibernate.GenericJPADAO;
+import org.dam2.primerHibernate.utilidadeshibernate.GenericJPADAO;
 
 public class AppClaveCompuestaConRelaciones {
 

@@ -1,4 +1,4 @@
-package org.dam2.herencia;
+package org.dam2.primerHibernate.herencia;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -10,10 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-
-import org.dam2.unoauno.Alumno;
-import org.dam2.unoauno.Direccion;
-import org.dam2.unoauno.Alumno.AlumnoBuilder;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

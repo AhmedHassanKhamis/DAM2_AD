@@ -1,4 +1,4 @@
-package org.dam2.hibernate;
+package org.dam2.primerHibernate.hibernate;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;

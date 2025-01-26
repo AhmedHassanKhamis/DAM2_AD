@@ -1,9 +1,9 @@
-package org.dam2.hibernate;
+package org.dam2.primerHibernate.hibernate;
 
 import java.time.LocalDate;
 import java.util.List;
 
-import org.dam2.utilidadeshibernate.GenericJPADAO;
+import org.dam2.primerHibernate.utilidadeshibernate.GenericJPADAO;
 
 import lombok.var;
 

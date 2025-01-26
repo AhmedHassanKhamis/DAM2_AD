@@ -1,10 +1,8 @@
-package org.dam2.clavecompuesta;
+package org.dam2.primerHibernate.clavecompuesta;
 
 import java.io.Serializable;
 
 import javax.persistence.Embeddable;
-
-import org.dam2.clavecompuesta.Curso.CursoBuilder;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

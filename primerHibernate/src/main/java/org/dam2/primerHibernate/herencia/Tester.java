@@ -1,4 +1,4 @@
-package org.dam2.herencia;
+package org.dam2.primerHibernate.herencia;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;

@@ -62,7 +62,7 @@ public class App2
 					.nombre("DAW")
 					.tutor("Miguel")
 					.curso(2)
-					.alumnos(List.of(alumno1,alumno2))
+//					.alumnos(List.of(alumno1,alumno2))
 					.build();
 		
 		
@@ -70,7 +70,7 @@ public class App2
 				.nombre("DAM")
 				.tutor("Mario")
 				.curso(2)
-				.alumnos(List.of(alumno3))
+//				.alumnos(List.of(alumno3))
 				.build();
 		
 		grupo1 = grupoDAO.save(grupo1);
@@ -87,9 +87,9 @@ public class App2
 		
 		Grupo grupoBuscado = grupoDAO.findById("DAW").get();
 		Grupo grupoDeseado = grupoDAO.findById("DAM").get();
-		Alumno alumnoCambiar = grupoBuscado.getAlumnos().stream().filter(a -> a.getId() == 1).findFirst().get();
-		grupoBuscado.getAlumnos().remove(alumnoCambiar);
-		grupoDeseado.getAlumnos().add(alumnoCambiar);
+//		Alumno alumnoCambiar = grupoBuscado.getAlumnos().stream().filter(a -> a.getId() == 1).findFirst().get();
+//		grupoBuscado.getAlumnos().remove(alumnoCambiar);
+//		grupoDeseado.getAlumnos().add(alumnoCambiar);
 		grupoDAO.update(grupoBuscado);
 		grupoDAO.update(grupoDeseado);
 		
@@ -99,10 +99,10 @@ public class App2
 //				-BORRAR 1 GRUPO
 		Grupo grupoBuscado2 = grupoDAO.findById("DAW").get();
 		Grupo grupoDeseado2 = grupoDAO.findById("DAM").get();
-		List<Alumno> alumnosCambiarGrupo = new ArrayList(grupoBuscado2.getAlumnos());
-		grupoBuscado2.getAlumnos().clear();;
+//		List<Alumno> alumnosCambiarGrupo = new ArrayList(grupoBuscado2.getAlumnos());
+//		grupoBuscado2.getAlumnos().clear();;
 		grupoDAO.update(grupoBuscado2);
-		grupoDeseado2.getAlumnos().addAll(alumnosCambiarGrupo);
+//		grupoDeseado2.getAlumnos().addAll(alumnosCambiarGrupo);
 		grupoDAO.update(grupoDeseado2);
 		grupoDAO.delete(grupoDAO.findById("DAW").get());
 

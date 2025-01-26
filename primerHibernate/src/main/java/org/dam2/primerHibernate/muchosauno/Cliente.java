@@ -1,4 +1,4 @@
-package org.dam2.muchosauno;
+package org.dam2.primerHibernate.muchosauno;
 
 import java.time.LocalDate;
 
@@ -8,8 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-import org.dam2.muchosauno.Factura.FacturaBuilder;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

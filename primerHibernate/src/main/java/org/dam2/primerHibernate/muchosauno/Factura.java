@@ -1,4 +1,4 @@
-package org.dam2.muchosauno;
+package org.dam2.primerHibernate.muchosauno;
 
 import java.time.LocalDate;
 import java.util.Set;
@@ -12,10 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import org.dam2.unoamuchos.Depart;
-import org.dam2.unoamuchos.Empleado;
-import org.dam2.unoamuchos.Depart.DepartBuilder;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

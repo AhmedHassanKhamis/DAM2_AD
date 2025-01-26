@@ -1,4 +1,4 @@
-package org.dam2.clavecompuesta;
+package org.dam2.primerHibernate.clavecompuesta;
 
 import java.util.Set;
 
