@@ -50,7 +50,7 @@ public class Controlador {
 
 	}
 //	@GetMapping("/buscarMaterial/{id}")
-//	public ResponseEntity<Material> findMaterial(@PathParam String id) {
+//	public ResponseEntity<Material> findMaterial(@PathVariable String id) {
 	@GetMapping("/buscarMaterial")
 	public ResponseEntity<Material> findMaterial(@RequestParam String id) {
 		ResponseEntity<Material> respuesta;
