@@ -41,13 +41,6 @@
 		<version>5.6.0.Final</version>
 	</dependency>
 	
-	 <dependency>
-    	<groupId>daw</groupId>
-    	<artifactId>daw</artifactId>
-    	<version>1.0</version>
-    	<scope>system</scope>
-    	<systemPath>/home/examenjpa/eclipse-workspace/daw.jar</systemPath>
-    </dependency>
 	
     <dependency>
       <groupId>junit</groupId>
