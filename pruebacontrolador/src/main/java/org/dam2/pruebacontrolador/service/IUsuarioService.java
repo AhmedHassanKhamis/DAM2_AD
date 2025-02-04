@@ -3,6 +3,7 @@ package org.dam2.pruebacontrolador.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.dam2.pruebacontrolador.modelo.Noticia;
 import org.dam2.pruebacontrolador.modelo.Usuario;
 
 import jakarta.transaction.Transactional;
@@ -23,4 +24,6 @@ public interface IUsuarioService {
 	
 	public String findUsuarioConMasPuntos();
 	
+	public Optional<Usuario> findNoticiasDelUsuarioConMasPuntos();
+
 }

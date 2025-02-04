@@ -25,7 +25,7 @@ import lombok.experimental.SuperBuilder;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 
 
-@Entity
+//@Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public class __Material implements Serializable{
 	@NonNull

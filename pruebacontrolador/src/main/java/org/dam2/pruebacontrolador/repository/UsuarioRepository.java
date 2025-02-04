@@ -1,5 +1,6 @@
 package org.dam2.pruebacontrolador.repository;
 
+import org.dam2.pruebacontrolador.modelo.Noticia;
 import org.dam2.pruebacontrolador.modelo.Usuario;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -17,5 +18,11 @@ public interface UsuarioRepository extends CrudRepository<Usuario , String> {
 	
 	@Query("SELECT u.nickname, MAX(u.puntos) FROM Usuario u")
 	public List<Object[]> findUsuarioConMasPuntos();
+	
+	
 
+	@Query("SELECT u FROM Usuario u JOIN FETCH u.noticias ORDER BY u.puntos DESC LIMIT 1")
+	Optional<Usuario> findNoticiasDelUsuarioConMasPuntos();
+
+	
 }

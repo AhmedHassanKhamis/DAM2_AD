@@ -2,6 +2,7 @@ package org.dam2.pruebacontrolador.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 import org.dam2.pruebacontrolador.modelo.Noticia;
 import org.dam2.pruebacontrolador.repository.NoticiaRepository;
@@ -57,15 +58,22 @@ public class NoticiaServiceImpl implements INoticiaService{
 	}
 
 	@Override
-	public List<TituloYCuerpo> noticiasDelMes() {
+	public List<String> findNoticiasDelMes() {
 		// TODO Auto-generated method stub
-		return noticiaDAO.findNoticiasDelMes();
+//		List<String> noticiasMes = noticiaDAO.findNoticiasDelMes().map(n -> n.getTitulo() + "->" + n.getCuerpo()).toList();
+		List<String> noticiasMes = noticiaDAO.findNoticiasDelMes().map(n -> n[0] + "->" + n[1]).toList();
+
+		return noticiasMes;
 	}
 
 	@Override
-	public Optional<Noticia> noticaMasComentada() {
+	public Optional<Noticia> findNoticiaMasComentada() {
 		// TODO Auto-generated method stub
-		return Optional.empty();
+		return noticiaDAO.findNoticiaMasComentada();
 	}
+
+	
+	
+	
 
 }

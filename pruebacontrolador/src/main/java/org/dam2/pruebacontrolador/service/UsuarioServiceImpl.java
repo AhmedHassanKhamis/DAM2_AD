@@ -3,6 +3,7 @@ package org.dam2.pruebacontrolador.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.dam2.pruebacontrolador.modelo.Noticia;
 import org.dam2.pruebacontrolador.modelo.Usuario;
 import org.dam2.pruebacontrolador.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,17 +14,17 @@ public class UsuarioServiceImpl implements IUsuarioService {
 
 	@Autowired  UsuarioRepository usuarioDAO;
 
+
 	@Override
 	public boolean insert(Usuario usuario) {
-
 		// TODO Auto-generated method stub
 		boolean exito = false;
-
+		
 		if (!usuarioDAO.existsById(usuario.getNickname())) {
 			usuarioDAO.save(usuario);
 			exito = true;
 		}
-
+		
 		return exito;
 	}
 
@@ -73,5 +74,12 @@ public class UsuarioServiceImpl implements IUsuarioService {
 		
 		return (String) usuario.get(0)[0];
 	}
+	
+	@Override
+	public Optional<Usuario> findNoticiasDelUsuarioConMasPuntos() {
+		// TODO Auto-generated method stub
+		return usuarioDAO.findNoticiasDelUsuarioConMasPuntos();
+	}
+
 
 }
