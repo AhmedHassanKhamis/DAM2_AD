@@ -60,8 +60,8 @@ public class NoticiaServiceImpl implements INoticiaService{
 	@Override
 	public List<String> findNoticiasDelMes() {
 		// TODO Auto-generated method stub
-//		List<String> noticiasMes = noticiaDAO.findNoticiasDelMes().map(n -> n.getTitulo() + "->" + n.getCuerpo()).toList();
-		List<String> noticiasMes = noticiaDAO.findNoticiasDelMes().map(n -> n[0] + "->" + n[1]).toList();
+		List<String> noticiasMes = noticiaDAO.findNoticiasDelMes().map(n -> n.getTitulo() + "->" + n.getCuerpo()).toList();
+//		List<String> noticiasMes = noticiaDAO.findNoticiasDelMes().map(n -> n[0] + "->" + n[1]).toList();
 
 		return noticiasMes;
 	}

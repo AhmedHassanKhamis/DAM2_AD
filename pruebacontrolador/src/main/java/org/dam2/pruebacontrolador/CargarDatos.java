@@ -16,7 +16,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import daw.com.Teclado;
 
 @Component
 @Order(value = 1)

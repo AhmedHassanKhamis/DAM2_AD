@@ -15,9 +15,10 @@ public interface NoticiaRepository extends CrudRepository<Noticia, String> {
 	
 	public List<Noticia> findByTitulo(String titulo);
 	
-	@Query("SELECT n.titulo, n.cuerpo FROM Noticia n where MONTH(n.fecha) = MONTH(CURRENT_DATE) AND YEAR(n.fecha) = YEAR(CURRENT_DATE) ")
-//	public Stream<TituloCuerpo> findNoticiasDelMes();
-	public Stream<Object[]> findNoticiasDelMes();
+
+	@Query("SELECT n.titulo as titulo, n.cuerpo as cuerpo FROM Noticia n where MONTH(n.fecha) = MONTH(CURRENT_DATE) AND YEAR(n.fecha) = YEAR(CURRENT_DATE) ")
+	public Stream<TituloCuerpo> findNoticiasDelMes();
+//	public Stream<Object[]> findNoticiasDelMes();
 
 	
 	
