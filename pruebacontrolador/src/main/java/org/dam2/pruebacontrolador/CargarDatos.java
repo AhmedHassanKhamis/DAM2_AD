@@ -34,57 +34,52 @@ public class CargarDatos implements CommandLineRunner {
         Usuario usuario1 = Usuario.builder()
                 .nickname("ahmedmega")
                 .password("1234")
-                .puntos(10)
                 .build();
 
         Usuario usuario2 = Usuario.builder()
                 .nickname("juanito")
                 .password("abcd")
-                .puntos(25)
                 .build();
 
         Usuario usuario3 = Usuario.builder()
                 .nickname("maria123")
                 .password("pass123")
-                .puntos(50)
                 .build();
-
-
-        // Crear noticias
-        Noticia noticia1 = Noticia.builder()
-                .titulo("Peter el Pitos")
-                .cuerpo("Peter el Pitos tiene una pata como pito.")
-                .categoria(Categoria.CIENTIFICO)
-                .fecha(LocalDate.now())
-                .build();
-
-        Noticia noticia2 = Noticia.builder()
-                .titulo("Descubrimiento en Marte")
-                .cuerpo("Un nuevo descubrimiento en Marte podría cambiar la historia de la humanidad.")
-                .categoria(Categoria.DEPORTES)
-                .fecha(LocalDate.now().minusDays(2))
-                .build();
-
-        Noticia noticia3 = Noticia.builder()
-                .titulo("El gato volador")
-                .cuerpo("Un gato fue visto volando en una ciudad de Japón.")
-                .categoria(Categoria.NOTICIAS)
-                .fecha(LocalDate.now().minusDays(5))
-                .build();
-
-        noticiaService.insert(noticia1);
-        noticiaService.insert(noticia2);
-        noticiaService.insert(noticia3);
-
-        // Asociar noticias a usuarios
-        usuario1.setNoticias(List.of(noticia1));
-        usuario2.setNoticias(List.of(noticia2));
-        usuario3.setNoticias(List.of(noticia3));
+        
 
         usuarioService.insert(usuario1);
         usuarioService.insert(usuario2);
         usuarioService.insert(usuario3);
 
+
+        // Crear noticias
+        Noticia noticia1 = Noticia.builder()
+                .titulo("Peter el Pitos")
+                .cuerpo("Peter el Pitos tiene muchos pitos para silbar en un partido de futbol.")
+                .categoria(Categoria.DEPORTES)
+                .fecha(LocalDate.now())
+                .autor(usuario1)
+                .build();
+
+        Noticia noticia2 = Noticia.builder()
+                .titulo("Descubrimiento en Marte")
+                .cuerpo("Un nuevo descubrimiento en Marte podría cambiar la historia de la humanidad.")
+                .categoria(Categoria.ECONOMIA)
+                .fecha(LocalDate.now().minusDays(2))
+                .autor(usuario2)
+                .build();
+
+        Noticia noticia3 = Noticia.builder()
+                .titulo("El gato volador")
+                .cuerpo("Un gato fue visto volando en una ciudad de Japón.")
+                .categoria(Categoria.POLITICA)
+                .fecha(LocalDate.now().minusDays(5))
+                .autor(usuario3)
+                .build();
+
+        noticiaService.insert(noticia1);
+        noticiaService.insert(noticia2);
+        noticiaService.insert(noticia3);
         
         
         // Crear comentarios
@@ -94,7 +89,7 @@ public class CargarDatos implements CommandLineRunner {
                         .noticia(noticia1)
                         .fecha(LocalDate.now())
                         .contenido("Vaya noticia más noticiosa.")
-                        .valoracion(5)
+                        .valoracion(45)
                         .build(),
 
                 Comentario.builder()

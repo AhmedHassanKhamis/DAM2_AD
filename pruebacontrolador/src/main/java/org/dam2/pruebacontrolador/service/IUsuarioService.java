@@ -20,10 +20,6 @@ public interface IUsuarioService {
 	@Transactional
 	public List<Usuario> findAll ();
 	
-	public Optional <Usuario> findBynickname (String nif);
+	public Optional<Usuario> findById(String nickname);
 	
-	public String findUsuarioConMasPuntos();
-	
-	public Optional<Usuario> findNoticiasDelUsuarioConMasPuntos();
-
 }

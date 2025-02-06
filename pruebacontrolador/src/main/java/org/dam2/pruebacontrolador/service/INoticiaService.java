@@ -22,6 +22,13 @@ public interface INoticiaService {
 	public List<String> findNoticiasDelMes();
 	
 	public Optional<Noticia> findNoticiaMasComentada();
+	
+	public List<Noticia> findNoticiasUsuariosMasPuntos();
+
+	public List<Noticia> findByCategoria(String categoria);
+	
+	
+	public Integer deleteNoticiasSinComentarios();
 
 
 }

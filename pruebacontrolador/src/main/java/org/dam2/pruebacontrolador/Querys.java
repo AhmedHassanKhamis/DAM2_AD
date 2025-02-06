@@ -28,7 +28,8 @@ public class Querys implements CommandLineRunner {
 		
 //		query 2
 		System.out.println("QUERY 2");
-		System.out.println(usuarioService.findNoticiasDelUsuarioConMasPuntos().get().getNoticias());
+		noticiaService.findNoticiasUsuariosMasPuntos().forEach(System.out::println);
+		
 		
 //		query 3 
 		System.out.println("QUERY 3");

@@ -12,17 +12,5 @@ import java.util.Optional;
 @Repository
 
 public interface UsuarioRepository extends CrudRepository<Usuario , String> {
-	
-	
-	public Optional<Usuario> findByNickname(String nickname);
-	
-	@Query("SELECT u.nickname, MAX(u.puntos) FROM Usuario u")
-	public List<Object[]> findUsuarioConMasPuntos();
-	
-	
 
-	@Query("SELECT u FROM Usuario u JOIN FETCH u.noticias ORDER BY u.puntos DESC LIMIT 1")
-	Optional<Usuario> findNoticiasDelUsuarioConMasPuntos();
-
-	
 }

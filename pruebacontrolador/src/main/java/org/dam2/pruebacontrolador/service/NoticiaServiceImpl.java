@@ -72,6 +72,25 @@ public class NoticiaServiceImpl implements INoticiaService{
 		return noticiaDAO.findNoticiaMasComentada();
 	}
 
+	@Override
+	public List<Noticia> findNoticiasUsuariosMasPuntos() {
+		// TODO Auto-generated method stub
+		return noticiaDAO.findNoticiasUsuariosMasPuntos();
+	}
+
+	@Override
+	public List<Noticia> findByCategoria(String categoria) {
+		// TODO Auto-generated method stub
+		
+		return noticiaDAO.findByCategoria(categoria);
+	}
+
+	@Override
+	public Integer deleteNoticiasSinComentarios() {
+		// TODO Auto-generated method stub
+		return noticiaDAO.deleteNoticiasSinComentarios();
+	}
+
 	
 	
 	

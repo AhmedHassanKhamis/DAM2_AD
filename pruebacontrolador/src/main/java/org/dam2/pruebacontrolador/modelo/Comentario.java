@@ -35,9 +35,9 @@ public class Comentario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	@ManyToOne(cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER)
 	private Usuario autor;
-	@ManyToOne(cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER)
 	private Noticia noticia;
 	private LocalDate fecha;
 	private String contenido;

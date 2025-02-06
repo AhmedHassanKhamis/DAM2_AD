@@ -62,24 +62,13 @@ public class UsuarioServiceImpl implements IUsuarioService {
 	}
 
 	@Override
-	public Optional<Usuario> findBynickname(String nif) {
+	public Optional<Usuario> findById(String nickname) {
 		// TODO Auto-generated method stub
-		return usuarioDAO.findByNickname(nif);
+		return usuarioDAO.findById(nickname);
 	}
 
-	@Override
-	public String findUsuarioConMasPuntos() {
-		// TODO Auto-generated method stub
-		List<Object[]> usuario = usuarioDAO.findUsuarioConMasPuntos();
-		
-		return (String) usuario.get(0)[0];
-	}
 	
-	@Override
-	public Optional<Usuario> findNoticiasDelUsuarioConMasPuntos() {
-		// TODO Auto-generated method stub
-		return usuarioDAO.findNoticiasDelUsuarioConMasPuntos();
-	}
+
 
 
 }

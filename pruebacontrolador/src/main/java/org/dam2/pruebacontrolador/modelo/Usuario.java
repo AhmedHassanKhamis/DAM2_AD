@@ -40,9 +40,13 @@ public class Usuario {
 	private String nickname;
 	@Column(length = 50)
 	private String password;
-	private int puntos;
-	@Singular
-	@OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
-	@JoinColumn(name = "autor")
-	private List<Noticia> noticias;
+	private int puntos = 0;
+	
+	
+	public void addPuntos(int puntos) {
+		if (puntos > 0) {
+			this.puntos += puntos;
+		}
+	}
+	
 }
