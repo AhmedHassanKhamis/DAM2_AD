@@ -13,7 +13,9 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 @Repository
 
-public interface NoticiaRepository extends CrudRepository<Noticia, String> {
+public interface NoticiaRepository extends CrudRepository<Noticia, Integer> {
+	
+	
 	
 	public List<Noticia> findByTitulo(String titulo);
 	

@@ -8,12 +8,15 @@ import org.dam2.pruebacontrolador.modelo.Usuario;
 import org.dam2.pruebacontrolador.repository.ComentarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import jakarta.transaction.Transactional;
 @Service
 public class ComentarioServiceImpl implements IComentarioService {
 
 	@Autowired ComentarioRepository comentarioDAO;
 
 	@Override
+	@Transactional
 	public boolean insert(Comentario comentario) {
 		// TODO Auto-generated method stub
 		boolean exito = false;

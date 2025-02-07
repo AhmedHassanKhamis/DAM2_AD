@@ -32,17 +32,35 @@ public class NoticiaControladorRest {
 			if (!noticiaServicio.insert(noticia))
 				status = HttpStatus.BAD_REQUEST;
 
+		}else {
+			status = HttpStatus.FORBIDDEN;
 		}
 		return new ResponseEntity<>(noticia, status);
 
 	}
 
 	@GetMapping("/categorias/{categoria}")
-	public ResponseEntity<List<Noticia>> obtenerCliente(@PathVariable String categoria) {
+	public ResponseEntity<List<Noticia>> verNoticiasDeCategoria(@PathVariable String categoria) {
 		ResponseEntity<List<Noticia>> response;
 		List<Noticia> noticias;
 
 		noticias = noticiaServicio.findByCategoria(categoria);
+
+		if (!noticias.isEmpty())
+			response = new ResponseEntity<>(noticias, HttpStatus.OK);
+		else
+			response = new ResponseEntity<>(HttpStatus.NOT_FOUND);
+
+		return response;
+	}
+	
+	
+	@GetMapping("/listar")
+	public ResponseEntity<List<Noticia>> listarNoticias() {
+		ResponseEntity<List<Noticia>> response;
+		List<Noticia> noticias;
+
+		noticias = noticiaServicio.findAll();
 
 		if (!noticias.isEmpty())
 			response = new ResponseEntity<>(noticias, HttpStatus.OK);

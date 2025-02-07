@@ -21,7 +21,7 @@ public class NoticiaServiceImpl implements INoticiaService {
 	public boolean insert(Noticia noticia) {
 		// TODO Auto-generated method stub
 		boolean exito = false;
-		if (!noticiaDAO.existsById(noticia.getTitulo())) {
+		if (noticiaDAO.findByTitulo(noticia.getTitulo()).isEmpty()) {
 			noticiaDAO.save(noticia);
 			exito = true;
 		}
@@ -32,7 +32,7 @@ public class NoticiaServiceImpl implements INoticiaService {
 	public boolean update(Noticia noticia) {
 		// TODO Auto-generated method stub
 		boolean exito = false;
-		if (noticiaDAO.existsById(noticia.getTitulo())) {
+		if (noticiaDAO.existsById(noticia.getIdNoticia())) {
 			noticiaDAO.save(noticia);
 			exito = true;
 		}
@@ -40,7 +40,7 @@ public class NoticiaServiceImpl implements INoticiaService {
 	}
 
 	@Override
-	public boolean delete(String id) {
+	public boolean delete(int id) {
 		// TODO Auto-generated method stub
 		boolean exito = false;
 		if (noticiaDAO.existsById(id)) {
@@ -88,7 +88,7 @@ public class NoticiaServiceImpl implements INoticiaService {
 	public List<Noticia> findByCategoria(String categoria) {
 		// TODO Auto-generated method stub
 		Categoria categoriatipo;
-		switch (categoria) {
+		switch (categoria.toUpperCase()) {
 		case "DEPORTES":
 			categoriatipo = Categoria.DEPORTES;
 			break;
@@ -110,6 +110,12 @@ public class NoticiaServiceImpl implements INoticiaService {
 	public Integer deleteNoticiasSinComentarios() {
 		// TODO Auto-generated method stub
 		return noticiaDAO.deleteNoticiasSinComentarios();
+	}
+
+	@Override
+	public Optional<Noticia> findById(int id) {
+		// TODO Auto-generated method stub
+		return noticiaDAO.findById(id);
 	}
 
 }

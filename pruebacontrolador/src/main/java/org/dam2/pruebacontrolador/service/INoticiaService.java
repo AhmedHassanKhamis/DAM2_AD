@@ -12,9 +12,11 @@ public interface INoticiaService {
 	
 	public boolean update (Noticia noticia);
 	
-	public boolean delete (String id);
+	public boolean delete (int id);
 	
 	public List<Noticia> findAll ();
+	
+	public Optional<Noticia> findById(int id);
 	
 	public List<Noticia> findByTitulo (String titulo);
 	
