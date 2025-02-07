@@ -16,16 +16,16 @@ public class AppClienteGeneral {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		redactarNoticia();
-		redactarComentario();
-		verNoticiasDeCategoria("DEPORTES");
-		EliminarNoticiasSinComentarios();
+//		redactarNoticia();
+//		redactarComentario();
+		verNoticiasDeCategoria("POLITICA");
+//		EliminarNoticiasSinComentarios();
 
 	}
 
 	private static void EliminarNoticiasSinComentarios() {
 		// TODO Auto-generated method stub
-		String URLELIMINARNOTICIAS = URLBASE + "/borrarSinComentarios";
+		String URLELIMINARNOTICIAS = URLBASE + "/noticia/borrarSinComentarios";
 		RestTemplate restTemplate = new RestTemplate();
 
 		String mensaje;
@@ -46,7 +46,7 @@ public class AppClienteGeneral {
 
 	private static void verNoticiasDeCategoria(String categoria) {
 		// TODO Auto-generated method stub
-		String URLNOTICIASCATEGORIA = URLBASE + "/categorias/{categoria}";
+		String URLNOTICIASCATEGORIA = URLBASE + "/noticia/categorias/{categoria}";
 		RestTemplate restTemplate = new RestTemplate();
 		Noticia[] noticias;
 		
@@ -70,8 +70,6 @@ public class AppClienteGeneral {
 		Comentario comentario;
 		RestTemplate restTemplate = new RestTemplate();
 
-
-		
 
 	}
 

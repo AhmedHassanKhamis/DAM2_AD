@@ -52,7 +52,7 @@ public class NoticiaControladorRest {
 		return response;
 	}
 
-	@PostMapping("/borrarSinComentarios")
+	@GetMapping("/borrarSinComentarios")
 	public ResponseEntity<Integer> borrarSinComentarios() {
 
 		HttpStatus status = HttpStatus.OK;
