@@ -6,17 +6,21 @@ import java.util.Optional;
 import org.dam2.ejercicioCorredores.modelo.Carrera;
 import org.dam2.ejercicioCorredores.modelo.Corredor;
 import org.dam2.ejercicioCorredores.modelo.CorredorCarrera;
+import org.springframework.transaction.annotation.Transactional;
+
 
 public interface ICorredorCarreraServicio {
 	
-	public boolean insert(CorredorCarrera CorredorCarrera);
+	@Transactional
+	public boolean insert(CorredorCarrera corredorCarrera);	
 	
-	public List<String> carrerasDisponibles(Corredor corredor);
+	@Transactional
+	public boolean anotarTiempo(CorredorCarrera corredorCarrera);
 	
-	public Optional<Integer> siguienteDorsal(Carrera carrera);
+	public Optional<CorredorCarrera> buscarInscripcion(CorredorCarrera corredorCarrera);
 	
 	public List<CorredorCarrera> participacionesCarrera(String nombreCarrera);
 	
-	public List<Object[]> listarPorOrdenLlegada();
+	public List<String> listarPorOrdenLlegada();
 
 }

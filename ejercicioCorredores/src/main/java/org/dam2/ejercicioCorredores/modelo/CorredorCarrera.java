@@ -27,7 +27,8 @@ public class CorredorCarrera {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	private int tiempo;
+	@Builder.Default
+	private int tiempo = 0;
 	private int dorsal;
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Corredor corredor;

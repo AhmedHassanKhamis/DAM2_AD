@@ -27,7 +27,8 @@ public class PuntoDeControl {
 	private float km;
 	@Column(length = 30)
 	private String juez;
-	private int tiempo;
+	@Builder.Default
+	private int tiempo = 0;
 	@ManyToOne(fetch = FetchType.LAZY,optional = true)
 	private Corredor primerCorredor;
 	

@@ -1,8 +1,10 @@
 package org.dam2.ejercicioCorredores.servicio;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.dam2.ejercicioCorredores.modelo.Carrera;
+import org.dam2.ejercicioCorredores.modelo.Corredor;
 import org.dam2.ejercicioCorredores.repositorio.CarreraRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,6 +29,12 @@ public class CarreraServicioImp implements ICarreraServicio {
 	public Optional<Carrera> findById(String nombre) {
 		// TODO Auto-generated method stub
 		return carreraDAO.findById(nombre);
+	}
+
+	@Override
+	public List<String> carrerasDisponibles(Corredor corredor) {
+		// TODO Auto-generated method stub
+		return carreraDAO.carrerasDisponibles(corredor);
 	}
 
 }
