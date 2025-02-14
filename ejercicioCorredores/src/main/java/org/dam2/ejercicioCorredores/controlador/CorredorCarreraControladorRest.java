@@ -102,5 +102,17 @@ public class CorredorCarreraControladorRest {
 		}
 
 	}
+	
+	@GetMapping("/listarOrdenLlegadaCarreraMasAntigua")
+	public ResponseEntity<List<String>> listarPorOrdenLlegadaAntigua(){
+		List<String> resultados = corredorCarreraServicio.listarPorOrdenLlegada();
+		
+		if (!resultados.isEmpty()) {
+			return new ResponseEntity<>(resultados,HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>( HttpStatus.NO_CONTENT);
+		}
+		
+	}
 
 }

@@ -67,7 +67,7 @@ public class cargarDatos implements CommandLineRunner {
 
         // Crear carreras
         Carrera carrera1 = Carrera.builder()
-                .nombreCarrera("Maratón Primavera")
+                .nombreCarrera("MaratonNice")
                 .cupo(100)
                 .fechaCelebracion(LocalDate.of(2025, 3, 15))
                 .puntosDeControl(Set.of(pc1_carrera1, pc2_carrera1))

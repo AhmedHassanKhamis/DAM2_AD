@@ -21,7 +21,7 @@ public interface CorredorCarreraRepositorio extends CrudRepository<CorredorCarre
 	public List<Object[]> listarOrdenLlegadaCarreraMasAntigua();
 	
 	@Query("select p from CorredorCarrera p where p.carrera.nombreCarrera = ?1 and p.tiempo = 0")
-	public List<CorredorCarrera> sacarParticipacionesdeunaCarreraParaAnotar();
+	public List<CorredorCarrera> sacarParticipacionesdeunaCarreraParaAnotar(String nombreCarrera);
 	
 	public Optional<CorredorCarrera> findByCorredorAndCarrera(Corredor corredor,Carrera carrera);
 	

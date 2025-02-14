@@ -49,7 +49,7 @@ public class CorredorCarreraServicioImp implements ICorredorCarreraServicio {
 	@Override
 	public List<CorredorCarrera> participacionesCarrera(String nombreCarrera) {
 		// TODO Auto-generated method stub
-		return corredorCarreraDAO.sacarParticipacionesdeunaCarreraParaAnotar();
+		return corredorCarreraDAO.sacarParticipacionesdeunaCarreraParaAnotar(nombreCarrera);
 	}
 
 	@Override
