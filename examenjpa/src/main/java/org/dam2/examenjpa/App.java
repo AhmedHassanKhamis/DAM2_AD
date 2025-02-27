@@ -16,6 +16,7 @@ import org.dam2.utilidadeshibernate.GenericJPADAO;
 
 import daw.com.Teclado;
 
+
 public class App 
 {
 	private static GenericJPADAO<Cliente, String> clienteDAO;
